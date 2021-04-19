@@ -11,7 +11,7 @@ public class PlayerControls : MonoBehaviour
 
     public int maxJumps;
     private int jumps;
-    private bool isJumping;
+    private bool canJumpBoost = true;
     public float jumptimer;
     private float jumpcounter;
 
@@ -40,19 +40,22 @@ public class PlayerControls : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpStr;
             jumps -= 1;
-            isJumping = true;
             jumpcounter = jumptimer;
         }
 
-        if (Input.GetKey(KeyCode.Space) && jumpcounter > 0 && isJumping)
+        if (Input.GetKey(KeyCode.Space) && jumpcounter > 0 && canJumpBoost)
         {
             rb.velocity = Vector2.up * jumpStr;
             jumpcounter -= delta;
+            if (jumpcounter <= 0)
+            {
+                canJumpBoost = false;
+            }
         }
 
         if (Input.GetKeyUp(KeyCode.Space))
         {
-            isJumping = false;
+            canJumpBoost = true;
         }
     }
 
