@@ -57,6 +57,10 @@ public class PlayerControls : MonoBehaviour
         {
             canJumpBoost = true;
         }
+        if (rb.gameObject.GetComponent<Transform>().position.y < -20)
+        {
+            gameObject.transform.position = new Vector3(0, 0, 0);
+        }
     }
 
     public void setActive(bool boolean)
