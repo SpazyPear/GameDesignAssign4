@@ -13,7 +13,6 @@ public class SongController : MonoBehaviour {
 	float[] realTimeSpectrum;
 	SpectralFluxAnalyzer realTimeSpectralFluxAnalyzer;
 	//PlotController realTimePlotController;
-
 	int numChannels;
 	int numTotalSamples;
 	int sampleRate;

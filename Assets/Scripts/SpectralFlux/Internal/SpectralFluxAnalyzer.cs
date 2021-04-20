@@ -13,6 +13,7 @@ public class SpectralFluxInfo {
 
 public class SpectralFluxAnalyzer {
 	int numSamples = 1024;
+	public EnvironmentTrigger environ;
 
 	// Sensitivity multiplier to scale the average threshold.
 	// In this case, if a rectified spectral flux sample is > 1.5 times the average, it is a peak
@@ -29,13 +30,15 @@ public class SpectralFluxAnalyzer {
 	int indexToProcess;
 
 	public SpectralFluxAnalyzer () {
-		spectralFluxSamples = new List<SpectralFluxInfo> ();
-
+		//prefab = GameObject.FindGameObjectWithTag("EnvironTriggerTest");
+		spectralFluxSamples = new List<SpectralFluxInfo>();
+		environ = GameObject.Find("SpectrualAnalyzer").GetComponent<EnvironmentTrigger>();
 		// Start processing from middle of first window and increment by 1 from there
 		indexToProcess = thresholdWindowSize / 2;
 
 		curSpectrum = new float[numSamples];
 		prevSpectrum = new float[numSamples];
+		
 	}
 
 	public void setCurSpectrum(float[] spectrum) {
@@ -110,8 +113,8 @@ public class SpectralFluxAnalyzer {
 	bool isPeak(int spectralFluxIndex) {
 		if (spectralFluxSamples [spectralFluxIndex].prunedSpectralFlux > spectralFluxSamples [spectralFluxIndex + 1].prunedSpectralFlux &&
 			spectralFluxSamples [spectralFluxIndex].prunedSpectralFlux > spectralFluxSamples [spectralFluxIndex - 1].prunedSpectralFlux) {
-			
-			Debug.Log("pek");
+
+			environ.trigger();
 			return true;
 		} else {
 			return false;

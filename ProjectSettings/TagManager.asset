@@ -10,6 +10,7 @@ TagManager:
   - StatManager
   - MusicManager
   - Ground
+  - EnvironTriggerTest
   layers:
   - Default
   - TransparentFX
