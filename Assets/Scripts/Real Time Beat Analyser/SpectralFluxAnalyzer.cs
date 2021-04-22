@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class SpectralFluxInfo {
@@ -45,7 +43,7 @@ public class SpectralFluxAnalyzer {
 		curSpectrum.CopyTo (prevSpectrum, 0);
 		spectrum.CopyTo (curSpectrum, 0);
 	}
-		
+
 	public void analyzeSpectrum(float[] spectrum, float time) {
 		// Set spectrum
 		setCurSpectrum(spectrum);
@@ -116,9 +114,8 @@ public class SpectralFluxAnalyzer {
 
 			environ.trigger();
 			return true;
-		} else {
-			return false;
 		}
+		return false;
 	}
 
 	void logSample(int indexToLog) {
