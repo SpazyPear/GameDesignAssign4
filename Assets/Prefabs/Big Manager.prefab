@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1334769015}
   - component: {fileID: 1334769016}
   - component: {fileID: 1334769019}
+  - component: {fileID: 4745657}
   m_Layer: 0
   m_Name: MC
   m_TagString: Player
@@ -75,12 +76,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0d0e6d7881b17c841a729846863a77a9, type: 3}
+  m_Sprite: {fileID: -7298184073100380841, guid: 4a65f99d87e9d564c95708d4ecd27b0d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.91, y: 2.06}
+  m_Size: {x: 0.38, y: 0.96}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -124,14 +125,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.91, y: 2.06}
-    newSize: {x: 0.91, y: 2.06}
+    oldSize: {x: 1.9, y: 4.8}
+    newSize: {x: 0.38, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.91, y: 2.06}
+  m_Size: {x: 1.9, y: 4.8}
   m_EdgeRadius: 0
 --- !u!114 &1334769019
 MonoBehaviour:
@@ -149,6 +150,25 @@ MonoBehaviour:
   jumpStr: 15
   maxJumps: 1
   jumptimer: 0.25
+--- !u!95 &4745657
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307450229734811620}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3cff177b51242ea49b5964b35fd5a0a2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5274935000195954981
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +385,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicTracks:
   - {fileID: 8300000, guid: 19c28b6525dc8a54b8341dc035a69b80, type: 3}
-  - {fileID: 8300000, guid: 6e607da47a95dba408786386d0ae7314, type: 3}
+  - {fileID: 8300000, guid: 287f517d2de591e4d9e6600d6299ba25, type: 3}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
