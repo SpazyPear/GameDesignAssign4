@@ -269,11 +269,11 @@ RectTransform:
   m_Father: {fileID: 1000257562}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 99.03}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 18.234}
+  m_SizeDelta: {x: 0, y: 66.468}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1041640413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,13 +301,13 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 8
     m_MaxSize: 110
-    m_Alignment: 7
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: <Insert Title name>
+  m_Text: The Wind Up
 --- !u!222 &1041640414
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -323,13 +323,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1334769015, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_GravityScale
-      value: 9.8
+    - target: {fileID: 5177205032481933332, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1334769019, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: jumpStr
-      value: 15
+    - target: {fileID: 6103357833734762502, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 35.152
+      objectReference: {fileID: 0}
+    - target: {fileID: 6103357833734762502, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 1.9530029
       objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
@@ -429,7 +433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93f6ee16b3be28a41bc39c8f7c1c94dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Tutorial
+  sceneName: Level 1 - Ryan
 --- !u!1 &1935845629
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,4 +15,9 @@ public class BigManager : MonoBehaviour
         }
         Destroy(gameObject);
     }
+
+    public void Clean()
+    {
+
+    }
 }

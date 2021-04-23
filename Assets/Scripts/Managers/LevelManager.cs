@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
 {
     private PlayerControls playerControls;
     private MusicManager musicManager;
+    private Animator anim;
 
     private void Start()
     {
@@ -14,6 +15,8 @@ public class LevelManager : MonoBehaviour
 
         musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
         updateStuff(SceneManager.GetActiveScene().buildIndex);
+
+        anim = GameObject.FindGameObjectWithTag("Loading Screen").GetComponent<Animator>();
     }
 
     /// <summary>
@@ -27,13 +30,20 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator loadingScene(string sceneName)
     {
-        yield return SceneManager.LoadSceneAsync(sceneName);
+        anim.SetTrigger("Next");
+        yield return new WaitForSecondsRealtime(1);
+        AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(sceneName);
+        while (!loadingOperation.isDone)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        anim.SetTrigger("Next");
         updateStuff(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void updateStuff(int ID)
     {
         musicManager.playTrack(ID);
-        playerControls.setActive(ID != 0);
+        playerControls.SetActive(ID != 0);
     }
 }
