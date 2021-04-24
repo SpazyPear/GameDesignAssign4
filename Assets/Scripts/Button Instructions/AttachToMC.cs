@@ -1,18 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AttachToMC : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private Transform playerPos;
+    public float[] offset = new float[2];
     void Start()
     {
-        
+        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Vector3 pPos = playerPos.position;
+        transform.position = new Vector3(pPos.x + offset[0], pPos.y + offset[1], 0);
     }
 }

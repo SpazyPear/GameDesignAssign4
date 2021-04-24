@@ -13,18 +13,80 @@ public class FeetHitbox : MonoBehaviour
     private int jumps;
     public float jumptimer;
     private float jumpcounter;
-    private bool hasJumped = false;
+    private bool hasJumped = true;
     private bool onGround = false;
+    private float prevYPos;
 
+    private bool canJump;
     void Start()
     {
         rb = gameObject.GetComponentInParent<Rigidbody2D>();
         anim = gameObject.GetComponentInParent<Animator>();
+        prevYPos = transform.position.y;
+        canJump = true;
     }
 
     void Update()
     {
         delta = Time.deltaTime;
+
+        if (canJump)
+        {
+            spaceInput();
+        }
+
+        prevYPos = transform.position.y;
+        anim.SetBool("onGround", onGround);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        switch (collision.transform.tag)
+        {
+            case "FakeGround":
+            case "Ground":
+                groundContacts.Add(collision);
+                ResetJump();
+                return;
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        switch (collision.transform.tag)
+        {
+            case "FakeGround":
+            case "Ground":
+                if (groundContacts.Contains(collision) && hasJumped && prevYPos == transform.position.y) {
+                    ResetJump();
+                }
+                return;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        switch (collision.transform.tag)
+        {
+            case "FakeGround":
+            case "Ground":
+                groundContacts.Remove(collision);
+                jumps -= (!hasJumped) ? 1 : 0;
+                onGround = !(groundContacts.Count == 0 || hasJumped);
+                return;
+        }
+    }
+
+    private void ResetJump()
+    {
+        jumps = maxJumps;
+        jumpcounter = jumptimer;
+        hasJumped = false;
+        onGround = true;
+    }
+
+    private void spaceInput()
+    {
         if (Input.GetKeyDown(KeyCode.Space) && (jumps > 0 || onGround))
         {
             rb.velocity = Vector2.up * jumpStr;
@@ -47,39 +109,14 @@ public class FeetHitbox : MonoBehaviour
         {
             jumpcounter = 0;
         }
-
-        anim.SetBool("onGround", onGround);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /// <summary>
+    /// Toggle where the player can jump or not
+    /// </summary>
+    /// <param name="boolean">true to be able to jump</param>
+    public void ToggleJump(bool boolean)
     {
-        switch (collision.transform.tag)
-        {
-            case "Ground":
-                groundContacts.Add(collision);
-                rb.velocity.Set(rb.velocity.x, 0);
-                ResetJump();
-                return;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        switch (collision.transform.tag)
-        {
-            case "Ground":
-                jumps -= (!hasJumped) ? 1 : 0;
-                groundContacts.Remove(collision);
-                onGround = !(groundContacts.Count == 0 || hasJumped);
-                return;
-        }
-    }
-
-    private void ResetJump()
-    {
-        jumps = maxJumps;
-        jumpcounter = jumptimer;
-        hasJumped = false;
-        onGround = true;
+        canJump = boolean;
     }
 }

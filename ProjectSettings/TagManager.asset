@@ -14,6 +14,7 @@ TagManager:
   - GUIManager
   - Loading Screen
   - MCFeetBox
+  - FakeGround
   layers:
   - Default
   - TransparentFX
@@ -50,6 +51,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 1771719829
     locked: 0
   - name: UI
     uniqueID: 552501099

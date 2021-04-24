@@ -5,31 +5,34 @@ public class PlayerControls : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
     private Rigidbody2D rb;
-    private float delta;
     private KeyCode[] keysAvailable;
+    private FeetHitbox legs;
 
     public float speed;
-
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
-        keysAvailable = new []{KeyCode.A, KeyCode.D, KeyCode.Space};
-
+        legs = gameObject.GetComponentInChildren<FeetHitbox>();
+        keysAvailable = new []{KeyCode.A, KeyCode.D};
     }
 
     private void Update()
     {
-        delta = Time.deltaTime;
-        DoInput();
-
         if (transform.position.y < -100)
         {
             gameObject.transform.position = new Vector3(0, 0, 0);
         }
 
-        anim.SetBool("isWalking", (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D)));
+        anim.SetBool("isWalking", false);
+
+        DoInput();
+        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D))
+        {
+            anim.SetBool("isWalking", true);
+            sprite.flipX = Input.GetKey(KeyCode.A);
+        }
     }
 
     private void DoInput()
@@ -46,10 +49,10 @@ public class PlayerControls : MonoBehaviour
                 KeyAction(key);
             }
 
-            /*if (Input.GetKeyUp(key))
+            if (Input.GetKeyUp(key))
             {
                 KeyUpAction(key);
-            }*/
+            }
         }
     }
 
@@ -62,19 +65,31 @@ public class PlayerControls : MonoBehaviour
         switch(key)
         {
             case KeyCode.A:
-                sprite.flipX = true;
-                transform.Translate(-speed * delta, 0, 0, Space.World);
-                return;
+                rb.velocity = new Vector2(-speed, rb.velocity.y);
+                break;
 
             case KeyCode.D:
-                sprite.flipX = false;
-                transform.Translate(speed * delta, 0, 0, Space.World);
-                return;
+                rb.velocity = new Vector2(speed, rb.velocity.y);
+                break;
+        }
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
 
     private void KeyUpAction(KeyCode key)
     {
+        switch (key)
+        {
+            case KeyCode.A:
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                return;
+
+            case KeyCode.D:
+                rb.velocity = new Vector2(0, rb.velocity.y);
+                return;
+        }
     }
 
     /// <summary>
@@ -85,7 +100,24 @@ public class PlayerControls : MonoBehaviour
     {
         sprite.enabled = boolean;
         rb.simulated = boolean;
-        gameObject.transform.position = new Vector3(0, 0, 0);
+        transform.position = new Vector3(0, 0, 0);
     }
 
+    /// <summary>
+    /// Change the controls of the player
+    /// </summary>
+    /// <param name="newSet">Set the controls of what the player can do</param>
+    public void changeControls(KeyCode[] newSet)
+    {
+        keysAvailable = newSet;
+    }
+
+    /// <summary>
+    /// Allow the player to jump.
+    /// </summary>
+    /// <param name="boolean">true to be able to jump</param>
+    public void canJump(bool boolean)
+    {
+        legs.ToggleJump(boolean);
+    }
 }
