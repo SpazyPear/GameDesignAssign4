@@ -15,6 +15,9 @@ TagManager:
   - Loading Screen
   - MCFeetBox
   - FakeGround
+  - Wall
+  - Enemy
+  - HP Area
   layers:
   - Default
   - TransparentFX
@@ -51,6 +54,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Instructions
+    uniqueID: 1115930799
     locked: 0
   - name: Player
     uniqueID: 1771719829

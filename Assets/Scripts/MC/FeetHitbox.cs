@@ -15,56 +15,41 @@ public class FeetHitbox : MonoBehaviour
     private float jumpcounter;
     private bool hasJumped = true;
     private bool onGround = false;
-    private float prevYPos;
 
     private bool canJump;
     void Start()
     {
         rb = gameObject.GetComponentInParent<Rigidbody2D>();
         anim = gameObject.GetComponentInParent<Animator>();
-        prevYPos = transform.position.y;
         canJump = true;
     }
 
     void Update()
     {
         delta = Time.deltaTime;
-
         if (canJump)
         {
             spaceInput();
         }
-
-        prevYPos = transform.position.y;
         anim.SetBool("onGround", onGround);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.transform.tag)
         {
             case "FakeGround":
             case "Ground":
                 groundContacts.Add(collision);
-                ResetJump();
+                jumps = maxJumps;
+                jumpcounter = jumptimer;
+                hasJumped = false;
+                onGround = true;
                 return;
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        switch (collision.transform.tag)
-        {
-            case "FakeGround":
-            case "Ground":
-                if (groundContacts.Contains(collision) && hasJumped && prevYPos == transform.position.y) {
-                    ResetJump();
-                }
-                return;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         switch (collision.transform.tag)
         {
@@ -75,14 +60,6 @@ public class FeetHitbox : MonoBehaviour
                 onGround = !(groundContacts.Count == 0 || hasJumped);
                 return;
         }
-    }
-
-    private void ResetJump()
-    {
-        jumps = maxJumps;
-        jumpcounter = jumptimer;
-        hasJumped = false;
-        onGround = true;
     }
 
     private void spaceInput()

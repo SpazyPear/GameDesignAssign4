@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     private PlayerControls playerControls;
+    private GameObject HPArea;
     private MusicManager musicManager;
     private Animator anim;
 
@@ -12,6 +13,7 @@ public class LevelManager : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         playerControls = player.GetComponent<PlayerControls>();
+        HPArea = GameObject.FindGameObjectWithTag("HP Area");
 
         musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
         updateStuff(SceneManager.GetActiveScene().buildIndex);
@@ -35,6 +37,7 @@ public class LevelManager : MonoBehaviour
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(sceneName);
         while (!loadingOperation.isDone)
         {
+            Debug.Log("HI");
             yield return new WaitForEndOfFrame();
         }
         anim.SetTrigger("Next");
@@ -45,5 +48,6 @@ public class LevelManager : MonoBehaviour
     {
         musicManager.playTrack(ID);
         playerControls.SetActive(ID != 0);
+        HPArea.SetActive(ID != 0);
     }
 }

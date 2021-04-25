@@ -14,7 +14,7 @@ public class StartGame : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetMouseButtonDown(0))
         {
             SFX.Play(0);
             levelManager.loadScene(sceneName);

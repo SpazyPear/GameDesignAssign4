@@ -323,17 +323,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5177205032481933332, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_Enabled
+    - target: {fileID: 6103357833734762502, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6103357833734762502, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 35.152
-      objectReference: {fileID: 0}
-    - target: {fileID: 6103357833734762502, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.9530029
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
@@ -504,7 +500,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Press Space to Start
+  m_Text: Left Click to Start.
 --- !u!222 &1935845632
 CanvasRenderer:
   m_ObjectHideFlags: 0

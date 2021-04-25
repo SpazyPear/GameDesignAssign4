@@ -9,6 +9,7 @@ public class PlayerControls : MonoBehaviour
     private FeetHitbox legs;
 
     public float speed;
+    public bool allowInput;
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
@@ -25,10 +26,13 @@ public class PlayerControls : MonoBehaviour
             gameObject.transform.position = new Vector3(0, 0, 0);
         }
 
-        anim.SetBool("isWalking", false);
+        if (allowInput)
+        {
+            DoInput();
+        }
 
-        DoInput();
-        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D))
+        anim.SetBool("isWalking", false);
+        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D) && allowInput)
         {
             anim.SetBool("isWalking", true);
             sprite.flipX = Input.GetKey(KeyCode.A);
@@ -72,6 +76,7 @@ public class PlayerControls : MonoBehaviour
                 rb.velocity = new Vector2(speed, rb.velocity.y);
                 break;
         }
+
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
@@ -83,9 +88,6 @@ public class PlayerControls : MonoBehaviour
         switch (key)
         {
             case KeyCode.A:
-                rb.velocity = new Vector2(0, rb.velocity.y);
-                return;
-
             case KeyCode.D:
                 rb.velocity = new Vector2(0, rb.velocity.y);
                 return;
@@ -100,16 +102,9 @@ public class PlayerControls : MonoBehaviour
     {
         sprite.enabled = boolean;
         rb.simulated = boolean;
+        allowInput = boolean;
+        canJump(boolean);
         transform.position = new Vector3(0, 0, 0);
-    }
-
-    /// <summary>
-    /// Change the controls of the player
-    /// </summary>
-    /// <param name="newSet">Set the controls of what the player can do</param>
-    public void changeControls(KeyCode[] newSet)
-    {
-        keysAvailable = newSet;
     }
 
     /// <summary>
@@ -119,5 +114,10 @@ public class PlayerControls : MonoBehaviour
     public void canJump(bool boolean)
     {
         legs.ToggleJump(boolean);
+    }
+
+    public void Stop()
+    {
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 }
