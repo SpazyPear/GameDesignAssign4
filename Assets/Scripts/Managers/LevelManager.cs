@@ -32,16 +32,28 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator loadingScene(string sceneName)
     {
+        playerControls.CannotMove();
         anim.SetTrigger("Next");
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSecondsRealtime(transitionLength());
+
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(sceneName);
         while (!loadingOperation.isDone)
         {
-            Debug.Log("HI");
             yield return new WaitForEndOfFrame();
         }
+
         anim.SetTrigger("Next");
         updateStuff(SceneManager.GetActiveScene().buildIndex);
+        yield return new WaitForEndOfFrame();
+        yield return new WaitForSecondsRealtime(transitionLength());
+        playerControls.allowInput = true;
+    }
+
+    private float transitionLength()
+    {
+        AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
+        return info.length + info.normalizedTime;
     }
 
     private void updateStuff(int ID)

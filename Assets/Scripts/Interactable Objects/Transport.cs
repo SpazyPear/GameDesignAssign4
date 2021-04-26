@@ -1,9 +1,10 @@
 using UnityEngine;
 
-public class InteractableObjects : MonoBehaviour
+public class Transport : MonoBehaviour
 {
     private SpriteRenderer SRend;
     public Sprite[] sprites;
+    public float[] xyz;
     private bool isPlayerNear;
     private GameObject player;
 
@@ -18,7 +19,7 @@ public class InteractableObjects : MonoBehaviour
     {
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
-            player.transform.position = new Vector3(45, -6, 0);
+            player.transform.position = new Vector3(xyz[0], xyz[1], xyz[2]);
         }
     }
 

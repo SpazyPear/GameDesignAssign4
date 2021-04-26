@@ -79,7 +79,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
-            rb.velocity = new Vector2(0, rb.velocity.y);
+            Stop();
         }
     }
 
@@ -89,7 +89,7 @@ public class PlayerControls : MonoBehaviour
         {
             case KeyCode.A:
             case KeyCode.D:
-                rb.velocity = new Vector2(0, rb.velocity.y);
+                Stop();
                 return;
         }
     }
@@ -102,9 +102,18 @@ public class PlayerControls : MonoBehaviour
     {
         sprite.enabled = boolean;
         rb.simulated = boolean;
-        allowInput = boolean;
         canJump(boolean);
-        transform.position = new Vector3(0, 0, 0);
+    }
+
+    /// <summary>
+    /// Sets the position of the player.
+    /// </summary>
+    /// <param name="x">X coordinate.</param>
+    /// <param name="y">Y coordinate.</param>
+    /// <param name="z">Z coordinate.</param>
+    public void SetPosition(float x, float y, float z)
+    {
+        transform.position = new Vector3(x, y, z);
     }
 
     /// <summary>
@@ -113,11 +122,23 @@ public class PlayerControls : MonoBehaviour
     /// <param name="boolean">true to be able to jump</param>
     public void canJump(bool boolean)
     {
-        legs.ToggleJump(boolean);
+        legs.canJump = boolean;
     }
 
+    /// <summary>
+    /// Stop the player from moving.
+    /// </summary>
     public void Stop()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+
+    /// <summary>
+    /// Turns player input and stops movement
+    /// </summary>
+    public void CannotMove()
+    {
+        allowInput = false;
+        Stop();
     }
 }

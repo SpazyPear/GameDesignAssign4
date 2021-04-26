@@ -16,7 +16,7 @@ public class FeetHitbox : MonoBehaviour
     private bool hasJumped = true;
     private bool onGround = false;
 
-    private bool canJump;
+    public bool canJump;
     void Start()
     {
         rb = gameObject.GetComponentInParent<Rigidbody2D>();
@@ -86,14 +86,5 @@ public class FeetHitbox : MonoBehaviour
         {
             jumpcounter = 0;
         }
-    }
-
-    /// <summary>
-    /// Toggle where the player can jump or not
-    /// </summary>
-    /// <param name="boolean">true to be able to jump</param>
-    public void ToggleJump(bool boolean)
-    {
-        canJump = boolean;
     }
 }

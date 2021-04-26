@@ -20,6 +20,7 @@ public class Tutorial : MonoBehaviour
         controls = player.GetComponent<PlayerControls>();
 
         instantiatedObjs = new Dictionary<string, GameObject>();
+        controls.SetPosition(0, 0, 0);
         Load("D" ,0);
 
         flag = 0;
@@ -39,8 +40,7 @@ public class Tutorial : MonoBehaviour
                 if (player.transform.position.x > 19)
                 {
                     flag++;
-                    controls.allowInput = false;
-                    controls.Stop();
+                    controls.CannotMove();
                     timer = 1;
                     Unload("D");
                 }
@@ -49,6 +49,7 @@ public class Tutorial : MonoBehaviour
             case 1:
                 flag++;
                 FakeGround.SetActive(false);
+                Load("Vines", 5);
                 return;
 
             case 2:
@@ -80,6 +81,14 @@ public class Tutorial : MonoBehaviour
                 {
                     Unload("Space");
                     Load("Interact", 3);
+                    flag++;
+                }
+                return;
+
+            case 6:
+                if (player.transform.position.x >= 45)
+                {
+                    Unload("Interact");
                     flag++;
                 }
                 return;

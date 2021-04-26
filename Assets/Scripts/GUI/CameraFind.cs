@@ -2,11 +2,10 @@ using UnityEngine;
 
 public class CameraFind : MonoBehaviour
 {
-    private Canvas GUI;
     void Start()
     {
-        GUI = gameObject.GetComponent<Canvas>();
-        GUI.worldCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Camera cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        gameObject.GetComponent<Canvas>().worldCamera = cam;
         Destroy(this);
     }
 }
