@@ -18,6 +18,7 @@ public class StartGame : MonoBehaviour
         {
             SFX.Play(0);
             levelManager.loadScene(sceneName);
+            Destroy(gameObject);
         }
     }
 }
