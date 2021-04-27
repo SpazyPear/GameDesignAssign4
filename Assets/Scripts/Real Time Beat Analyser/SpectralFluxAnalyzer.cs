@@ -15,7 +15,7 @@ public class SpectralFluxAnalyzer {
 
 	// Sensitivity multiplier to scale the average threshold.
 	// In this case, if a rectified spectral flux sample is > 1.5 times the average, it is a peak
-	float thresholdMultiplier = 15f;
+	float thresholdMultiplier = 20f;
 
 	// Number of samples to average in our window
 	int thresholdWindowSize = 50;

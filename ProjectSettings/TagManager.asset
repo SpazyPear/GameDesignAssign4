@@ -18,6 +18,7 @@ TagManager:
   - Wall
   - Enemy
   - HP Area
+  - Projectile
   layers:
   - Default
   - TransparentFX

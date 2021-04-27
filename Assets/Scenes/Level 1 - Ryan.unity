@@ -559,6 +559,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &82895145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8197494884115484868, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 1923280124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &118059042
 GameObject:
   m_ObjectHideFlags: 0
@@ -7137,6 +7142,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1867541017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1307450229734811620, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 1923280124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1867541024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1867541017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1867541017}
+  statManager: {fileID: 82895145}
 --- !u!1 &1894101486
 GameObject:
   m_ObjectHideFlags: 0
@@ -7328,6 +7352,10 @@ PrefabInstance:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
+    - target: {fileID: 1334769016, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1334769019, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: speed
       value: 30
@@ -7344,6 +7372,18 @@ PrefabInstance:
       propertyPath: orthographic size
       value: 20
       objectReference: {fileID: 0}
+    - target: {fileID: 5885999080340008351, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1867541017}
+    - target: {fileID: 5885999080340008351, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 267045899621898801, guid: 5a292cafdfa3e0846a17a431df80cffd, type: 3}
+    - target: {fileID: 5885999080340008351, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: statManager
+      value: 
+      objectReference: {fileID: 82895145}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 2
