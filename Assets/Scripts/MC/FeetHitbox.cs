@@ -41,10 +41,16 @@ public class FeetHitbox : MonoBehaviour
             case "FakeGround":
             case "Ground":
                 groundContacts.Add(collision);
-                jumps = maxJumps;
-                jumpcounter = jumptimer;
-                hasJumped = false;
-                onGround = true;
+                Vector2 pos = transform.position;
+                pos = new Vector2(pos.x, pos.y - 0.1f);
+                RaycastHit2D hit = Physics2D.Raycast(pos, Vector2.down, 0.01f);
+                if (hit.collider != null)
+                {
+                    jumps = maxJumps;
+                    jumpcounter = jumptimer;
+                    hasJumped = false;
+                    onGround = true;
+                }
                 return;
         }
     }
@@ -66,7 +72,7 @@ public class FeetHitbox : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && (jumps > 0 || onGround))
         {
-            rb.velocity = Vector2.up * jumpStr;
+            rb.velocity = new Vector2(rb.velocity.x, jumpStr);
             jumps -= 1;
             jumpcounter = jumptimer;
             hasJumped = true;
@@ -76,7 +82,8 @@ public class FeetHitbox : MonoBehaviour
         {
             if (jumpcounter > 0 && hasJumped)
             {
-                rb.velocity = Vector2.up * jumpStr;
+                /*rb.velocity = Vector2.up * jumpStr;*/
+                rb.velocity = new Vector2(rb.velocity.x, jumpStr);
                 jumpcounter -= delta;
             }
             hasJumped = jumpcounter > 0 && hasJumped;
