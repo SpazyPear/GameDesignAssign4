@@ -103,9 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6c391d14ec02e49abf157d958c56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpStr: 25
+  jumpStr: 33
   maxJumps: 1
   jumptimer: 0.25
+  canJump: 0
 --- !u!61 &2145972959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -130,7 +131,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.9, y: 0.17}
+  m_Size: {x: 1.7, y: 0.17}
   m_EdgeRadius: 0
 --- !u!1 &1307450229734811620
 GameObject:
@@ -235,7 +236,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 9.8
+  m_GravityScale: 20
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -258,7 +259,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.9, y: 4.8}
+    oldSize: {x: 1.85, y: 4.8}
     newSize: {x: 0.38, y: 0.96}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -279,8 +280,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9fe4f926ff2504eb1acad3704d2520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  allowInput: 0
+  speed: 30
+  allowInput: 1
 --- !u!95 &4745657
 Animator:
   serializedVersion: 3
@@ -358,7 +359,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 20
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

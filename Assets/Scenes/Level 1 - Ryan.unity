@@ -7316,34 +7316,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1210785893, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: jumpStr
-      value: 33
-      objectReference: {fileID: 0}
-    - target: {fileID: 1334769015, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_GravityScale
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 1334769016, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
-    - target: {fileID: 1334769019, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: speed
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 1334769019, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: allowInput
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2145972959, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_Size.x
-      value: 1.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3019245185326115383, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: orthographic size
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 2
