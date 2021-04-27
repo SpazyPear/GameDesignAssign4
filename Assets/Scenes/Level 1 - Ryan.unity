@@ -4940,6 +4940,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1358429593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8197494884115484868, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 1923280124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1397958516
 GameObject:
   m_ObjectHideFlags: 0
@@ -7316,6 +7321,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5885999080340008351, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2003525738}
+    - target: {fileID: 5885999080340008351, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 267045899621898801, guid: 5a292cafdfa3e0846a17a431df80cffd, type: 3}
+    - target: {fileID: 5885999080340008351, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: statManager
+      value: 
+      objectReference: {fileID: 1358429593}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -8106,6 +8123,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &2003525738 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1307450229734811620, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 1923280124}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2003525745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003525738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2003525738}
+  statManager: {fileID: 1358429593}
 --- !u!1 &2014012718
 GameObject:
   m_ObjectHideFlags: 0
