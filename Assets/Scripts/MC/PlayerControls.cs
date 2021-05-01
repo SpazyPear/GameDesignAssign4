@@ -5,18 +5,20 @@ public class PlayerControls : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
     private Rigidbody2D rb;
-    private KeyCode[] keysAvailable;
     private FeetHitbox legs;
+    private LookAt lookAt = new LookAt();
 
     public float speed;
-    public bool allowInput;
+    public bool allowBtnPress;
+    public bool allowClick;
+    public GameObject attack;
+    public PhysicsMaterial2D[] friction;
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         legs = gameObject.GetComponentInChildren<FeetHitbox>();
-        keysAvailable = new []{KeyCode.A, KeyCode.D};
     }
 
     private void Update()
@@ -26,22 +28,29 @@ public class PlayerControls : MonoBehaviour
             gameObject.transform.position = new Vector3(0, 0, 0);
         }
 
-        if (allowInput)
+        if (allowBtnPress)
         {
-            DoInput();
+            DoBtnInput();
+        }
+
+        if (allowClick)
+        {
+            DoMouseClick();
         }
 
         anim.SetBool("isWalking", false);
-        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D) && allowInput)
+        rb.sharedMaterial = friction[1];
+        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D) && allowBtnPress)
         {
             anim.SetBool("isWalking", true);
+            rb.sharedMaterial = friction[0];
             sprite.flipX = Input.GetKey(KeyCode.A);
         }
     }
 
-    private void DoInput()
+    private void DoBtnInput()
     {
-        foreach (KeyCode key in keysAvailable)
+        foreach (KeyCode key in new[] { KeyCode.A, KeyCode.D })
         {
             /*if (Input.GetKeyDown(key))
             {
@@ -56,6 +65,28 @@ public class PlayerControls : MonoBehaviour
             if (Input.GetKeyUp(key))
             {
                 KeyUpAction(key);
+            }
+        }
+    }
+    
+    private void DoMouseClick()
+    {
+        for (int button = 0; button < 2; button++)
+        {
+            if (Input.GetMouseButtonDown(button))
+            {
+                switch (button)
+                {
+                    case 0: //Left click
+                        GameObject atk = Instantiate(attack);
+                        atk.transform.position = transform.position;
+                        atk.transform.rotation = lookAt.GetRotation(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
+                        return;
+
+                    case 1: //Right click
+                        Debug.Log("Right click");
+                        return;
+                }
             }
         }
     }
@@ -134,11 +165,12 @@ public class PlayerControls : MonoBehaviour
     }
 
     /// <summary>
-    /// Turns player input and stops movement
+    /// Turns off player input and stops movement
     /// </summary>
     public void CannotMove()
     {
-        allowInput = false;
+        allowBtnPress = false;
+        allowClick = false;
         Stop();
     }
 }

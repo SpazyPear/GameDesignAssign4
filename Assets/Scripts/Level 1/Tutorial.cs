@@ -21,6 +21,8 @@ public class Tutorial : MonoBehaviour
 
         instantiatedObjs = new Dictionary<string, GameObject>();
         controls.SetPosition(0, 0, 0);
+        controls.allowBtnPress = true;
+        controls.allowClick = false;
         Load("D" ,0);
 
         flag = 0;
@@ -63,7 +65,7 @@ public class Tutorial : MonoBehaviour
             case 3:
                 flag++;
                 Load("A", 1);
-                controls.allowInput = true;
+                controls.allowBtnPress = true;
                 return;
 
             case 4:
@@ -81,6 +83,7 @@ public class Tutorial : MonoBehaviour
                 {
                     Unload("Space");
                     Load("Interact", 3);
+                    Load("Boulder", 6);
                     flag++;
                 }
                 return;
@@ -89,8 +92,26 @@ public class Tutorial : MonoBehaviour
                 if (player.transform.position.x >= 45)
                 {
                     Unload("Interact");
+                    controls.allowClick = true;
                     flag++;
                 }
+                return;
+
+            case 7:
+                if (instantiatedObjs["Boulder"].transform.position.y < - 20)
+                {
+                    timer = 0.5f;
+                    flag++;
+                }
+                return;
+
+            case 8:
+                Destroy(instantiatedObjs["Boulder"].GetComponent<Rigidbody2D>());
+                Destroy(instantiatedObjs["Boulder"].GetComponent<Collider2D>());
+                flag++;
+                return;
+
+            case 9:
                 return;
         }
     }

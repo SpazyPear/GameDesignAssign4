@@ -47,7 +47,7 @@ public class LevelManager : MonoBehaviour
         updateStuff(SceneManager.GetActiveScene().buildIndex);
         yield return new WaitForEndOfFrame();
         yield return new WaitForSecondsRealtime(transitionLength());
-        playerControls.allowInput = true;
+        playerControls.allowBtnPress = true;
     }
 
     private float transitionLength()
