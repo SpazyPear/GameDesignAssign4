@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &255122926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1981742367178217684, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 1217364184}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d874386619acc1540a35d47e762a6895, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1000257558
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,7 +186,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 1334769013}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -298,53 +309,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041640411}
   m_CullTransparentMesh: 1
---- !u!1001 &1334769012
+--- !u!1001 &1217364184
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6352928134234939621, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_RenderMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_Pivot.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_Pivot.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 237.30402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 84.74402
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945558749463108810, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0.000061035156
-      objectReference: {fileID: 0}
+    - target: {fileID: 8197494884115484874, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: hearts
+      value: 
+      objectReference: {fileID: 255122926}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -393,21 +368,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8557254579908523632, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8557254579908523632, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
---- !u!20 &1334769013 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3019245185326115383, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-  m_PrefabInstance: {fileID: 1334769012}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1375036744
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,7 +6,6 @@ public class PlayerControls : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private FeetHitbox legs;
-    private LookAt lookAt = new LookAt();
 
     public float speed;
     public bool allowBtnPress;
@@ -80,7 +79,10 @@ public class PlayerControls : MonoBehaviour
                     case 0: //Left click
                         GameObject atk = Instantiate(attack);
                         atk.transform.position = transform.position;
-                        atk.transform.rotation = lookAt.GetRotation(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
+                        float angle = (sprite.flipX) ? 180 : 0;
+                        angle = Input.GetKey(KeyCode.W) ? 90 : angle;
+                        atk.transform.eulerAngles = new Vector3(0, 0, angle);
+                        //atk.transform.rotation = lookAt.GetRotation(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
                         return;
 
                     case 1: //Right click
@@ -133,7 +135,6 @@ public class PlayerControls : MonoBehaviour
     {
         sprite.enabled = boolean;
         rb.simulated = boolean;
-        canJump(boolean);
     }
 
     /// <summary>
@@ -165,12 +166,13 @@ public class PlayerControls : MonoBehaviour
     }
 
     /// <summary>
-    /// Turns off player input and stops movement
+    /// Toggle player input and stops movement
     /// </summary>
-    public void CannotMove()
+    public void AllowInput(bool boolean)
     {
-        allowBtnPress = false;
-        allowClick = false;
+        allowBtnPress = boolean;
+        allowClick = boolean;
+        canJump(boolean);
         Stop();
     }
 }

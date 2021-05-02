@@ -15,7 +15,7 @@ public class Tutorial : MonoBehaviour
     private float timer;
     void Start()
     {
-        FakeGround = GameObject.FindGameObjectWithTag("FakeGround");
+        FakeGround = GameObject.FindGameObjectWithTag("Fake Ground");
         player = GameObject.FindGameObjectWithTag("Player");
         controls = player.GetComponent<PlayerControls>();
 
@@ -42,7 +42,7 @@ public class Tutorial : MonoBehaviour
                 if (player.transform.position.x > 19)
                 {
                     flag++;
-                    controls.CannotMove();
+                    controls.AllowInput(false);
                     timer = 1;
                     Unload("D");
                 }
@@ -84,6 +84,7 @@ public class Tutorial : MonoBehaviour
                     Unload("Space");
                     Load("Interact", 3);
                     Load("Boulder", 6);
+                    Load("Mouse", 7);
                     flag++;
                 }
                 return;
@@ -108,6 +109,7 @@ public class Tutorial : MonoBehaviour
             case 8:
                 Destroy(instantiatedObjs["Boulder"].GetComponent<Rigidbody2D>());
                 Destroy(instantiatedObjs["Boulder"].GetComponent<Collider2D>());
+                Unload("Mouse");
                 flag++;
                 return;
 

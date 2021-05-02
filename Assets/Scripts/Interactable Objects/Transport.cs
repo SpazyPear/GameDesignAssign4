@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Transport : MonoBehaviour
@@ -7,11 +8,13 @@ public class Transport : MonoBehaviour
     public float[] xyz;
     private bool isPlayerNear;
     private GameObject player;
+    private Transitions transitions;
 
     void Start()
     {
         SRend = gameObject.GetComponent<SpriteRenderer>();
         player = GameObject.FindGameObjectWithTag("Player");
+        transitions = GameObject.FindGameObjectWithTag("Transition Manager").GetComponent<Transitions>();
         isPlayerNear = false;
     }
 
@@ -19,8 +22,31 @@ public class Transport : MonoBehaviour
     {
         if (isPlayerNear && Input.GetKeyDown(KeyCode.E))
         {
-            player.transform.position = new Vector3(xyz[0], xyz[1], xyz[2]);
+            StartCoroutine("Teleport");
+            isPlayerNear = false;
         }
+    }
+
+    IEnumerator Teleport()
+    {
+        PlayerControls controls = player.GetComponent<PlayerControls>();
+        controls.AllowInput(false);
+
+        transitions.Play();
+        while (transitions.isOn)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        player.transform.position = new Vector3(xyz[0], xyz[1], xyz[2]);
+
+        transitions.Play();
+        while (transitions.isOn)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        controls.AllowInput(true);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

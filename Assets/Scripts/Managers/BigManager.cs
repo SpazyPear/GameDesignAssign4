@@ -5,10 +5,10 @@ public class BigManager : MonoBehaviour
     //Allows the GUI/Player/Stats stay consistent between scenes.
     private void Awake()
     {
-        if (GameObject.FindGameObjectWithTag("BigManager") == null)
+        if (GameObject.FindGameObjectWithTag("Big Manager") == null)
         {
             DontDestroyOnLoad(gameObject);
-            gameObject.tag = "BigManager";
+            gameObject.tag = "Big Manager";
             GameObject.FindGameObjectWithTag("MainCamera").AddComponent<AudioListener>();
             Destroy(this);
             return;

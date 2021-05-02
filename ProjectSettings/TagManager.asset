@@ -4,27 +4,55 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - LevelManager
-  - BigManager
-  - SFXManager
-  - StatManager
-  - MusicManager
+  - Level Manager
+  - Big Manager
+  - SFX Manager
+  - Stat Manager
+  - Music Manager
   - Ground
-  - EnvironTriggerTest
-  - GUIManager
-  - Loading Screen
-  - MCFeetBox
-  - FakeGround
+  - Environment Trigger Test
+  - MC Feet Box
+  - Fake Ground
   - Wall
   - Enemy
   - HP Area
+  - Boulder
+  - Canvas Manager
+  - Transition Manager
+  - Inventory Screen
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
+  - 
   - Water
   - UI
-  - Loading Screen
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
