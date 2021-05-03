@@ -31,6 +31,8 @@ public class Transport : MonoBehaviour
     {
         PlayerControls controls = player.GetComponent<PlayerControls>();
         controls.AllowInput(false);
+        bool previousState = controls.allowPause;
+        controls.allowPause = false;
 
         transitions.Play();
         while (transitions.isOn)
@@ -47,6 +49,7 @@ public class Transport : MonoBehaviour
         }
 
         controls.AllowInput(true);
+        controls.allowPause = previousState;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

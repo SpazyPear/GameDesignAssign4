@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+    public Transform level1;
     private GameObject FakeGround;
     private GameObject player;
     private PlayerControls controls;
@@ -11,6 +12,7 @@ public class Tutorial : MonoBehaviour
     public GameObject[] fabs;
     private Dictionary<string, GameObject> instantiatedObjs;
 
+    public GameObject tutorialChip;
     private float delta;
     private float timer;
     void Start()
@@ -114,13 +116,27 @@ public class Tutorial : MonoBehaviour
                 return;
 
             case 9:
+                if (tutorialChip == null)
+                {
+                    Load("Escape", 4);
+                    controls.allowPause = true;
+                    flag++;
+                }
+                return;
+
+            case 10:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Unload("Escape");
+                    Destroy(gameObject);
+                }
                 return;
         }
     }
 
     private void Load(string name, int index)
     {
-        instantiatedObjs.Add(name, Instantiate(fabs[index]));
+        instantiatedObjs.Add(name, Instantiate(fabs[index], level1));
     }
 
     private void Unload(string name)

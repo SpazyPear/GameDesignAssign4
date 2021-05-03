@@ -4,18 +4,16 @@ public class Collectable : MonoBehaviour
 {
     private float delta;
     private Vector3 rot;
-    private Inventory inventory;
 
-    public string upgradeName;
+    public string chipName;
 
     [TextArea(5, 20)]
-    public string desc;
-    public float spinSpd;
+    public string description;
 
-    void Start()
-    {
-        inventory = GameObject.FindGameObjectWithTag("Inventory Screen").GetComponent<Inventory>();
-    }
+    public int weight;
+    public string[] effects;
+
+    public float spinSpd;
 
     void Update()
     {
@@ -26,5 +24,11 @@ public class Collectable : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            UpgradeChip chip = new UpgradeChip(chipName, description, weight, effects);
+            GameObject.FindGameObjectWithTag("Canvas Manager").GetComponent<Inventory>().obtain(chip);
+            Destroy(gameObject);
+        }
     }
 }

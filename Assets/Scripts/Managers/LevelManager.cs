@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour
     public PlayerControls playerControls;
     public MusicManager musicManager;
     public Transitions transition;
+    public PauseManager pauseManager;
     public GameObject HPArea;
 
     public bool isLoading;
@@ -35,6 +36,7 @@ public class LevelManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
 
+        pauseManager.Clean();
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(sceneName);
         while (!loadingOperation.isDone)
         {

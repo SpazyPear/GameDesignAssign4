@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: -2136187712438824084
     second: PLACEHOLDER MENU BUTTON_1
+  - first:
+      213: -6670812245446618203
+    second: PLACEHOLDER MENU BUTTON_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -101,9 +104,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1001
-        height: 310
+        y: 31
+        width: 107
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,10 +124,10 @@ TextureImporter:
       name: PLACEHOLDER MENU BUTTON_1
       rect:
         serializedVersion: 2
-        x: 1229
-        y: 0
-        width: 1071
-        height: 310
+        x: 107
+        y: 31
+        width: 107
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,6 +137,27 @@ TextureImporter:
       bones: []
       spriteID: c639782f79cba52e0800000000000000
       internalID: -2136187712438824084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PLACEHOLDER MENU BUTTON_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 107
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a314d23b938c63a0800000000000000
+      internalID: -6670812245446618203
       vertices: []
       indices: 
       edges: []

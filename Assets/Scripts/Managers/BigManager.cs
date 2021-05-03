@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BigManager : MonoBehaviour
 {
+
     //Allows the GUI/Player/Stats stay consistent between scenes.
     private void Awake()
     {
@@ -14,10 +15,5 @@ public class BigManager : MonoBehaviour
             return;
         }
         Destroy(gameObject);
-    }
-
-    public void Clean()
-    {
-
     }
 }

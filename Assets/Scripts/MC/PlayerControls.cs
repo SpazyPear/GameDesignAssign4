@@ -6,10 +6,12 @@ public class PlayerControls : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private FeetHitbox legs;
+    public PauseManager pauseManager;
 
     public float speed;
     public bool allowBtnPress;
     public bool allowClick;
+    public bool allowPause;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
     void Start()
@@ -30,6 +32,11 @@ public class PlayerControls : MonoBehaviour
         if (allowBtnPress)
         {
             DoBtnInput();
+        }
+
+        if (allowPause && Input.GetKeyDown(KeyCode.Escape))
+        {
+            DoPause();
         }
 
         if (allowClick)
@@ -82,7 +89,6 @@ public class PlayerControls : MonoBehaviour
                         float angle = (sprite.flipX) ? 180 : 0;
                         angle = Input.GetKey(KeyCode.W) ? 90 : angle;
                         atk.transform.eulerAngles = new Vector3(0, 0, angle);
-                        //atk.transform.rotation = lookAt.GetRotation(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.position);
                         return;
 
                     case 1: //Right click
@@ -91,6 +97,13 @@ public class PlayerControls : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void DoPause()
+    {
+        Time.timeScale = 1 - Time.timeScale;
+        AllowInput(!allowBtnPress);
+        pauseManager.SetPauseState(allowBtnPress);
     }
 
     private void KeyDownAction(KeyCode key)

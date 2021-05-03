@@ -1,15 +1,13 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    private List<UpgradeChip> unequippedChips = new List<UpgradeChip>();
+    private List<UpgradeChip> equippedChips = new List<UpgradeChip>();
 
-    void Start()
+    public void obtain(UpgradeChip newChip)
     {
-        
-    }
-
-    void Update()
-    {
-        
+        unequippedChips.Add(newChip);
     }
 }
