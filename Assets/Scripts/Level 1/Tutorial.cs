@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Tutorial : MonoBehaviour
 {
+    public Transform level1;
     private GameObject FakeGround;
     private GameObject player;
     private PlayerControls controls;
@@ -11,16 +12,19 @@ public class Tutorial : MonoBehaviour
     public GameObject[] fabs;
     private Dictionary<string, GameObject> instantiatedObjs;
 
+    public GameObject tutorialChip;
     private float delta;
     private float timer;
     void Start()
     {
-        FakeGround = GameObject.FindGameObjectWithTag("FakeGround");
+        FakeGround = GameObject.FindGameObjectWithTag("Fake Ground");
         player = GameObject.FindGameObjectWithTag("Player");
         controls = player.GetComponent<PlayerControls>();
 
         instantiatedObjs = new Dictionary<string, GameObject>();
         controls.SetPosition(0, 0, 0);
+        controls.allowBtnPress = true;
+        controls.allowClick = false;
         Load("D" ,0);
 
         flag = 0;
@@ -40,7 +44,7 @@ public class Tutorial : MonoBehaviour
                 if (player.transform.position.x > 19)
                 {
                     flag++;
-                    controls.CannotMove();
+                    controls.AllowInput(false);
                     timer = 1;
                     Unload("D");
                 }
@@ -63,7 +67,7 @@ public class Tutorial : MonoBehaviour
             case 3:
                 flag++;
                 Load("A", 1);
-                controls.allowInput = true;
+                controls.allowBtnPress = true;
                 return;
 
             case 4:
@@ -81,6 +85,8 @@ public class Tutorial : MonoBehaviour
                 {
                     Unload("Space");
                     Load("Interact", 3);
+                    Load("Boulder", 6);
+                    Load("Mouse", 7);
                     flag++;
                 }
                 return;
@@ -89,7 +95,40 @@ public class Tutorial : MonoBehaviour
                 if (player.transform.position.x >= 45)
                 {
                     Unload("Interact");
+                    controls.allowClick = true;
                     flag++;
+                }
+                return;
+
+            case 7:
+                if (instantiatedObjs["Boulder"].transform.position.y < - 20)
+                {
+                    timer = 0.5f;
+                    flag++;
+                }
+                return;
+
+            case 8:
+                Destroy(instantiatedObjs["Boulder"].GetComponent<Rigidbody2D>());
+                Destroy(instantiatedObjs["Boulder"].GetComponent<Collider2D>());
+                Unload("Mouse");
+                flag++;
+                return;
+
+            case 9:
+                if (tutorialChip == null)
+                {
+                    Load("Escape", 4);
+                    controls.allowPause = true;
+                    flag++;
+                }
+                return;
+
+            case 10:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Unload("Escape");
+                    Destroy(gameObject);
                 }
                 return;
         }
@@ -97,7 +136,7 @@ public class Tutorial : MonoBehaviour
 
     private void Load(string name, int index)
     {
-        instantiatedObjs.Add(name, Instantiate(fabs[index]));
+        instantiatedObjs.Add(name, Instantiate(fabs[index], level1));
     }
 
     private void Unload(string name)

@@ -4,59 +4,64 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private PlayerControls playerControls;
-    private GameObject HPArea;
-    private MusicManager musicManager;
-    private Animator anim;
+    public PlayerControls playerControls;
+    public MusicManager musicManager;
+    public Transitions transition;
+    public PauseManager pauseManager;
+    public GameObject HPArea;
 
+    public bool isLoading;
     private void Start()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        playerControls = player.GetComponent<PlayerControls>();
-        HPArea = GameObject.FindGameObjectWithTag("HP Area");
-
-        musicManager = GameObject.FindGameObjectWithTag("MusicManager").GetComponent<MusicManager>();
-        updateStuff(SceneManager.GetActiveScene().buildIndex);
-
-        anim = GameObject.FindGameObjectWithTag("Loading Screen").GetComponent<Animator>();
+        UpdateStuff(SceneManager.GetActiveScene().buildIndex);
     }
 
     /// <summary>
     /// Change the scene by String. Will initiate fade transition.
     /// </summary>
     /// <param name="sceneName">Name of the scene in string</param>
-    public void loadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
-        StartCoroutine("loadingScene", sceneName);
+        StartCoroutine("LoadingScene", sceneName);
     }
 
-    IEnumerator loadingScene(string sceneName)
+    IEnumerator LoadingScene(string sceneName)
     {
-        playerControls.CannotMove();
-        anim.SetTrigger("Next");
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForSecondsRealtime(transitionLength());
+        isLoading = true;
+        playerControls.AllowInput(false);
 
+        transition.Play();
+        while (transition.isOn)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        pauseManager.Clean();
         AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(sceneName);
         while (!loadingOperation.isDone)
         {
             yield return new WaitForEndOfFrame();
         }
 
-        anim.SetTrigger("Next");
-        updateStuff(SceneManager.GetActiveScene().buildIndex);
-        yield return new WaitForEndOfFrame();
-        yield return new WaitForSecondsRealtime(transitionLength());
-        playerControls.allowInput = true;
+        UpdateStuff(SceneManager.GetActiveScene().buildIndex);
+
+        transition.Play();
+        while (transition.isOn)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        playerControls.allowBtnPress = true;
+        playerControls.allowClick = SceneManager.GetActiveScene().buildIndex != 1;
+        isLoading = true;
     }
 
-    private float transitionLength()
+    public bool LoadingStatus()
     {
-        AnimatorStateInfo info = anim.GetCurrentAnimatorStateInfo(0);
-        return info.length + info.normalizedTime;
+        return isLoading;
     }
 
-    private void updateStuff(int ID)
+    private void UpdateStuff(int ID)
     {
         musicManager.playTrack(ID);
         playerControls.SetActive(ID != 0);

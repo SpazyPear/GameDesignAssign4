@@ -39,6 +39,7 @@ public class FeetHitbox : MonoBehaviour
         switch (collision.transform.tag)
         {
             case "FakeGround":
+            case "Boulder":
             case "Ground":
                 groundContacts.Add(collision);
                 Vector2 pos = transform.position;
@@ -55,11 +56,27 @@ public class FeetHitbox : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        switch (collision.transform.tag)
+        switch (collision.tag)
         {
             case "FakeGround":
+            case "Boulder":
+            case "Ground":
+                jumps = maxJumps;
+                jumpcounter = jumptimer;
+                hasJumped = false;
+                onGround = true;
+                return;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        switch (collision.tag)
+        {
+            case "FakeGround":
+            case "Boulder":
             case "Ground":
                 groundContacts.Remove(collision);
                 jumps -= (!hasJumped) ? 1 : 0;
