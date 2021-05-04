@@ -9,10 +9,12 @@ public class LevelManager : MonoBehaviour
     public Transitions transition;
     public PauseManager pauseManager;
     public GameObject HPArea;
+    GhostTrackManager ghostTrackManager;
 
     public bool isLoading;
     private void Start()
     {
+        ghostTrackManager = GameObject.Find("SpectrualAnalyser").GetComponent<GhostTrackManager>();
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -63,6 +65,7 @@ public class LevelManager : MonoBehaviour
 
     private void UpdateStuff(int ID)
     {
+        ghostTrackManager.playGhostTrack(ID);
         musicManager.playTrack(ID);
         playerControls.SetActive(ID != 0);
         HPArea.SetActive(ID != 0);

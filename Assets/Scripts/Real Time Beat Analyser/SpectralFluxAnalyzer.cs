@@ -30,7 +30,7 @@ public class SpectralFluxAnalyzer {
 	public SpectralFluxAnalyzer () {
 		//prefab = GameObject.FindGameObjectWithTag("EnvironTriggerTest");
 		spectralFluxSamples = new List<SpectralFluxInfo>();
-		environ = GameObject.Find("SpectrualAnalyzer").GetComponent<EnvironmentTrigger>();
+		environ = GameObject.Find("SpectrualAnalyser").GetComponent<EnvironmentTrigger>();
 		// Start processing from middle of first window and increment by 1 from there
 		indexToProcess = thresholdWindowSize / 2;
 
