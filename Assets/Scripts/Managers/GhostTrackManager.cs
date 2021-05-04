@@ -19,7 +19,14 @@ public class GhostTrackManager : MonoBehaviour
     /// <param name="ID">Index of the array</param>
     public void playGhostTrack(int ID)
     {
-        audioSource.clip = musicTracks[ID]; //Play music according to scene ID
-        audioSource.Play(); //Play music
+        if (ID == 0)
+        {
+
+        }
+        else
+        {
+            audioSource.clip = musicTracks[ID]; //Play music according to scene ID
+            audioSource.Play(); //Play music
+        }
     }
 }
