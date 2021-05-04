@@ -4,6 +4,7 @@ public class UpgradeChip
     public string desc;
     public int weight;
     public string[] effects;
+    public bool equipped = false;
 
     public UpgradeChip(string name, string desc, int weight, string[] effects)
     {

@@ -28,13 +28,29 @@ public class ButtonBehaviour : MonoBehaviour
         rect.anchoredPosition = new Vector2(origin.x + (!btn.interactable ? pushedOut : 0), origin.y);
     }
 
-    public void OnClick()
+    public void OnClick(bool noAction = false)
     {
         screens.changeScreen(btn, screenName);
+        if (noAction)
+        {
+            return;
+        }
         switch(function)
         {
+            case "Inventory Screen":
+                screens.ShowInventory();
+                return;
+
+            case "Resume Game":
+                GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerControls>().DoPause();
+                return;
+
             case "Close game":
                 Application.Quit();
+                return;
+
+            default:
+                Debug.Log((function == "") ?  "Button does not have an assigned command." : "Unknown button command: " + function);
                 return;
         }
     }

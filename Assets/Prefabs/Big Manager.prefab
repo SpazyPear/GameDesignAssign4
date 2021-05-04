@@ -536,7 +536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: 
   screens: {fileID: 9049187869838091503}
-  function: 
+  function: Resume Game
   sprites:
   - {fileID: -5488077811519689749, guid: 96d1bfdc3c479e54e98b5eb626f4fdce, type: 3}
   - {fileID: -2136187712438824084, guid: 96d1bfdc3c479e54e98b5eb626f4fdce, type: 3}
@@ -2300,7 +2300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   screenName: Inventory
   screens: {fileID: 9049187869838091503}
-  function: 
+  function: Inventory Screen
   sprites:
   - {fileID: -5488077811519689749, guid: 96d1bfdc3c479e54e98b5eb626f4fdce, type: 3}
   - {fileID: -2136187712438824084, guid: 96d1bfdc3c479e54e98b5eb626f4fdce, type: 3}
@@ -2459,9 +2459,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f0cfe6f6080d6a42bb8349442ec984e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventory: {fileID: 5302323182025403942}
   initialScreen: {fileID: 5413972634074093644}
   screenName: {fileID: 4885320521958955440}
   desc: {fileID: 3922352448757054034}
+  memory: {fileID: 7494892648631970474, guid: 19599090c7c9f7243bddabeaeae70402, type: 3}
 --- !u!1 &9105037917004778087
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class Collectable : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             UpgradeChip chip = new UpgradeChip(chipName, description, weight, effects);
-            GameObject.FindGameObjectWithTag("Canvas Manager").GetComponent<Inventory>().obtain(chip);
+            GameObject.FindGameObjectWithTag("Canvas Manager").GetComponent<Inventory>().Obtain(chip);
             Destroy(gameObject);
         }
     }

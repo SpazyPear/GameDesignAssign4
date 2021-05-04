@@ -1072,12 +1072,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5964921242626770739, guid: 77f7aa6e9955e9b4e9286e20f8c5f32d, type: 3}
   m_PrefabInstance: {fileID: 900900142}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1067830498 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5964921242626770739, guid: 77f7aa6e9955e9b4e9286e20f8c5f32d, type: 3}
-  m_PrefabInstance: {fileID: 1299619466}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &1137715064
+--- !u!1001 &994653590
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1134,6 +1129,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+--- !u!4 &1067830498 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5964921242626770739, guid: 77f7aa6e9955e9b4e9286e20f8c5f32d, type: 3}
+  m_PrefabInstance: {fileID: 1299619466}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1222074474 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5964921242626770739, guid: 77f7aa6e9955e9b4e9286e20f8c5f32d, type: 3}

@@ -3,11 +3,15 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    private List<UpgradeChip> unequippedChips = new List<UpgradeChip>();
-    private List<UpgradeChip> equippedChips = new List<UpgradeChip>();
+    private List<UpgradeChip> allChips = new List<UpgradeChip>();
 
-    public void obtain(UpgradeChip newChip)
+    public void Obtain(UpgradeChip newChip)
     {
-        unequippedChips.Add(newChip);
+        allChips.Add(newChip);
+    }
+
+    public List<UpgradeChip> ShowChips()
+    {
+        return allChips;
     }
 }
