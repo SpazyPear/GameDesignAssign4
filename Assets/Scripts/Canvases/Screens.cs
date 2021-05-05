@@ -5,7 +5,6 @@ using UnityEngine;
 public class Screens : MonoBehaviour
 {
     public Inventory inventory;
-    public ButtonBehaviour initialScreen;
     private Button currentScreen;
     public Text screenName;
     public Text desc;
@@ -14,18 +13,8 @@ public class Screens : MonoBehaviour
     public GameObject memory;
     void Start()
     {
-        currentScreen = initialScreen.btn;
-        initialScreen.OnClick(true);
         GetComponent<Canvas>().enabled = true;
         gameObject.SetActive(false);
-    }
-
-    /// <summary>
-    /// Default the pause screen back to its original state, inventory screen.
-    /// </summary>
-    public void Reset()
-    {
-        initialScreen.OnClick();
     }
 
     /// <summary>

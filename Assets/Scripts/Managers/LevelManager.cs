@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public Transitions transition;
     public PauseManager pauseManager;
     public GameObject HPArea;
-    GhostTrackManager ghostTrackManager;
+    public GhostTrackManager ghostTrackManager;
 
     public bool isLoading;
     private void Start()

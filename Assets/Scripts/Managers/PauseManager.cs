@@ -20,7 +20,6 @@ public class PauseManager : MonoBehaviour
             obj.SetActive(boolean);
         }
         inventoryScreen.SetActive(!boolean);
-        screens.Reset();
     }
 
     public void Clean()

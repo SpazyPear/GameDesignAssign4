@@ -38,6 +38,15 @@ TextureImporter:
   - first:
       213: -6775244703835462492
     second: Transition In_11
+  - first:
+      213: -2810850743043821000
+    second: Transition In_12
+  - first:
+      213: -4430488670170158774
+    second: Transition In_13
+  - first:
+      213: -3508999507924083385
+    second: Transition In_14
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -131,9 +140,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1200
-        width: 600
-        height: 600
+        y: 120
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,10 +160,10 @@ TextureImporter:
       name: Transition In_1
       rect:
         serializedVersion: 2
-        x: 600
-        y: 1200
-        width: 600
-        height: 600
+        x: 60
+        y: 120
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +181,10 @@ TextureImporter:
       name: Transition In_2
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 1200
-        width: 600
-        height: 600
+        x: 120
+        y: 120
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,10 +202,10 @@ TextureImporter:
       name: Transition In_3
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 1200
-        width: 600
-        height: 600
+        x: 180
+        y: 120
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -215,9 +224,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 600
-        width: 600
-        height: 600
+        y: 60
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,10 +244,10 @@ TextureImporter:
       name: Transition In_5
       rect:
         serializedVersion: 2
-        x: 600
-        y: 600
-        width: 600
-        height: 600
+        x: 60
+        y: 60
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,10 +265,10 @@ TextureImporter:
       name: Transition In_6
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 600
-        width: 600
-        height: 600
+        x: 120
+        y: 60
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,10 +286,10 @@ TextureImporter:
       name: Transition In_7
       rect:
         serializedVersion: 2
-        x: 1800
-        y: 600
-        width: 600
-        height: 600
+        x: 180
+        y: 60
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,8 +309,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 600
-        height: 600
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,10 +328,10 @@ TextureImporter:
       name: Transition In_9
       rect:
         serializedVersion: 2
-        x: 600
+        x: 60
         y: 0
-        width: 600
-        height: 600
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,10 +349,10 @@ TextureImporter:
       name: Transition In_10
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 120
         y: 0
-        width: 600
-        height: 600
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,10 +370,10 @@ TextureImporter:
       name: Transition In_11
       rect:
         serializedVersion: 2
-        x: 1800
+        x: 180
         y: 0
-        width: 600
-        height: 600
+        width: 60
+        height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

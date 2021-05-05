@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GhostTrackManager : MonoBehaviour
@@ -9,7 +7,7 @@ public class GhostTrackManager : MonoBehaviour
 
     void Start()
     {
-        audioSource = GameObject.Find("SpectrualAnalyser").GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     /// <summary>
@@ -19,11 +17,7 @@ public class GhostTrackManager : MonoBehaviour
     /// <param name="ID">Index of the array</param>
     public void playGhostTrack(int ID)
     {
-        if (ID == 0)
-        {
-
-        }
-        else
+        if (ID != 0)
         {
             audioSource.clip = musicTracks[ID]; //Play music according to scene ID
             audioSource.Play(); //Play music
