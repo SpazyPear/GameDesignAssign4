@@ -5,18 +5,13 @@ using UnityEngine;
 public class Screens : MonoBehaviour
 {
     public Inventory inventory;
+    public int maxMem;
+    private int usedMem = 0;
     public Text[] textboxes;
 
     public GameObject chipArea;
     public GameObject chip;
     private List<GameObject> instantiated = new List<GameObject>();
-
-    void Start()
-    {
-        GetComponent<Canvas>().enabled = true;
-        changeDesc("");
-        gameObject.SetActive(false);
-    }
 
     public void Reset(bool doClean)
     {
@@ -25,7 +20,7 @@ public class Screens : MonoBehaviour
             ClearScreen();
             return;
         }
-        changeDesc("");
+        changeDesc();
         ShowInventory();
     }
 
@@ -42,7 +37,7 @@ public class Screens : MonoBehaviour
     /// Change the description at the bottom of the pause screen.
     /// </summary>
     /// <param name="newDesc"></param>
-    public void changeDesc(string newDesc)
+    public void changeDesc(string newDesc = "")
     {
         textboxes[0].text = newDesc;
     }
@@ -53,6 +48,7 @@ public class Screens : MonoBehaviour
         {
             GameObject obj = Instantiate(chip, chipArea.transform);
             DisplayChip uChip = obj.GetComponent<DisplayChip>();
+            uChip.setScreen(this);
             uChip.setChip(upgradeChip);
             instantiated.Add(obj);
         }
