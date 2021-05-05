@@ -73,13 +73,17 @@ public class Screens : MonoBehaviour
 
     public void ShowInventory()
     {
+        int index = 0;
         foreach (UpgradeChip upgradeChip in inventory.GetChips())
         {
             GameObject obj = Instantiate(chip, chipArea.transform);
+            RectTransform rect = obj.GetComponent<RectTransform>();
+            rect.anchoredPosition = new Vector2(80 * (index % 7), -110 * Mathf.Floor(index / 7));
             DisplayChip uChip = obj.GetComponent<DisplayChip>();
             uChip.setScreen(this);
             uChip.setChip(upgradeChip);
             instantiated.Add(obj);
+            index++;
         }
     }
 
