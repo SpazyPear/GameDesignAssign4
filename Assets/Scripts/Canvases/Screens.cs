@@ -5,16 +5,25 @@ using UnityEngine;
 public class Screens : MonoBehaviour
 {
     public Inventory inventory;
-    private Button currentScreen;
-    public Text screenName;
-    public Text desc;
+    public Text[] textboxes;
 
     private List<GameObject> instantiated = new List<GameObject>();
-    public GameObject memory;
+
     void Start()
     {
         GetComponent<Canvas>().enabled = true;
+        changeDesc("");
         gameObject.SetActive(false);
+    }
+
+    public void Reset(bool doClean)
+    {
+        changeDesc("");
+        if (doClean)
+        {
+            Debug.Log("Cleaned!");
+        }
+
     }
 
     /// <summary>
@@ -23,26 +32,11 @@ public class Screens : MonoBehaviour
     /// <param name="newDesc"></param>
     public void changeDesc(string newDesc)
     {
-        desc.text = newDesc;
-    }
-
-    public void changeScreen(Button btn, string newScreenName)
-    {
-        foreach (GameObject obj in instantiated)
-        {
-            Destroy(obj);
-        }
-        instantiated.Clear();
-
-        currentScreen.interactable = true;
-        btn.interactable = false;
-        currentScreen = btn;
-        screenName.text = newScreenName;
-        changeDesc("");
+        textboxes[0].text = newDesc;
     }
 
     public void ShowInventory()
     {
-        instantiated.Add(Instantiate(memory, transform));
+        Debug.Log("Huh");
     }
 }

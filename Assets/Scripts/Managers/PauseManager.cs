@@ -17,9 +17,10 @@ public class PauseManager : MonoBehaviour
     {
         foreach (GameObject obj in objs)
         {
-            obj.SetActive(boolean);
+            obj.SetActive(!boolean);
         }
-        inventoryScreen.SetActive(!boolean);
+        inventoryScreen.SetActive(boolean);
+        screens.Reset(!boolean);
     }
 
     public void Clean()

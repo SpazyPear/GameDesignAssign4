@@ -102,8 +102,8 @@ public class PlayerControls : MonoBehaviour
     public void DoPause()
     {
         Time.timeScale = 1 - Time.timeScale;
-        AllowInput(!allowBtnPress);
         pauseManager.SetPauseState(allowBtnPress);
+        AllowInput(!allowBtnPress);
     }
 
     private void KeyDownAction(KeyCode key)
