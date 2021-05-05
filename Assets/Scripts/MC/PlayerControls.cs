@@ -101,6 +101,10 @@ public class PlayerControls : MonoBehaviour
 
     public void DoPause()
     {
+        if (!pauseManager.SafeToUnpause())
+        {
+            return;
+        }
         Time.timeScale = 1 - Time.timeScale;
         pauseManager.SetPauseState(allowBtnPress);
         AllowInput(!allowBtnPress);

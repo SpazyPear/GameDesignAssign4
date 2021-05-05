@@ -607,7 +607,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 19
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 10
     m_MaxSize: 73
     m_Alignment: 0
@@ -1705,7 +1705,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b2207cde9a3860248ad3d1103de55855, type: 3}
+  m_Sprite: {fileID: -7892073256252304383, guid: b2207cde9a3860248ad3d1103de55855, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1974,7 +1974,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
@@ -2320,6 +2320,7 @@ GameObject:
   - component: {fileID: 4773715302399503098}
   - component: {fileID: 7867393182402205594}
   - component: {fileID: 9049187869838091503}
+  - component: {fileID: 5399075727301687698}
   m_Layer: 5
   m_Name: Inventory Screen
   m_TagString: Inventory Screen
@@ -2409,12 +2410,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 5302323182025403942}
-  maxMem: 0
+  maxMem: 100
   textboxes:
   - {fileID: 3922352448757054034}
   - {fileID: 8870256621153776639}
+  back: {fileID: 8346680283241790183}
+  sprites:
+  - {fileID: -7892073256252304383, guid: b2207cde9a3860248ad3d1103de55855, type: 3}
+  - {fileID: -6245261834393248427, guid: b2207cde9a3860248ad3d1103de55855, type: 3}
+  capacity: {fileID: 6514014489675308299}
+  used: {fileID: 7619936010071067314}
+  gradient:
+    serializedVersion: 2
+    key0: {r: 0.2, g: 1, b: 0.2, a: 1}
+    key1: {r: 0.9529412, g: 0.9529412, b: 0.2, a: 1}
+    key2: {r: 1, g: 0.2, b: 0.2, a: 0}
+    key3: {r: 1, g: 0.2, b: 0.2, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 52428
+    ctime1: 64880
+    ctime2: 65535
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 1
+    m_NumColorKeys: 3
+    m_NumAlphaKeys: 2
   chipArea: {fileID: 913710707973343408}
   chip: {fileID: 8533805526466999522, guid: c9b7e4cc4fef5e04b940bcd51907d22d, type: 3}
+  chipEffects: {fileID: 5399075727301687698}
+--- !u!114 &5399075727301687698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8977110109958619108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80b2724d2f191d044aad0b33f28a6824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControls: {fileID: 1334769019}
+  feetHitbox: {fileID: 1210785893}
 --- !u!1 &9105037917004778087
 GameObject:
   m_ObjectHideFlags: 0

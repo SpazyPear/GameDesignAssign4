@@ -13,6 +13,11 @@ public class PauseManager : MonoBehaviour
         screens = inventoryScreen.GetComponent<Screens>();
     }
 
+    public bool SafeToUnpause()
+    {
+        return screens.maxMem >= screens.usedMem;
+    }
+
     public void SetPauseState(bool boolean)
     {
         foreach (GameObject obj in objs)

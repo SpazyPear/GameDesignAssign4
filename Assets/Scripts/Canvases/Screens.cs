@@ -6,12 +6,20 @@ public class Screens : MonoBehaviour
 {
     public Inventory inventory;
     public int maxMem;
-    private int usedMem = 0;
+    public int usedMem { get; private set; } = 0;
     public Text[] textboxes;
+    public Image back;
+    public Sprite[] sprites;
+
+    public Slider capacity;
+    public Image used;
+    public Gradient gradient;
 
     public GameObject chipArea;
     public GameObject chip;
     private List<GameObject> instantiated = new List<GameObject>();
+
+    public ChipEffects chipEffects;
 
     public void Reset(bool doClean)
     {
@@ -20,6 +28,8 @@ public class Screens : MonoBehaviour
             ClearScreen();
             return;
         }
+        capacity.maxValue = maxMem;
+        UpdateSlider();
         changeDesc();
         ShowInventory();
     }
@@ -31,6 +41,25 @@ public class Screens : MonoBehaviour
             Destroy(obj);
         }
         instantiated.Clear();
+    }
+
+    public void ChangeMemory(int amount, string[] effects)
+    {
+        usedMem += amount;
+        UpdateSlider();
+
+        if (amount > 0)
+        {
+            foreach (string effect in effects)
+            {
+                chipEffects.ApplyEffect(effect);
+            }
+            return;
+        }
+        foreach (string effect in effects)
+        {
+            chipEffects.UnapplyEffect(effect);
+        }
     }
 
     /// <summary>
@@ -52,5 +81,13 @@ public class Screens : MonoBehaviour
             uChip.setChip(upgradeChip);
             instantiated.Add(obj);
         }
+    }
+
+    private void UpdateSlider()
+    {
+        capacity.value = (usedMem < maxMem) ? usedMem : maxMem;
+        used.color = gradient.Evaluate(capacity.normalizedValue);
+        textboxes[1].text = usedMem + "/" + maxMem;
+        back.sprite = sprites[(usedMem > maxMem) ? 1 : 0];
     }
 }
