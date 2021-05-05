@@ -7,6 +7,8 @@ public class Screens : MonoBehaviour
     public Inventory inventory;
     public Text[] textboxes;
 
+    public GameObject chipArea;
+    public GameObject chip;
     private List<GameObject> instantiated = new List<GameObject>();
 
     void Start()
@@ -18,12 +20,22 @@ public class Screens : MonoBehaviour
 
     public void Reset(bool doClean)
     {
-        changeDesc("");
         if (doClean)
         {
-            Debug.Log("Cleaned!");
+            ClearScreen();
+            return;
         }
+        changeDesc("");
+        ShowInventory();
+    }
 
+    public void ClearScreen()
+    {
+        foreach (GameObject obj in instantiated)
+        {
+            Destroy(obj);
+        }
+        instantiated.Clear();
     }
 
     /// <summary>
@@ -37,6 +49,12 @@ public class Screens : MonoBehaviour
 
     public void ShowInventory()
     {
-        Debug.Log("Huh");
+        foreach (UpgradeChip upgradeChip in inventory.GetChips())
+        {
+            GameObject obj = Instantiate(chip, chipArea.transform);
+            DisplayChip uChip = obj.GetComponent<DisplayChip>();
+            uChip.setChip(upgradeChip);
+            instantiated.Add(obj);
+        }
     }
 }

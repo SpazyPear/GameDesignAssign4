@@ -10,7 +10,7 @@ public class Inventory : MonoBehaviour
         allChips.Add(newChip);
     }
 
-    public List<UpgradeChip> ShowChips()
+    public List<UpgradeChip> GetChips()
     {
         return allChips;
     }
