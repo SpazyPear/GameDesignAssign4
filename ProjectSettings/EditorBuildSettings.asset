@@ -11,16 +11,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level 1 - Ryan.unity
     guid: a9887c658d39bfa49b480127c8485409
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 2 - Max.unity
     guid: 42d74c7ddea788e45afc2addc73ceec3
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 3 - Irvine.unity
     guid: 166dcc0e16c0a7847aa405506a62b134
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 4 - Josh.unity
     guid: f4b8e9c336db4c84ba3a561ff9885ef9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level 5 - Kin.unity
     guid: 464bcf7523ab3874e9a225f87deb33d6
   m_configObjects: {}

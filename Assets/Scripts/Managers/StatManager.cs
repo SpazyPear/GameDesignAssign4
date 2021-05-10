@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class StatManager : MonoBehaviour
 {
-    private HeartSprite hearts;
+    public HeartSprite hearts;
     public int MaxHP = 5;
     private int HP;
 
@@ -13,7 +13,6 @@ public class StatManager : MonoBehaviour
 
     private void Start()
     {
-        hearts = GameObject.FindGameObjectWithTag("HP Area").GetComponent<HeartSprite>();
         hearts.updateHearts(HP);
     }
 

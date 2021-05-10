@@ -6,19 +6,20 @@ public class StartGame : MonoBehaviour
     private SFXManager SFX;
     public string sceneName;
 
+    private bool canClick = true;
     private void Start()
     {
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        SFX = GameObject.FindGameObjectWithTag("SFXManager").GetComponent<SFXManager>();
+        levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManager>();
+        SFX = GameObject.FindGameObjectWithTag("SFX Manager").GetComponent<SFXManager>();
     }
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && canClick)
         {
+            canClick = false;
             SFX.Play(0);
-            levelManager.loadScene(sceneName);
-            Destroy(gameObject);
+            levelManager.LoadScene(sceneName);
         }
     }
 }

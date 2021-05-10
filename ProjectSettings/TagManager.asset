@@ -4,21 +4,23 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - LevelManager
-  - BigManager
-  - SFXManager
-  - StatManager
-  - MusicManager
+  - Level Manager
+  - Big Manager
+  - SFX Manager
+  - Stat Manager
+  - Music Manager
   - Ground
-  - EnvironTriggerTest
-  - GUIManager
-  - Loading Screen
-  - MCFeetBox
-  - FakeGround
+  - Environment Trigger Test
+  - MC Feet Box
+  - Fake Ground
   - Wall
   - Enemy
   - HP Area
-  - Projectile
+  - Boulder
+  - Canvas Manager
+  - Transition Manager
+  - Inventory Screen
+  - Pause Manager
   layers:
   - Default
   - TransparentFX
@@ -26,7 +28,7 @@ TagManager:
   - 
   - Water
   - UI
-  - Loading Screen
+  - 
   - 
   - 
   - 

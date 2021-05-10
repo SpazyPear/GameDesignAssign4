@@ -5,43 +5,55 @@ public class PlayerControls : MonoBehaviour
     private SpriteRenderer sprite;
     private Animator anim;
     private Rigidbody2D rb;
-    private KeyCode[] keysAvailable;
     private FeetHitbox legs;
+    public PauseManager pauseManager;
 
     public float speed;
-    public bool allowInput;
+    public bool allowBtnPress;
+    public bool allowClick;
+    public bool allowPause;
+    public GameObject attack;
+    public PhysicsMaterial2D[] friction;
+    public float coyoteTimer;
+
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         legs = gameObject.GetComponentInChildren<FeetHitbox>();
-        keysAvailable = new []{KeyCode.A, KeyCode.D};
     }
 
     private void Update()
     {
-        if (transform.position.y < -100)
+        if (allowBtnPress)
         {
-            gameObject.transform.position = new Vector3(0, 0, 0);
+            DoBtnInput();
         }
 
-        if (allowInput)
+        if (allowPause && Input.GetKeyDown(KeyCode.Escape))
         {
-            DoInput();
+            DoPause();
+        }
+
+        if (allowClick)
+        {
+            DoMouseClick();
         }
 
         anim.SetBool("isWalking", false);
-        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D) && allowInput)
+        rb.sharedMaterial = friction[1];
+        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D) && allowBtnPress)
         {
             anim.SetBool("isWalking", true);
+            rb.sharedMaterial = friction[0];
             sprite.flipX = Input.GetKey(KeyCode.A);
         }
     }
 
-    private void DoInput()
+    private void DoBtnInput()
     {
-        foreach (KeyCode key in keysAvailable)
+        foreach (KeyCode key in new[] { KeyCode.A, KeyCode.D })
         {
             /*if (Input.GetKeyDown(key))
             {
@@ -58,6 +70,41 @@ public class PlayerControls : MonoBehaviour
                 KeyUpAction(key);
             }
         }
+    }
+    
+    private void DoMouseClick()
+    {
+        for (int button = 0; button < 2; button++)
+        {
+            if (Input.GetMouseButtonDown(button))
+            {
+                switch (button)
+                {
+                    case 0: //Left click
+                        GameObject atk = Instantiate(attack);
+                        atk.transform.position = transform.position;
+                        float angle = (sprite.flipX) ? 180 : 0;
+                        angle = Input.GetKey(KeyCode.W) ? 90 : angle;
+                        atk.transform.eulerAngles = new Vector3(0, 0, angle);
+                        return;
+
+                    case 1: //Right click
+                        Debug.Log("Right click");
+                        return;
+                }
+            }
+        }
+    }
+
+    public void DoPause()
+    {
+        if (!pauseManager.SafeToUnpause())
+        {
+            return;
+        }
+        Time.timeScale = 1 - Time.timeScale;
+        pauseManager.SetPauseState(allowBtnPress);
+        AllowInput(!allowBtnPress);
     }
 
     private void KeyDownAction(KeyCode key)
@@ -79,7 +126,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
-            Stop();
+            StopHorizontalMovement();
         }
     }
 
@@ -89,7 +136,7 @@ public class PlayerControls : MonoBehaviour
         {
             case KeyCode.A:
             case KeyCode.D:
-                Stop();
+                StopHorizontalMovement();
                 return;
         }
     }
@@ -102,7 +149,6 @@ public class PlayerControls : MonoBehaviour
     {
         sprite.enabled = boolean;
         rb.simulated = boolean;
-        canJump(boolean);
     }
 
     /// <summary>
@@ -126,19 +172,37 @@ public class PlayerControls : MonoBehaviour
     }
 
     /// <summary>
-    /// Stop the player from moving.
+    /// Stop the player from moving horizontally.
     /// </summary>
-    public void Stop()
+    public void StopHorizontalMovement()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     /// <summary>
-    /// Turns player input and stops movement
+    /// Stop the player from moving vertically.
     /// </summary>
-    public void CannotMove()
+    public void StopVerticalMovement()
     {
-        allowInput = false;
-        Stop();
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+    }
+
+    /// <summary>
+    /// Stops all velocity movements.
+    /// </summary>
+    public void StopAllMovement()
+    {
+        rb.velocity = new Vector2(0, 0);
+    }
+
+    /// <summary>
+    /// Toggle player input and stops movement
+    /// </summary>
+    public void AllowInput(bool boolean)
+    {
+        allowBtnPress = boolean;
+        allowClick = boolean;
+        canJump(boolean);
+        StopHorizontalMovement();
     }
 }
