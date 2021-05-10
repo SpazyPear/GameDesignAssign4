@@ -14,6 +14,8 @@ public class PlayerControls : MonoBehaviour
     public bool allowPause;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
+    public float coyoteTimer;
+
     void Start()
     {
         sprite = gameObject.GetComponent<SpriteRenderer>();
