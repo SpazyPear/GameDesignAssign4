@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerCollisions : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerCollisions : MonoBehaviour
     public FeetHitbox feetHitbox;
     private int newJump;
     private int oldJump;
+    public GameObject levelManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -38,6 +40,7 @@ public class PlayerCollisions : MonoBehaviour
                 feetHitbox.maxJumps = newJump;
             }
         }
+       
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -46,6 +49,18 @@ public class PlayerCollisions : MonoBehaviour
         {
             if(wallJumpChip == true)
             feetHitbox.maxJumps = oldJump;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "LevelChanger")
+        {
+            Destroy(collision.gameObject, 0f);
+            
+            AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(0);
+
+            
         }
     }
 

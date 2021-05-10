@@ -23,6 +23,7 @@ TagManager:
   - Pause Manager
   - Projectile
   - Turret
+  - LevelChanger
   layers:
   - Default
   - TransparentFX
