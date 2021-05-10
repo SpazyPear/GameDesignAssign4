@@ -21,6 +21,8 @@ TagManager:
   - Transition Manager
   - Inventory Screen
   - Pause Manager
+  - Projectile
+  - Turret
   layers:
   - Default
   - TransparentFX

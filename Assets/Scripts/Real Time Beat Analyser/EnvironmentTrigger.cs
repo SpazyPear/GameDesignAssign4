@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class EnvironmentTrigger : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject projectile;
     public GameObject player;
     public GameObject statManager;
     public bool canTrigger;
+   
     
 
         private void Start()
@@ -33,9 +35,20 @@ public class EnvironmentTrigger : MonoBehaviour
             case 3:
                 break;
             case 4:
+                sceneFour();
                 break;
             case 5:
                 break;
+        }
+    }
+
+    void sceneFour()
+    {
+        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
+        foreach (GameObject turret in turrets) {
+            GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x - 1, turret.GetComponent<Transform>().position.y, turret.GetComponent<Transform>().position.z), Quaternion.identity);
+            proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+            
         }
     }
 }
