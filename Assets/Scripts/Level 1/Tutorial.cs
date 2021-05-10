@@ -86,7 +86,6 @@ public class Tutorial : MonoBehaviour
                     Unload("Space");
                     Load("Interact", 3);
                     Load("Boulder", 6);
-                    Load("Mouse", 7);
                     flag++;
                 }
                 return;
@@ -94,6 +93,7 @@ public class Tutorial : MonoBehaviour
             case 6:
                 if (player.transform.position.x >= 45)
                 {
+                    Load("Mouse", 7);
                     Unload("Interact");
                     controls.allowClick = true;
                     flag++;

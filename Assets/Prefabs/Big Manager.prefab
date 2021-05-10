@@ -47,6 +47,7 @@ MonoBehaviour:
   jumpStr: 33
   maxJumps: 1
   jumptimer: 0.25
+  coyoteTimer: 0.1
   canJump: 0
 --- !u!61 &2145972959
 BoxCollider2D:
@@ -424,6 +425,7 @@ MonoBehaviour:
   friction:
   - {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   - {fileID: 6200000, guid: 0748a470db316824f8510352b42bb304, type: 2}
+  coyoteTimer: 0
 --- !u!95 &4745657
 Animator:
   serializedVersion: 3
@@ -1651,6 +1653,8 @@ GameObject:
   - component: {fileID: 2495390083622086134}
   - component: {fileID: 727869668238141218}
   - component: {fileID: 8346680283241790183}
+  - component: {fileID: 3887786064883084021}
+  - component: {fileID: 2941660962971236476}
   m_Layer: 5
   m_Name: Go Back
   m_TagString: Untagged
@@ -1715,6 +1719,35 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3887786064883084021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003835925963674593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e0fd7422e1823949bba688d8e2996e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerControls: {fileID: 1334769019}
+--- !u!58 &2941660962971236476
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6003835925963674593}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 56.3, y: -39.3}
+  serializedVersion: 2
+  m_Radius: 31.7
 --- !u!1 &6242531528648370146
 GameObject:
   m_ObjectHideFlags: 0
@@ -1974,7 +2007,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0}
