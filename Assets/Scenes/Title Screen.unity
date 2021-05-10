@@ -123,31 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &180585590 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5969536229841071291, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-  m_PrefabInstance: {fileID: 185156680}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &180585595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 180585590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c736035b25e2d1f4eb667f5e775a87f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  musicTracks:
-  - {fileID: 0}
-  - {fileID: 8300000, guid: fcd552285ff4c7f49a83a6734f5c3d8b, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!1001 &185156680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,14 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5326413862346023787, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5326413862346023787, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 1

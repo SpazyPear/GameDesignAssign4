@@ -4,7 +4,7 @@ using UnityEngine;
 
 using System.Numerics;
 using DSPLib;
-
+using UnityEngine.SceneManagement;
 
 public class SongController : MonoBehaviour {
 
@@ -25,6 +25,7 @@ public class SongController : MonoBehaviour {
 	public bool preProcessSamples = false;
 
 	void Start() {
+		
 		audioSource = GetComponent<AudioSource> ();
 
 		// Process audio as it plays
@@ -32,6 +33,30 @@ public class SongController : MonoBehaviour {
 			realTimeSpectrum = new float[1024];
 			realTimeSpectralFluxAnalyzer = new SpectralFluxAnalyzer ();
 			//realTimePlotController = GameObject.Find ("RealtimePlot").GetComponent<PlotController> ();
+
+			switch (SceneManager.GetActiveScene().buildIndex)
+            {
+				case 0:
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 25f;
+					break;
+				case 1:
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 25f;
+					break;
+				case 2:
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 40f;
+					break;
+				case 3:
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 35f;
+					break;
+				case 4:
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 30f;
+					break;
+				case 5:
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 43f;
+					break;
+
+			}
+
 
 			this.sampleRate = AudioSettings.outputSampleRate;
 		}
@@ -62,10 +87,14 @@ public class SongController : MonoBehaviour {
 	}
 
 	void Update() {
+
+		//Debug.Log(realTimeSpectralFluxAnalyzer.thresholdMultiplier);
+		
 		// Real-time
 		if (realTimeSamples) {
 			audioSource.GetSpectrumData (realTimeSpectrum, 0, FFTWindow.BlackmanHarris);
 			realTimeSpectralFluxAnalyzer.analyzeSpectrum (realTimeSpectrum, audioSource.time);
+			
 			//realTimePlotController.updatePlot (realTimeSpectralFluxAnalyzer.spectralFluxSamples);
 		}
 

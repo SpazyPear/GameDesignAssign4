@@ -1203,7 +1203,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7a4713bae56c9c240b5073d2cb519b00, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.549
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1302,10 +1302,10 @@ MonoBehaviour:
   musicTracks:
   - {fileID: 8300000, guid: 19c28b6525dc8a54b8341dc035a69b80, type: 3}
   - {fileID: 8300000, guid: 287f517d2de591e4d9e6600d6299ba25, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: f650100f74902fd4e850c7de0eb79b65, type: 3}
+  - {fileID: 8300000, guid: 7f5905046f5ef2a499e858e4a1b20851, type: 3}
+  - {fileID: 8300000, guid: a84454fdbec8a884e836ad04a0986e6b, type: 3}
+  - {fileID: 8300000, guid: 5ed8b1835b676b0479bbef89b6705d0c, type: 3}
   - {fileID: 0}
 --- !u!1 &5633884483020946202
 GameObject:
@@ -1518,11 +1518,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: fcd552285ff4c7f49a83a6734f5c3d8b, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.596
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1619,7 +1619,7 @@ MonoBehaviour:
   prefab: {fileID: 267045899621898801, guid: 5a292cafdfa3e0846a17a431df80cffd, type: 3}
   player: {fileID: 1307450229734811620}
   statManager: {fileID: 8197494884115484868}
-  canTrigger: 0
+  canTrigger: 1
 --- !u!114 &6518010838374748554
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1635,10 +1635,10 @@ MonoBehaviour:
   musicTracks:
   - {fileID: 0}
   - {fileID: 8300000, guid: fcd552285ff4c7f49a83a6734f5c3d8b, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: b75fabeadc2fe04409828263e2f06277, type: 3}
+  - {fileID: 8300000, guid: 5d7e883419afa5940b8094f68ac9a70a, type: 3}
+  - {fileID: 8300000, guid: 844b77ff3cd9c684dab11816136db0fa, type: 3}
+  - {fileID: 8300000, guid: 0f21d68c2d000ac46ad64ed6417e4030, type: 3}
   - {fileID: 0}
 --- !u!1 &6003835925963674593
 GameObject:

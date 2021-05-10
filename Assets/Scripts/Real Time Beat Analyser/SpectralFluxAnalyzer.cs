@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SpectralFluxInfo {
 	public float time;
@@ -15,7 +16,9 @@ public class SpectralFluxAnalyzer {
 
 	// Sensitivity multiplier to scale the average threshold.
 	// In this case, if a rectified spectral flux sample is > 1.5 times the average, it is a peak
-	float thresholdMultiplier = 20f;
+
+
+	public float thresholdMultiplier = 35f;
 
 	// Number of samples to average in our window
 	int thresholdWindowSize = 50;
@@ -111,7 +114,7 @@ public class SpectralFluxAnalyzer {
 	bool isPeak(int spectralFluxIndex) {
 		if (spectralFluxSamples [spectralFluxIndex].prunedSpectralFlux > spectralFluxSamples [spectralFluxIndex + 1].prunedSpectralFlux &&
 			spectralFluxSamples [spectralFluxIndex].prunedSpectralFlux > spectralFluxSamples [spectralFluxIndex - 1].prunedSpectralFlux) {
-
+			Debug.Log("peak");
 			environ.trigger();
 			return true;
 		}

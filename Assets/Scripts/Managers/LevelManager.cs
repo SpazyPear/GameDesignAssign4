@@ -2,6 +2,8 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
 public class LevelManager : MonoBehaviour
 {
     public PlayerControls playerControls;
@@ -16,6 +18,7 @@ public class LevelManager : MonoBehaviour
     {
         ghostTrackManager = GameObject.Find("SpectrualAnalyser").GetComponent<GhostTrackManager>();
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
+        
     }
 
     /// <summary>
