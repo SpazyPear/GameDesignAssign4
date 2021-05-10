@@ -20,7 +20,7 @@ public class EnvironmentTrigger : MonoBehaviour
         {
             return;
         }
-        switch (SceneManager.GetActiveScene().buildIndex)
+        switch (SceneManager.GetActiveScene().buildIndex) //every case number is a different scene. Insert whatever you want that scenes trigger to do correlating the scene number to the level number.
         {
             case 0:
                 //GameObject cube = Instantiate(prefab, new Vector3(player.transform.position.x, player.transform.position.y + 5, 0), Quaternion.identity); //Instantiate the cube above the players head
