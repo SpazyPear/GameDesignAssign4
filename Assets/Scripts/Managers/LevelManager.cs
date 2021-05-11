@@ -92,6 +92,7 @@ public class LevelManager : MonoBehaviour
         }
 
         playerControls.allowBtnPress = true;
+        playerControls.canJump(SceneManager.GetActiveScene().buildIndex != 1);
         playerControls.allowClick = SceneManager.GetActiveScene().buildIndex != 1;
         isLoading = true;
     }

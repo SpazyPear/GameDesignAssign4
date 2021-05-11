@@ -69,7 +69,7 @@ public class PlayerCollisions : MonoBehaviour
            // AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 3);
             // levelManager.GetComponent<LevelManager>().UpdateStuff(SceneManager.GetActiveScene().buildIndex);
             
-            levelManager.GetComponent<LevelManager>().LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex + 3);
+            levelManager.GetComponent<LevelManager>().LoadSceneByIndex(SceneManager.GetActiveScene().buildIndex + 1);
            // levelManager.GetComponent<LevelManager>().UpdateStuff(SceneManager.GetActiveScene().buildIndex);
 
 
