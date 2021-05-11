@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public PauseManager pauseManager;
     public GameObject HPArea;
     public GhostTrackManager ghostTrackManager;
+    private Vector3 spawnPoint;
 
     public bool isLoading;
     private void Start()
@@ -19,6 +20,15 @@ public class LevelManager : MonoBehaviour
         ghostTrackManager = GameObject.Find("SpectrualAnalyser").GetComponent<GhostTrackManager>();
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
         
+    }
+
+    private void Update()
+    {
+        if (playerControls.transform.position.y < -200)
+        {
+            playerControls.StopVerticalMovement();
+            playerControls.transform.position = spawnPoint;
+        }
     }
 
     /// <summary>
@@ -97,5 +107,11 @@ public class LevelManager : MonoBehaviour
         musicManager.playTrack(ID);
         playerControls.SetActive(ID != 0);
         HPArea.SetActive(ID != 0);
+        SetSpawnPoint(new Vector3(0, 0, 0));
+    }
+
+    public void SetSpawnPoint(Vector3 spawnPoint)
+    {
+        this.spawnPoint = spawnPoint;
     }
 }

@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private LevelManager levelManager;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManager>();
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            levelManager.SetSpawnPoint(gameObject.transform.position);
+            Destroy(gameObject);
+        }
     }
 }
