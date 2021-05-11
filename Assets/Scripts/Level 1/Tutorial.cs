@@ -25,7 +25,7 @@ public class Tutorial : MonoBehaviour
         controls.SetPosition(0, 0, 0);
         controls.allowBtnPress = true;
         controls.allowClick = false;
-        Load("D" ,0);
+        Load("D", 0);
 
         flag = 0;
     }
@@ -128,8 +128,31 @@ public class Tutorial : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Unload("Escape");
-                    Destroy(gameObject);
+                    Load("Tutorial Save Point", 8);
+                    instantiatedObjs.Add("Tutorial Inventory", Instantiate(fabs[9], GameObject.FindGameObjectWithTag("Inventory Screen").transform));
+                    tutorialChip = instantiatedObjs["Tutorial Save Point"].GetComponentInChildren<SpinEffect>().transform.gameObject;
+                    flag++;
                 }
+                return;
+
+            case 11:
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    Unload("Tutorial Inventory");
+                    flag++;
+                }
+                return;
+
+            case 12:
+                if (tutorialChip == null)
+                {
+                    Unload("Tutorial Save Point");
+                    flag++;
+                }
+                return;
+
+            default:
+                Destroy(gameObject);
                 return;
         }
     }
