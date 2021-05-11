@@ -23,6 +23,7 @@ TagManager:
   - Pause Manager
   - Projectile
   - Turret
+  - Climb
   layers:
   - Default
   - TransparentFX
