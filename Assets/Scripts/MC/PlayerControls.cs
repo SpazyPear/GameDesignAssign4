@@ -9,9 +9,11 @@ public class PlayerControls : MonoBehaviour
     public PauseManager pauseManager;
 
     public float speed;
+    public float climbSpeed;
     public bool allowBtnPress;
     public bool allowClick;
     public bool allowPause;
+    public bool canClimb;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
     public float coyoteTimer;
@@ -54,11 +56,12 @@ public class PlayerControls : MonoBehaviour
             rb.sharedMaterial = friction[0];
             sprite.flipX = Input.GetKey(KeyCode.A);
         }
+
     }
 
     private void DoBtnInput()
     {
-        foreach (KeyCode key in new[] { KeyCode.A, KeyCode.D })
+        foreach (KeyCode key in new[] { KeyCode.A, KeyCode.D, KeyCode.W })
         {
             /*if (Input.GetKeyDown(key))
             {
@@ -91,6 +94,7 @@ public class PlayerControls : MonoBehaviour
                         float angle = (sprite.flipX) ? 180 : 0;
                         angle = Input.GetKey(KeyCode.W) ? 90 : angle;
                         atk.transform.eulerAngles = new Vector3(0, 0, angle);
+                        anim.SetTrigger("isAttacking");
                         return;
 
                     case 1: //Right click
@@ -127,6 +131,18 @@ public class PlayerControls : MonoBehaviour
             case KeyCode.D:
                 rb.velocity = new Vector2(speed, rb.velocity.y);
                 break;
+            //climbing
+            case KeyCode.W:
+                if (canClimb)
+                {
+                    anim.SetBool("isClimbing", true);
+                    rb.velocity = new Vector2(rb.velocity.x, climbSpeed * Input.GetAxisRaw("Vertical"));
+                }
+                else
+                {
+                    anim.SetBool("isClimbing", false);
+                }
+                break;
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
@@ -141,6 +157,7 @@ public class PlayerControls : MonoBehaviour
         {
             case KeyCode.A:
             case KeyCode.D:
+            case KeyCode.W:
                 Stop();
                 return;
         }
@@ -182,6 +199,7 @@ public class PlayerControls : MonoBehaviour
     public void Stop()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
+        anim.SetBool("isClimbing", false);
     }
 
     /// <summary>
