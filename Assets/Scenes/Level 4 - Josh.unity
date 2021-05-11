@@ -557,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: chipName
-      value: Double Jump
+      value: Wall Jump
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: description
@@ -598,7 +598,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5461611404639212974, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: wallJumpChip
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder

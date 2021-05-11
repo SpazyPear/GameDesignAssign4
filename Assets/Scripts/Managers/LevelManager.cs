@@ -30,6 +30,31 @@ public class LevelManager : MonoBehaviour
         StartCoroutine("LoadingScene", sceneName);
     }
 
+    public void LoadSceneByIndex(int index)
+    {
+        switch(index)
+        {
+            case 0:
+                LoadScene("Main Menu");
+                return;
+            case 1:
+                LoadScene("Level 1 - Ryan");
+                return;
+            case 2:
+                LoadScene("Level 2 - Max");
+                return;
+            case 3:
+                LoadScene("Level 3 - Irvine");
+                return;
+            case 4:
+                LoadScene("Level 4 - Josh");
+                return;
+            case 5:
+                LoadScene("Level 5 - Kin");
+                return;
+        }
+    }
+
     IEnumerator LoadingScene(string sceneName)
     {
         isLoading = true;
