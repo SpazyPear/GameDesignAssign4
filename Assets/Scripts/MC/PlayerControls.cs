@@ -9,9 +9,9 @@ public class PlayerControls : MonoBehaviour
     public PauseManager pauseManager;
 
     public float speed;
-    public bool allowBtnPress;
-    public bool allowClick;
-    public bool allowPause;
+    public bool allowBtnPress = true;
+    public bool allowClick = true;
+    public bool allowPause = true;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
     public float coyoteTimer;
