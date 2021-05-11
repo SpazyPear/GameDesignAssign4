@@ -15,7 +15,8 @@ public class PlayerCollisions : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        wallJumpChip = false;
+        
+        
         newJump = feetHitbox.maxJumps + 1;
         oldJump = feetHitbox.maxJumps - 1;
     }
@@ -35,9 +36,11 @@ public class PlayerCollisions : MonoBehaviour
         }
         if (collision.gameObject.tag == "Wall")
         {
+            
             if (wallJumpChip == true)
             {
-                feetHitbox.maxJumps = newJump;
+                    feetHitbox.canWallJump = true;
+     
             }
         }
        
@@ -48,7 +51,12 @@ public class PlayerCollisions : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             if(wallJumpChip == true)
-            feetHitbox.maxJumps = oldJump;
+            {
+               
+                   feetHitbox.canWallJump = false;
+                
+            }
+            
         }
     }
 
@@ -58,9 +66,11 @@ public class PlayerCollisions : MonoBehaviour
         {
             Destroy(collision.gameObject, 0f);
             
-            AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(0);
+            AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 3);
+            // levelManager.GetComponent<LevelManager>().UpdateStuff(SceneManager.GetActiveScene().buildIndex);
+            levelManager.GetComponent<LevelManager>().UpdateStuff(SceneManager.GetActiveScene().buildIndex);
 
-            
+
         }
     }
 

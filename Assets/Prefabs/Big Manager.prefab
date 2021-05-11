@@ -461,7 +461,8 @@ MonoBehaviour:
   player: {fileID: 1307450229734811620}
   statManager: {fileID: 8197494884115484868}
   wallJumpChip: 0
-  feetHitbox: {fileID: 0}
+  feetHitbox: {fileID: 1210785893}
+  levelManager: {fileID: 7138956127348530268}
 --- !u!1 &2054315759730869769
 GameObject:
   m_ObjectHideFlags: 0

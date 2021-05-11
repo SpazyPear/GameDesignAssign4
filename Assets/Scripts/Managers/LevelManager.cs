@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
         return isLoading;
     }
 
-    private void UpdateStuff(int ID)
+    public void UpdateStuff(int ID)
     {
         ghostTrackManager.playGhostTrack(ID);
         musicManager.playTrack(ID);

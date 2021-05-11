@@ -15,6 +15,7 @@ public class PauseManager : MonoBehaviour
 
     public bool SafeToUnpause()
     {
+        //Debug.Log(screens);
         return screens.maxMem >= screens.usedMem;
     }
 
