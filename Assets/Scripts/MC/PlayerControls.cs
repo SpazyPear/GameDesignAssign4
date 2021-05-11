@@ -14,7 +14,6 @@ public class PlayerControls : MonoBehaviour
     public bool allowPause = true;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
-    public float coyoteTimer;
 
     void Start()
     {
@@ -26,11 +25,6 @@ public class PlayerControls : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < -100)
-        {
-            gameObject.transform.position = new Vector3(0, 0, 0);
-        }
-
         if (allowBtnPress)
         {
             DoBtnInput();
@@ -131,7 +125,7 @@ public class PlayerControls : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
-            Stop();
+            StopHorizontalMovement();
         }
     }
 
@@ -141,7 +135,7 @@ public class PlayerControls : MonoBehaviour
         {
             case KeyCode.A:
             case KeyCode.D:
-                Stop();
+                StopHorizontalMovement();
                 return;
         }
     }
@@ -177,11 +171,27 @@ public class PlayerControls : MonoBehaviour
     }
 
     /// <summary>
-    /// Stop the player from moving.
+    /// Stop the player from moving horizontally.
     /// </summary>
-    public void Stop()
+    public void StopHorizontalMovement()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+
+    /// <summary>
+    /// Stop the player from moving vertically.
+    /// </summary>
+    public void StopVerticalMovement()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0);
+    }
+
+    /// <summary>
+    /// Stops all velocity movements.
+    /// </summary>
+    public void StopAllMovement()
+    {
+        rb.velocity = new Vector2(0, 0);
     }
 
     /// <summary>
@@ -192,6 +202,6 @@ public class PlayerControls : MonoBehaviour
         allowBtnPress = boolean;
         allowClick = boolean;
         canJump(boolean);
-        Stop();
+        StopHorizontalMovement();
     }
 }

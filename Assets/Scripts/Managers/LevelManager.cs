@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public PauseManager pauseManager;
     public GameObject HPArea;
     public GhostTrackManager ghostTrackManager;
+    private Vector3 spawnPoint;
 
     public bool isLoading;
     private void Start()
@@ -21,6 +22,15 @@ public class LevelManager : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        if (playerControls.transform.position.y < -200)
+        {
+            playerControls.StopVerticalMovement();
+            playerControls.transform.position = spawnPoint;
+        }
+    }
+
     /// <summary>
     /// Change the scene by String. Will initiate fade transition.
     /// </summary>
@@ -28,6 +38,31 @@ public class LevelManager : MonoBehaviour
     public void LoadScene(string sceneName)
     {
         StartCoroutine("LoadingScene", sceneName);
+    }
+
+    public void LoadSceneByIndex(int index)
+    {
+        switch(index)
+        {
+            case 0:
+                LoadScene("Main Menu");
+                return;
+            case 1:
+                LoadScene("Level 1 - Ryan");
+                return;
+            case 2:
+                LoadScene("Level 2 - Max");
+                return;
+            case 3:
+                LoadScene("Level 3 - Irvine");
+                return;
+            case 4:
+                LoadScene("Level 4 - Josh");
+                return;
+            case 5:
+                LoadScene("Level 5 - Kin");
+                return;
+        }
     }
 
     IEnumerator LoadingScene(string sceneName)
@@ -57,6 +92,7 @@ public class LevelManager : MonoBehaviour
         }
 
         playerControls.allowBtnPress = true;
+        playerControls.canJump(SceneManager.GetActiveScene().buildIndex != 1);
         playerControls.allowClick = SceneManager.GetActiveScene().buildIndex != 1;
         isLoading = true;
     }
@@ -66,11 +102,17 @@ public class LevelManager : MonoBehaviour
         return isLoading;
     }
 
-    private void UpdateStuff(int ID)
+    public void UpdateStuff(int ID)
     {
         ghostTrackManager.playGhostTrack(ID);
         musicManager.playTrack(ID);
         playerControls.SetActive(ID != 0);
         HPArea.SetActive(ID != 0);
+        SetSpawnPoint(new Vector3(0, 0, 0));
+    }
+
+    public void SetSpawnPoint(Vector3 spawnPoint)
+    {
+        this.spawnPoint = spawnPoint;
     }
 }

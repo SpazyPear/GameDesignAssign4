@@ -29,6 +29,7 @@ public class EnvironmentTrigger : MonoBehaviour
                 //Destroy(cube, 2.0f); //Destroy in 2 seconds so it doesn't just stay there forever
                 break;
             case 1:
+                sceneOne();
                 break;
             case 2:
                 break;
@@ -50,5 +51,11 @@ public class EnvironmentTrigger : MonoBehaviour
             proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
             
         }
+    }
+
+    void sceneOne()
+    {
+        GameObject cube = Instantiate(projectile, new Vector3(player.transform.position.x, player.transform.position.y + 5, 0), Quaternion.identity); //Instantiate the cube above the players head
+        Destroy(cube, 2.0f); //Destroy in 2 seconds so it doesn't just stay there forever
     }
 }
