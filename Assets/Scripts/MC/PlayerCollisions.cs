@@ -69,6 +69,10 @@ public class PlayerCollisions : MonoBehaviour
             AsyncOperation loadingOperation = SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 3);
             // levelManager.GetComponent<LevelManager>().UpdateStuff(SceneManager.GetActiveScene().buildIndex);
             levelManager.GetComponent<LevelManager>().UpdateStuff(SceneManager.GetActiveScene().buildIndex);
+            if (SceneManager.GetActiveScene().buildIndex == 4)
+            {
+                wallJumpChip = true;
+            }
 
 
         }
