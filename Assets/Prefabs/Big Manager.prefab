@@ -376,7 +376,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1334769016
 BoxCollider2D:
@@ -425,7 +425,6 @@ MonoBehaviour:
   friction:
   - {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   - {fileID: 6200000, guid: 0748a470db316824f8510352b42bb304, type: 2}
-  coyoteTimer: 0
 --- !u!95 &4745657
 Animator:
   serializedVersion: 3
