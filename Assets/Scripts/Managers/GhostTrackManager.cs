@@ -7,7 +7,8 @@ public class GhostTrackManager : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GameObject.Find("SpectrualAnalyser").GetComponent<AudioSource>();
+        Debug.Log(audioSource);
     }
 
     /// <summary>
@@ -19,6 +20,7 @@ public class GhostTrackManager : MonoBehaviour
     {
         if (ID != 0)
         {
+            audioSource = GameObject.Find("SpectrualAnalyser").GetComponent<AudioSource>();
             audioSource.clip = musicTracks[ID]; //Play music according to scene ID
             audioSource.Play(); //Play music
         }

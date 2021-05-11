@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5399075727301687698, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: playerCollisions
+      value: 
+      objectReference: {fileID: 1938262622}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -448,3 +452,14 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935845629}
   m_CullTransparentMesh: 1
+--- !u!114 &1938262622 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5461611404639212974, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 185156680}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

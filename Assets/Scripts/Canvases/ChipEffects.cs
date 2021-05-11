@@ -6,6 +6,11 @@ public class ChipEffects : MonoBehaviour
     public FeetHitbox feetHitbox;
     public PlayerCollisions playerCollisions;
 
+    private void Start()
+    {
+        playerCollisions = GameObject.Find("MC").GetComponent<PlayerCollisions>();
+    }
+
     public void ApplyEffect(string effect)
     {
         switch(effect)
