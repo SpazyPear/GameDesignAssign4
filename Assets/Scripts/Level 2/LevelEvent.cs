@@ -4,7 +4,6 @@ public class LevelEvent : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject prefab;
-    public GameObject level2;
     private GameObject barrier;
     private Transform player;
     private PlayerControls controls;
@@ -14,7 +13,7 @@ public class LevelEvent : MonoBehaviour
     
     void Start()
     {
-        //barrier = GameObject.FindGameObjectWithTag("Barrier");
+        //barrier = GameObject.FindGameObjectWithTag("Barrier"); //Don't know the point of this
         player = GameObject.FindGameObjectWithTag("Player").transform;
         controls = player.GetComponent<PlayerControls>();
         flag = 0;
@@ -24,19 +23,16 @@ public class LevelEvent : MonoBehaviour
     void Update()
     {
         delta = Time.deltaTime; //needed?
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log(player.position);
+        }
         switch(flag)
         {
             case 0:
-                //Do you really need to make the variables? If you're going to only use these variables once
-                //Might as well sub it into the if condition and the location of where the boulder spawns.
-                float x = 156;
-                float yMin = 3;
-                float yMax = 10;
-                float boulderPosX = 151.41f;
-                float boulderPosY = 6.31f;
-                if (player.position.x <= x && player.position.y >= yMin && player.position.y <= yMax)
+                if (player.position.x >= 200 && player.position.y >= -1)
                 {
-                    level2 = Instantiate(prefab, new Vector3(boulderPosX, boulderPosY, 0), transform.rotation);
+                    GameObject level2 = Instantiate(prefab);
                     level2.SetActive(true);
                     flag++;
                 }

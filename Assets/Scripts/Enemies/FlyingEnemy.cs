@@ -1,60 +1,38 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FlyingEnemy : MonoBehaviour
 {
-
-    private PlayerControls player;
-
     public float movementSpeed;
-
-    public float playerRange;
-
-    public LayerMask playerLayer;
-
     public bool playerInRange;
-    public static bool musicCue;
+    public static bool musicCue; //Not sure what the point of this is
 
-    public bool musicFlyer;
+    private Transform playerPos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = FindObjectOfType<PlayerControls>();
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        playerInRange = Physics2D.OverlapCircle(transform.position, playerRange, playerLayer);
-
-        if (!musicFlyer)
+        if (playerInRange)
         {
-            if (playerInRange)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
-                return;
-            }
+            transform.position = Vector3.MoveTowards(transform.position, playerPos.position, movementSpeed * Time.deltaTime);
         }
-
-        if (musicFlyer)
-        {
-            if (musicCue)
-            {
-                if (playerInRange)
-                {
-                    transform.position = Vector3.MoveTowards(transform.position, player.transform.position, movementSpeed * Time.deltaTime);
-                    return;
-                }
-            }
-        }    
-
     }
 
-
-    void OnDrawGizmosSelected()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Gizmos.DrawSphere(transform.position, playerRange);
+        if (collision.CompareTag("Player"))
+        {
+            if (playerPos == null)
+            {
+                playerPos = collision.transform;
+            }
+            playerInRange = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            playerInRange = false;
+        }
     }
 }

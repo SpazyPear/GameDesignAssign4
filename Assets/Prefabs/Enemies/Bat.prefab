@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7762322399920857866}
   - component: {fileID: 7762322399920857867}
   - component: {fileID: 1188039413}
+  - component: {fileID: 2187164544603959299}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemy
@@ -158,9 +159,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 8
-  playerRange: 41
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 8
   playerInRange: 0
-  musicFlyer: 0
+--- !u!58 &2187164544603959299
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158993569839386553}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5
