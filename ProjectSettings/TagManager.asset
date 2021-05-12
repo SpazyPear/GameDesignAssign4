@@ -24,6 +24,7 @@ TagManager:
   - Projectile
   - Turret
   - LevelChanger
+  - climbable
   layers:
   - Default
   - TransparentFX

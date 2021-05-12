@@ -10,9 +10,11 @@ public class PlayerControls : MonoBehaviour
     public StatManager statManager;
 
     public float speed;
+    public float climbSpeed;
     public bool allowBtnPress = true;
     public bool allowClick = true;
     public bool allowPause = true;
+    public bool canClimb;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
 
@@ -53,7 +55,7 @@ public class PlayerControls : MonoBehaviour
 
     private void DoBtnInput()
     {
-        foreach (KeyCode key in new[] { KeyCode.A, KeyCode.D })
+        foreach (KeyCode key in new[] { KeyCode.A, KeyCode.D, KeyCode.W })
         {
             /*if (Input.GetKeyDown(key))
             {
@@ -86,6 +88,7 @@ public class PlayerControls : MonoBehaviour
                         float angle = (sprite.flipX) ? 180 : 0;
                         angle = Input.GetKey(KeyCode.W) ? 90 : angle;
                         atk.transform.eulerAngles = new Vector3(0, 0, angle);
+                        anim.SetTrigger("isAttacking");
                         return;
 
                     case 1: //Right click
@@ -122,6 +125,17 @@ public class PlayerControls : MonoBehaviour
             case KeyCode.D:
                 rb.velocity = new Vector2(speed, rb.velocity.y);
                 break;
+            case KeyCode.W:
+                if (canClimb)
+                {
+                    anim.SetBool("isClimbing", true);
+                    rb.velocity = new Vector2(rb.velocity.x, climbSpeed * Input.GetAxisRaw("Vertical"));
+                }
+                else
+                {
+                    anim.SetBool("isClimbing", false);
+                }
+                break;
         }
 
         if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
@@ -138,6 +152,9 @@ public class PlayerControls : MonoBehaviour
             case KeyCode.D:
                 StopHorizontalMovement();
                 return;
+            case KeyCode.W:
+                anim.SetBool("isClimbing", false);
+                break;
         }
     }
 
