@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelEvent : MonoBehaviour
@@ -8,49 +6,44 @@ public class LevelEvent : MonoBehaviour
     public GameObject prefab;
     public GameObject level2;
     private GameObject barrier;
-    private GameObject player = null;
+    private Transform player;
     private PlayerControls controls;
     private int flag;
 
     private float delta;
-
-    private float x = 156;
-    private float yMin = 3;
-    private float yMax = 10;
-
-    private float boulderPosX = 151.41f;
-    private float boulderPosY = 6.31f;
     
     void Start()
     {
-        barrier = GameObject.FindGameObjectWithTag("Barrier");
-
-        if (player == null)
-            player = GameObject.Find("MC");
-        
-        if (player == null)
-        {
-            player = GameObject.FindGameObjectWithTag("Player");
-        }
-
-        level2 = GameObject.FindGameObjectWithTag("Level Manager");
+        //barrier = GameObject.FindGameObjectWithTag("Barrier");
+        player = GameObject.FindGameObjectWithTag("Player").transform;
         controls = player.GetComponent<PlayerControls>();
-
-        //instatiatedObjs = new Dictionary<string, GameObject>();
-
-        //flag = 0;
+        flag = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //delta = Time.deltaTime 
-        if (player != null)
+        delta = Time.deltaTime; //needed?
+        switch(flag)
         {
-            if (player.transform.position.x <= x && player.transform.position.y >= yMin && player.transform.position.y <= yMax)
-            {
-                level2 = Instantiate(prefab, new Vector3(boulderPosX, boulderPosY, 0), transform.rotation);
-            }
+            case 0:
+                //Do you really need to make the variables? If you're going to only use these variables once
+                //Might as well sub it into the if condition and the location of where the boulder spawns.
+                float x = 156;
+                float yMin = 3;
+                float yMax = 10;
+                float boulderPosX = 151.41f;
+                float boulderPosY = 6.31f;
+                if (player.position.x <= x && player.position.y >= yMin && player.position.y <= yMax)
+                {
+                    level2 = Instantiate(prefab, new Vector3(boulderPosX, boulderPosY, 0), transform.rotation);
+                    level2.SetActive(true);
+                    flag++;
+                }
+                return;
+            default:
+                Destroy(gameObject);
+                return;
         }
     }
 }
