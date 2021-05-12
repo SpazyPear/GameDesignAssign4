@@ -7,6 +7,7 @@ public class PlayerControls : MonoBehaviour
     private Rigidbody2D rb;
     private FeetHitbox legs;
     public PauseManager pauseManager;
+    public StatManager statManager;
 
     public float speed;
     public bool allowBtnPress = true;

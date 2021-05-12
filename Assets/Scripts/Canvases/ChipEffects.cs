@@ -4,12 +4,7 @@ public class ChipEffects : MonoBehaviour
 {
     public PlayerControls playerControls;
     public FeetHitbox feetHitbox;
-    public PlayerCollisions playerCollisions;
-
-    private void Start()
-    {
-        playerCollisions = GameObject.Find("MC").GetComponent<PlayerCollisions>();
-    }
+    public WallJump wallJump;
 
     public void ApplyEffect(string effect)
     {
@@ -19,11 +14,8 @@ public class ChipEffects : MonoBehaviour
                 feetHitbox.maxJumps++;
                 return;
             case "WallJump":
-                playerCollisions.wallJumpChip = true;
+                wallJump.wallJumpChip = true;
                 break;
-
-
-
         }
     }
 
@@ -35,9 +27,8 @@ public class ChipEffects : MonoBehaviour
                 feetHitbox.maxJumps--;
                 return;
             case "WallJump":
-                playerCollisions.wallJumpChip = false;
+                wallJump.wallJumpChip = false;
                 break;
-
         }
     }
 }

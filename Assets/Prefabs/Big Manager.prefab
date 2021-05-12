@@ -48,6 +48,7 @@ MonoBehaviour:
   maxJumps: 1
   jumptimer: 0.25
   coyoteTimer: 0.1
+  canWallJump: 0
   canJump: 0
 --- !u!61 &2145972959
 BoxCollider2D:
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 1334769016}
   - component: {fileID: 1334769019}
   - component: {fileID: 4745657}
-  - component: {fileID: 5461611404639212974}
+  - component: {fileID: 6558096267071145689}
   m_Layer: 0
   m_Name: MC
   m_TagString: Player
@@ -314,7 +315,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307450229734811620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -418,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 6709429287491593936}
+  statManager: {fileID: 8197494884115484874}
   speed: 30
   allowBtnPress: 0
   allowClick: 0
@@ -445,7 +447,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5461611404639212974
+--- !u!114 &6558096267071145689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -457,11 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1307450229734811620}
-  statManager: {fileID: 8197494884115484868}
   wallJumpChip: 0
   feetHitbox: {fileID: 1210785893}
-  levelManager: {fileID: 7138956127348530268}
 --- !u!1 &2054315759730869769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControls: {fileID: 1334769019}
   feetHitbox: {fileID: 1210785893}
-  playerCollisions: {fileID: 0}
+  wallJump: {fileID: 6558096267071145689}
 --- !u!1 &9105037917004778087
 GameObject:
   m_ObjectHideFlags: 0

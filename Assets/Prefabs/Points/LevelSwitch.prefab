@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8987556021700152995}
   - component: {fileID: 1515088491689556618}
   - component: {fileID: -1166387006983549234}
+  - component: {fileID: 6861308732415977213}
   m_Layer: 0
   m_Name: LevelSwitch
   m_TagString: LevelChanger
@@ -99,3 +100,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6861308732415977213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 370526239895264536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eaccea23cefa89b4a84f7af202266fd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

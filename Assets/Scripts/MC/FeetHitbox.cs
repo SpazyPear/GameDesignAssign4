@@ -42,11 +42,13 @@ public class FeetHitbox : MonoBehaviour
             jumps -= 1;
             isFalling = true;
         }
+
         if (canJump)
         {
             spaceInput();
         }
-        if(canWallJump)
+
+        if (canWallJump)
         {
             wallJump();
         }
@@ -139,13 +141,12 @@ public class FeetHitbox : MonoBehaviour
         canJump = false;
         float oldG = rb.gravityScale;
         rb.gravityScale = 2;
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-                rb.AddForce(input*70, ForceMode2D.Impulse);
-            }
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            rb.AddForce(input*70, ForceMode2D.Impulse);
+        }
         rb.gravityScale = oldG;
         canJump = true;
-        
     }
 }

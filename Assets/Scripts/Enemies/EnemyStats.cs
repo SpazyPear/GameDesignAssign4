@@ -4,8 +4,9 @@ public class EnemyStats : MonoBehaviour
 {
     public int MHP;
     private int HP;
-    public float Spd;
+    public int damageStrength;
 
+    private StatManager statManager;
     void Start()
     {
         HP = MHP;
@@ -18,6 +19,18 @@ public class EnemyStats : MonoBehaviour
         if (HP < 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.tag.Contains("Player"))
+        {
+            if (statManager == null)
+            {
+                statManager = collision.transform.GetComponent<PlayerControls>().statManager;
+            }
+            statManager.changeHP(-damageStrength);
         }
     }
 }
