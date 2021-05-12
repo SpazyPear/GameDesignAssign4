@@ -24,6 +24,7 @@ TagManager:
   - Projectile
   - Turret
   - LevelChanger
+  - Hazard
   layers:
   - Default
   - TransparentFX
