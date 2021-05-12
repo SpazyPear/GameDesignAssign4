@@ -145,6 +145,7 @@ public class FeetHitbox : MonoBehaviour
         {
             Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             rb.AddForce(input*70, ForceMode2D.Impulse);
+            jumps = maxJumps - 1;
         }
         rb.gravityScale = oldG;
         canJump = true;

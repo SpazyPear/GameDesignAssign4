@@ -16,9 +16,6 @@ public class EnvironmentTrigger : MonoBehaviour
         }
         switch (SceneManager.GetActiveScene().buildIndex) //every case number is a different scene. Insert whatever you want that scenes trigger to do correlating the scene number to the level number.
         {
-            case 1:
-                sceneOne();
-                break;
             case 2:
                 break;
             case 3:
@@ -35,7 +32,7 @@ public class EnvironmentTrigger : MonoBehaviour
     {
         GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
         foreach (GameObject turret in turrets) {
-            GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x - 1, turret.GetComponent<Transform>().position.y, turret.GetComponent<Transform>().position.z), Quaternion.identity);
+            GameObject proj = Instantiate(projectile, new Vector3(turret.transform.position.x - 1, turret.transform.position.y, turret.transform.position.z), Quaternion.identity);
             proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
         }
     }

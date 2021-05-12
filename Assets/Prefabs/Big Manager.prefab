@@ -47,9 +47,9 @@ MonoBehaviour:
   jumpStr: 33
   maxJumps: 1
   jumptimer: 0.25
-  coyoteTimer: 0.1
+  coyoteTimer: 0.2
   canWallJump: 0
-  canJump: 0
+  canJump: 1
 --- !u!61 &2145972959
 BoxCollider2D:
   m_ObjectHideFlags: 0
