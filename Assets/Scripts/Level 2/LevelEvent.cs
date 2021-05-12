@@ -4,6 +4,7 @@ public class LevelEvent : MonoBehaviour
 {
     // Start is called before the first frame update
     public GameObject prefab;
+    public AudioSource explosion;
     private GameObject barrier;
     private Transform player;
     private PlayerControls controls;
@@ -13,7 +14,7 @@ public class LevelEvent : MonoBehaviour
     
     void Start()
     {
-        //barrier = GameObject.FindGameObjectWithTag("Barrier"); //Don't know the point of this
+       
         player = GameObject.FindGameObjectWithTag("Player").transform;
         controls = player.GetComponent<PlayerControls>();
         flag = 0;
@@ -22,7 +23,7 @@ public class LevelEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        delta = Time.deltaTime; //needed?
+        
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log(player.position);
@@ -30,9 +31,10 @@ public class LevelEvent : MonoBehaviour
         switch(flag)
         {
             case 0:
-                if (player.position.x >= 200 && player.position.y >= -1)
+                if (player.position.x >= 220 && player.position.y >= -1)
                 {
                     GameObject level2 = Instantiate(prefab);
+                    explosion.Play();
                     level2.SetActive(true);
                     flag++;
                 }
