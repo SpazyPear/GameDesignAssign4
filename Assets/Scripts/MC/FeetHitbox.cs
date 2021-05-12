@@ -20,6 +20,7 @@ public class FeetHitbox : MonoBehaviour
 
     private bool hasJumped = true;
     private bool onGround = false;
+    public bool canWallJump = false;
 
     public bool canJump;
     void Start()
@@ -31,7 +32,9 @@ public class FeetHitbox : MonoBehaviour
     }
 
     void Update()
+
     {
+       
         delta = Time.deltaTime;
         coyoteTime = (onGround) ? coyoteTimer : coyoteTime - delta;
         if (coyoteTime < 0 && !isFalling && !hasJumped)
@@ -39,11 +42,19 @@ public class FeetHitbox : MonoBehaviour
             jumps -= 1;
             isFalling = true;
         }
+
         if (canJump)
         {
             spaceInput();
         }
+
+        if (canWallJump)
+        {
+            wallJump();
+        }
+
         anim.SetBool("onGround", onGround);
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,6 +85,7 @@ public class FeetHitbox : MonoBehaviour
             case "Ground":
                 ResetJump();
                 return;
+
         }
     }
 
@@ -122,5 +134,19 @@ public class FeetHitbox : MonoBehaviour
         hasJumped = false;
         onGround = true;
         isFalling = false;
+    }
+
+    private void wallJump()
+    {
+        canJump = false;
+        float oldG = rb.gravityScale;
+        rb.gravityScale = 2;
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            rb.AddForce(input*70, ForceMode2D.Impulse);
+        }
+        rb.gravityScale = oldG;
+        canJump = true;
     }
 }

@@ -48,6 +48,7 @@ MonoBehaviour:
   maxJumps: 1
   jumptimer: 0.25
   coyoteTimer: 0.1
+  canWallJump: 0
   canJump: 0
 --- !u!61 &2145972959
 BoxCollider2D:
@@ -62,7 +63,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.01740764}
+  m_Offset: {x: 0, y: -0.01}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -73,7 +74,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7, y: 0.13518474}
+  m_Size: {x: 1.7, y: 0.11}
   m_EdgeRadius: 0
 --- !u!1 &296675255848144648
 GameObject:
@@ -283,7 +284,7 @@ GameObject:
   - component: {fileID: 1334769016}
   - component: {fileID: 1334769019}
   - component: {fileID: 4745657}
-  - component: {fileID: 5461611404639212974}
+  - component: {fileID: 6558096267071145689}
   m_Layer: 0
   m_Name: MC
   m_TagString: Player
@@ -377,7 +378,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1334769016
 BoxCollider2D:
@@ -418,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseManager: {fileID: 6709429287491593936}
+  statManager: {fileID: 8197494884115484874}
   speed: 30
   allowBtnPress: 0
   allowClick: 0
@@ -426,7 +428,6 @@ MonoBehaviour:
   friction:
   - {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   - {fileID: 6200000, guid: 0748a470db316824f8510352b42bb304, type: 2}
-  coyoteTimer: 0
 --- !u!95 &4745657
 Animator:
   serializedVersion: 3
@@ -446,7 +447,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &5461611404639212974
+--- !u!114 &6558096267071145689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -458,10 +459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1307450229734811620}
-  statManager: {fileID: 8197494884115484868}
   wallJumpChip: 0
-  feetHitbox: {fileID: 0}
+  feetHitbox: {fileID: 1210785893}
 --- !u!1 &2054315759730869769
 GameObject:
   m_ObjectHideFlags: 0
@@ -2516,7 +2515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerControls: {fileID: 1334769019}
   feetHitbox: {fileID: 1210785893}
-  playerCollisions: {fileID: 0}
+  wallJump: {fileID: 6558096267071145689}
 --- !u!1 &9105037917004778087
 GameObject:
   m_ObjectHideFlags: 0
