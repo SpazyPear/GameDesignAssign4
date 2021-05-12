@@ -8,7 +8,8 @@ public class EnvironmentTrigger : MonoBehaviour
     public GameObject player;
     public GameObject statManager;
     public bool canTrigger;
-   
+
+    //public FlyingEnemy flyingEnemy;
     
 
         private void Start()
@@ -32,6 +33,7 @@ public class EnvironmentTrigger : MonoBehaviour
                 sceneOne();
                 break;
             case 2:
+                sceneTwo();
                 break;
             case 3:
                 break;
@@ -41,6 +43,16 @@ public class EnvironmentTrigger : MonoBehaviour
             case 5:
                 break;
         }
+    }
+
+    void sceneTwo()
+    {
+        if (FlyingEnemy.musicCue == false)
+        { FlyingEnemy.musicCue = true; }
+
+        if (FlyingEnemy.musicCue == true)
+        { FlyingEnemy.musicCue = false; }    
+
     }
 
     void sceneFour()

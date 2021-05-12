@@ -34,6 +34,10 @@ public class PlayerCollisions : MonoBehaviour
             Destroy(collision.gameObject, 0f);
             statManager.GetComponent<StatManager>().changeHP(-1);
         }
+        if (collision.gameObject.tag == "Enemy")
+        {
+            statManager.GetComponent<StatManager>().changeHP(-1);
+        }
         if (collision.gameObject.tag == "Wall")
         {
             

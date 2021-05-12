@@ -6,7 +6,7 @@ public class PatrollingWallToWall : MonoBehaviour
 {
     public float enemyMovementSpeed = 3.0f;
     public bool enemyIsGoingRight = true;
-    public float raycastingDistance = 1f;
+    public float raycastingDistance = 2f;
 
     public int mAttackDamage = 2;
     public float timer = 5;
@@ -50,11 +50,11 @@ public class PatrollingWallToWall : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.transform.tag == "Wall" || hit.transform.tag == "Enemy")
+            if (hit.transform.tag == "Ground"  || hit.transform.tag == "Enemy" )
             {
                 enemyIsGoingRight = !enemyIsGoingRight;
                 _mSpriteRenderer.flipX = enemyIsGoingRight;
             }
-        }
+        }     
     }
 }

@@ -15,7 +15,7 @@ public class EnemyStats : MonoBehaviour
     {
         HP += amount;
         HP = (HP > MHP) ? MHP : HP;
-        if (HP < 0)
+        if (HP <= 0)
         {
             Destroy(gameObject);
         }
