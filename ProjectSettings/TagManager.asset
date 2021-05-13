@@ -25,6 +25,7 @@ TagManager:
   - Turret
   - LevelChanger
   - climbable
+  - block
   layers:
   - Default
   - TransparentFX
