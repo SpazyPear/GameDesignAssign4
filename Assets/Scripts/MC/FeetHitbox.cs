@@ -99,6 +99,10 @@ public class FeetHitbox : MonoBehaviour
                 groundContacts.Remove(collision);
                 onGround = !(groundContacts.Count == 0 || hasJumped);
                 return;
+            case "Turret":
+                groundContacts.Remove(collision);
+                onGround = !(groundContacts.Count == 0 || hasJumped);
+                return;
         }
     }
 
