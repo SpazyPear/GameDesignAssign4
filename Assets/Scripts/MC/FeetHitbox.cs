@@ -144,7 +144,7 @@ public class FeetHitbox : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            rb.AddForce(input*70, ForceMode2D.Impulse);
+            rb.AddForce(input*120, ForceMode2D.Impulse);
         }
         rb.gravityScale = oldG;
         canJump = true;
