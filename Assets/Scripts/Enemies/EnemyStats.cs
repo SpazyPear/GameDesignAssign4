@@ -16,10 +16,7 @@ public class EnemyStats : MonoBehaviour
     {
         HP += amount;
         HP = (HP > MHP) ? MHP : HP;
-        if (HP < 0)
-        {
-            Destroy(gameObject);
-        }
+        DoesEnemyDie();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -31,6 +28,15 @@ public class EnemyStats : MonoBehaviour
                 statManager = collision.transform.GetComponent<PlayerControls>().statManager;
             }
             statManager.changeHP(-damageStrength);
+            DoesEnemyDie();
+        }
+    }
+
+    private void DoesEnemyDie()
+    {
+        if (HP <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }
