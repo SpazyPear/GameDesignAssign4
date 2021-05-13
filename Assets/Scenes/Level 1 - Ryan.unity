@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 1237359323}
   - component: {fileID: 1237359325}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Level 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39647,9 +39647,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: description
-      value: 'Jump++
-
-        WallJump'
+      value: WallJump
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: upgradeName
@@ -39657,11 +39655,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: effects.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: effects.Array.data[0]
-      value: Jump++
+      value: WallJump
       objectReference: {fileID: 0}
     - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
       propertyPath: effects.Array.data[1]
