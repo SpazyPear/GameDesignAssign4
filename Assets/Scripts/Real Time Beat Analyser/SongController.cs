@@ -49,15 +49,17 @@ public class SongController : MonoBehaviour {
 					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 35f;
 					break;
 				case 4:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 35f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 20f;
 					break;
 				case 5:
 					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 43f;
 					break;
 
+				
+
 			}
 
-
+			Debug.Log(realTimeSpectralFluxAnalyzer.thresholdMultiplier);
 			this.sampleRate = AudioSettings.outputSampleRate;
 		}
 
