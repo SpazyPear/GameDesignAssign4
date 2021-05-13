@@ -8,7 +8,7 @@ public class GhostTrackManager : MonoBehaviour
     void Start()
     {
         audioSource = GameObject.Find("SpectrualAnalyser").GetComponent<AudioSource>();
-        Debug.Log(audioSource);
+        //Debug.Log(audioSource);
     }
 
     /// <summary>

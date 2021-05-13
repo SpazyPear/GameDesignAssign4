@@ -47,9 +47,9 @@ MonoBehaviour:
   jumpStr: 33
   maxJumps: 1
   jumptimer: 0.25
-  coyoteTimer: 0.1
+  coyoteTimer: 0.2
   canWallJump: 0
-  canJump: 0
+  canJump: 1
 --- !u!61 &2145972959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -405,7 +405,7 @@ BoxCollider2D:
   m_AutoTiling: 1
   serializedVersion: 2
   m_Size: {x: 1.9, y: 4.8}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.00000001
 --- !u!114 &1334769019
 MonoBehaviour:
   m_ObjectHideFlags: 0
