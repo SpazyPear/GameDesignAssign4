@@ -61,7 +61,7 @@ public class FeetHitbox : MonoBehaviour
     {
         switch (collision.transform.tag)
         {
-            case "FakeGround":
+            case "Fake Ground":
             case "Boulder":
             case "Ground":
                 groundContacts.Add(collision);
@@ -80,7 +80,7 @@ public class FeetHitbox : MonoBehaviour
     {
         switch (collision.tag)
         {
-            case "FakeGround":
+            case "Fake Ground":
             case "Boulder":
             case "Ground":
                 ResetJump();
@@ -93,7 +93,7 @@ public class FeetHitbox : MonoBehaviour
     {
         switch (collision.tag)
         {
-            case "FakeGround":
+            case "Fake Ground":
             case "Boulder":
             case "Ground":
                 groundContacts.Remove(collision);
