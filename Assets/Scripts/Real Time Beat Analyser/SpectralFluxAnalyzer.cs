@@ -114,7 +114,7 @@ public class SpectralFluxAnalyzer {
 	bool isPeak(int spectralFluxIndex) {
 		if (spectralFluxSamples [spectralFluxIndex].prunedSpectralFlux > spectralFluxSamples [spectralFluxIndex + 1].prunedSpectralFlux &&
 			spectralFluxSamples [spectralFluxIndex].prunedSpectralFlux > spectralFluxSamples [spectralFluxIndex - 1].prunedSpectralFlux) {
-			Debug.Log("peak");
+			//Debug.Log("peak");
 			environ.trigger();
 			return true;
 		}

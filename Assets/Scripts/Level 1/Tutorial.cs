@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tutorial : MonoBehaviour
 {
@@ -129,7 +130,10 @@ public class Tutorial : MonoBehaviour
                 {
                     Unload("Escape");
                     Load("Tutorial Save Point", 8);
-                    instantiatedObjs.Add("Tutorial Inventory", Instantiate(fabs[9], GameObject.FindGameObjectWithTag("Inventory Screen").transform));
+                    GameObject pause = GameObject.FindGameObjectWithTag("Inventory Screen");
+                    instantiatedObjs.Add("Tutorial Inventory", Instantiate(fabs[9], pause.transform));
+                    instantiatedObjs.Add("Tutorial Inventory On Ram", Instantiate(fabs[10], pause.transform));
+
                     tutorialChip = instantiatedObjs["Tutorial Save Point"].GetComponentInChildren<SpinEffect>().transform.gameObject;
                     flag++;
                 }
@@ -139,6 +143,7 @@ public class Tutorial : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Unload("Tutorial Inventory");
+                    Unload("Tutorial Inventory On Ram");
                     flag++;
                 }
                 return;
