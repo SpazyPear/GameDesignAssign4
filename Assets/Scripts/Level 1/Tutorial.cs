@@ -125,7 +125,7 @@ public class Tutorial : MonoBehaviour
                 return;
 
             case 10:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) && controls.allowPause)
                 {
                     Unload("Escape");
                     GameObject pause = GameObject.FindGameObjectWithTag("Inventory Screen");

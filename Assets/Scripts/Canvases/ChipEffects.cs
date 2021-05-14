@@ -19,6 +19,9 @@ public class ChipEffects : MonoBehaviour
             case "Higher Jump":
                 feetHitbox.jumpStr += 5;
                 return;
+            case "Increase Speed":
+                playerControls.speed += 10;
+                return;
         }
     }
 
@@ -34,6 +37,9 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "Higher Jump":
                 feetHitbox.jumpStr -= 5;
+                return;
+            case "Increase Speed":
+                playerControls.speed -= 10;
                 return;
         }
     }
