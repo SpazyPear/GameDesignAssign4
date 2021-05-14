@@ -12,10 +12,16 @@ public class ShieldbearerAI : MonoBehaviour
 
     private State currentState;
     private Animator anim;
-    private float detectionRange  = 25f;
 
     public GameObject player;
     private Vector3 playerPos;
+    
+    private float detectionRange  = 15.0f;
+    private float attackRange = 5.0f;
+    [SerializeField]
+    private Transform meleePos;
+    [SerializeField]
+    private float meleeRange;
 
     // Start is called before the first frame update
     void Start()
