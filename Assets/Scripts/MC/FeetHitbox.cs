@@ -21,6 +21,7 @@ public class FeetHitbox : MonoBehaviour
     private bool hasJumped = true;
     private bool onGround = false;
     public bool canWallJump = false;
+    private int wallJumps = 0;
 
     public bool canJump;
     void Start()
@@ -57,6 +58,14 @@ public class FeetHitbox : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Turret")
+        {
+            wallJumps = 0;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         switch (collision.transform.tag)
@@ -73,6 +82,16 @@ public class FeetHitbox : MonoBehaviour
                     ResetJump();
                 }
                 return;
+            case "Turret":
+                groundContacts.Add(collision);
+                Vector2 pos2 = transform.position;
+                pos2 = new Vector2(pos2.x, pos2.y - 0.1f);
+                RaycastHit2D hit2 = Physics2D.Raycast(pos2, Vector2.down, 0.01f);
+                if (hit2.collider != null)
+                {
+                    ResetJump();
+                }
+                return;
         }
     }
 
@@ -85,6 +104,7 @@ public class FeetHitbox : MonoBehaviour
             case "Ground":
                 ResetJump();
                 return;
+            
 
         }
     }
@@ -102,6 +122,16 @@ public class FeetHitbox : MonoBehaviour
             case "Turret":
                 groundContacts.Remove(collision);
                 onGround = !(groundContacts.Count == 0 || hasJumped);
+                return;
+            case "Wall":
+                groundContacts.Add(collision);
+                Vector2 pos2 = transform.position;
+                pos2 = new Vector2(pos2.x, pos2.y - 0.1f);
+                RaycastHit2D hit2 = Physics2D.Raycast(pos2, Vector2.down, 0.01f);
+                if (hit2.collider == null)
+                {
+                    ResetJump();
+                }
                 return;
         }
     }
@@ -138,17 +168,20 @@ public class FeetHitbox : MonoBehaviour
         hasJumped = false;
         onGround = true;
         isFalling = false;
+        wallJumps = 0;
     }
 
     private void wallJump()
     {
+        Debug.Log(wallJumps);
         canJump = false;
         float oldG = rb.gravityScale;
         rb.gravityScale = 2;
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && wallJumps < 2)
         {
             Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             rb.AddForce(input*120, ForceMode2D.Impulse);
+            wallJumps++;
         }
         rb.gravityScale = oldG;
         canJump = true;
