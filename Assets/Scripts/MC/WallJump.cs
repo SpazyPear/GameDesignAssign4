@@ -2,22 +2,29 @@ using UnityEngine;
 
 public class WallJump : MonoBehaviour
 {
-    public bool wallJumpChip;
-    public FeetHitbox feetHitbox;
+    public bool canWallJump = false;
+    private Jump jump;
+
+    private void Start()
+    {
+        jump = GetComponent<Jump>();
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.transform.CompareTag("Wall") && canWallJump)
         {
-            feetHitbox.canWallJump = wallJumpChip;
+            jump.jumps++;
+            jump.wallJumpState++;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Wall")
+        if (collision.gameObject.CompareTag("Wall"))
         {
-            feetHitbox.canWallJump = false;
+            jump.jumps -= (jump.wallJumpState == 1) ? 1 : 0;
+            jump.wallJumpState = 0;
         }
     }
 }

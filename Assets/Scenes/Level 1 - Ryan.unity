@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6141532133916608770, guid: abffe36f44a45964d820a625f8981efb, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6141532133916608770, guid: abffe36f44a45964d820a625f8981efb, type: 3}
       propertyPath: m_LocalScale.x
@@ -341,7 +341,7 @@ Transform:
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 1604482131}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &320304314
 PrefabInstance:
@@ -357,6 +357,10 @@ PrefabInstance:
     - target: {fileID: 2150148066022418231, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6558096267071145689, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
@@ -516,7 +520,7 @@ GameObject:
   - component: {fileID: 796346199}
   - component: {fileID: 796346198}
   - component: {fileID: 796346197}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fake Ground
   m_TagString: Fake Ground
   m_Icon: {fileID: 0}
@@ -1306,7 +1310,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1604482131}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1161128098
 MonoBehaviour:
@@ -1333,7 +1337,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 11.664429, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1344,7 +1348,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.658691, y: 12.148392}
+  m_Size: {x: 31.987549, y: 12.148392}
   m_EdgeRadius: 0
 --- !u!1 &1237359322
 GameObject:
@@ -47765,7 +47769,6 @@ Transform:
   - {fileID: 1842384735}
   - {fileID: 799289972}
   - {fileID: 439415488}
-  - {fileID: 2145230600}
   - {fileID: 300753767}
   - {fileID: 1991549819}
   - {fileID: 7244830870336416143}
@@ -47872,7 +47875,7 @@ GameObject:
   - component: {fileID: 1795716323}
   - component: {fileID: 1795716322}
   - component: {fileID: 1795716321}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -52293,97 +52296,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
   m_PrefabInstance: {fileID: 6010102938198391448}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1906768452
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1604482131}
-    m_Modifications:
-    - target: {fileID: 6010102939224010138, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_Name
-      value: Test
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 172
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 15.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: desc
-      value: Gives permission to any robot equipping this to use all thrust power
-        in their legs for further a boost. The thrust power will recharge by the
-        time they land.
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: weight
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: chipName
-      value: Test
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: description
-      value: WallJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: upgradeName
-      value: Double Jump
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: effects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: effects.Array.data[0]
-      value: WallJump
-      objectReference: {fileID: 0}
-    - target: {fileID: 6010102939224010141, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-      propertyPath: effects.Array.data[1]
-      value: WallJump
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
 --- !u!1 &1917293496
 GameObject:
   m_ObjectHideFlags: 0
@@ -58684,11 +58596,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6141532133916608770, guid: abffe36f44a45964d820a625f8981efb, type: 3}
   m_PrefabInstance: {fileID: 165964709}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &2145230600 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6010102939224010140, guid: 996a0a14977c7864aaa7455b62242b12, type: 3}
-  m_PrefabInstance: {fileID: 1906768452}
-  m_PrefabAsset: {fileID: 0}
 --- !u!58 &101625166335273799
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -59059,7 +58966,7 @@ RectTransform:
   - {fileID: 7244830870134373006}
   - {fileID: 7244830869768479092}
   m_Father: {fileID: 1604482131}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

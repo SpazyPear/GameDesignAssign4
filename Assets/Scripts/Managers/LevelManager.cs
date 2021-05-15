@@ -75,6 +75,7 @@ public class LevelManager : MonoBehaviour
         }
 
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
+        playerControls.transform.position = this.spawnPoint;
 
         transition.Play();
         while (transition.isOn)
