@@ -14,6 +14,7 @@ public class ShieldbearerAI : MonoBehaviour
     private Animator anim;
 
     public GameObject player;
+    public LayerMask targetMask;
     private Vector3 playerPos;
     
     private float detectionRange  = 15.0f;
@@ -27,23 +28,32 @@ public class ShieldbearerAI : MonoBehaviour
     [SerializeField]
     private float meleeRange;
 
-    // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
         currentState = State.Idle;
+        anim = GetComponent<Animator>();        
     }
-
-    // Update is called once per frame
+    
     void Update()
     {
         updatePlayerPos();
         detectPlayer();
-        setAllAnimBool();
-        if(isCurrently(State.Attacking)) attack();
-
+        updateAnimBools();
+        if(isCurrently(State.Attacking)){attack();}
     }
-    
+
+    // Checks if the unit's current state is <input>
+    bool isCurrently(State state){
+        return (currentState == state);
+    }
+
+    // Sets animator boolean parameters to match corresponding states
+    void updateAnimBools(){
+        anim.SetBool("isIdle", isCurrently(State.Idle));
+        anim.SetBool("isBlocking", isCurrently(State.Blocking));
+        anim.SetBool("isAttacking", isCurrently(State.Attacking));
+    }
+
     void updatePlayerPos(){
         playerPos = player.transform.position;
     }
@@ -52,25 +62,11 @@ public class ShieldbearerAI : MonoBehaviour
         if(Vector3.Distance(transform.position, playerPos) < detectionRange){
             // If the player is within detectionRange, ensure the unit is facing the player then act
             facePlayer();
-
             currentState = State.Attacking;
-            //currentState = State.Blocking;
         } else {
             // When the player is not detected, the unit calms down in Idle
             currentState = State.Idle;
         }
-    }
-
-    // Checks if the unit's current state is <input>
-    bool isCurrently(State state){
-        return (currentState == state);
-    }
-    
-    // Sets animator boolean parameters to match corresponding states
-    void setAllAnimBool(){
-        anim.SetBool("isIdle", isCurrently(State.Idle));
-        anim.SetBool("isBlocking", isCurrently(State.Blocking));
-        anim.SetBool("isAttacking", isCurrently(State.Attacking));
     }
 
     // Flips the sprite horizontally when the player is behind it so it faces the player
@@ -80,17 +76,33 @@ public class ShieldbearerAI : MonoBehaviour
         }
     }
 
+    void defend(){
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 10f, targetMask);
+        if(hit){
+            gameObject.GetComponent<EnemyStats>().damageStrength = 0; // Nullify damage
+            //Debug.Log("Blocking!");
+        } else {
+            gameObject.GetComponent<EnemyStats>().damageStrength = 1;
+        }
+    }
+
     void attack(){
         if((timeBtwAttack <= 0)){
-            Collider2D[] playerToHit = Physics2D.OverlapCircleAll(meleePos.position, meleeRange);
-            for(int i = 0; i < playerToHit.Length; i++){
-                if(playerToHit[i].gameObject.tag == "Player"){
-                    playerToHit[i].gameObject.GetComponent<StatManager>().changeHP(-damage);
-                }
-            }
+            //RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 2.0f, targetMask);
+            //if(hit){anim.SetTrigger("Attack");}
+            anim.SetTrigger("Attack");
             timeBtwAttack = startTimeBtwAttack;
         } else {
             timeBtwAttack -= Time.deltaTime;
         }
+    }
+
+    // The MeleeArea's Collider is what damages the player so activate it for a particular Attack frame
+    void attackHitboxOn(){ // Procs in the middle of the Attack animation
+        meleePos.gameObject.GetComponent<CircleCollider2D>().enabled = true;
+    }
+
+    void attackHitboxOff(){ // Procs at the end of the Attack animation
+        meleePos.gameObject.GetComponent<CircleCollider2D>().enabled = false;
     }
 }
