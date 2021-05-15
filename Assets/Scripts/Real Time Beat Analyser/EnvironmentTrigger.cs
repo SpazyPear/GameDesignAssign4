@@ -21,13 +21,16 @@ public class EnvironmentTrigger : MonoBehaviour
                 sceneOne();
                 break;
             case 2:
+                sceneOne();
                 break;
             case 3:
+                sceneOne();
                 break;
             case 4:
                 sceneFour();
                 break;
             case 5:
+                sceneOne();
                 break;
         }
     }
@@ -60,6 +63,7 @@ public class EnvironmentTrigger : MonoBehaviour
     void sceneOne()
     {
         GameObject cube = Instantiate(projectile, new Vector3(player.transform.position.x, player.transform.position.y + 5, 0), Quaternion.identity); //Instantiate the cube above the players head
+        cube.GetComponent<Rigidbody2D>().gravityScale = 5;
         Destroy(cube, 2.0f); //Destroy in 2 seconds so it doesn't just stay there forever
     }
 }
