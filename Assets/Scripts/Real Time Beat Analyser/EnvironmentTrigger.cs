@@ -19,9 +19,6 @@ public class EnvironmentTrigger : MonoBehaviour
         }
         switch (SceneManager.GetActiveScene().buildIndex) //every case number is a different scene. Insert whatever you want that scenes trigger to do correlating the scene number to the level number.
         {
-            case 1:
-                sceneOne();
-                break;
             case 2:
                 sceneTwo();
                 break;

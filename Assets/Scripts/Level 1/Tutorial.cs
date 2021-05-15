@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Tutorial : MonoBehaviour
 {
     public Transform level1;
-    private GameObject FakeGround;
+    public GameObject FakeGround;
     private GameObject player;
     private PlayerControls controls;
     private int flag;
@@ -18,7 +18,6 @@ public class Tutorial : MonoBehaviour
     private float timer;
     void Start()
     {
-        FakeGround = GameObject.FindGameObjectWithTag("Fake Ground");
         player = GameObject.FindGameObjectWithTag("Player");
         controls = player.GetComponent<PlayerControls>();
 
@@ -53,7 +52,7 @@ public class Tutorial : MonoBehaviour
 
             case 1:
                 flag++;
-                FakeGround.SetActive(false);
+                Destroy(FakeGround);
                 Load("Vines", 5);
                 return;
 
@@ -104,7 +103,7 @@ public class Tutorial : MonoBehaviour
             case 7:
                 if (instantiatedObjs["Boulder"].transform.position.y < - 20)
                 {
-                    timer = 0.5f;
+                    timer = 0.25f;
                     flag++;
                 }
                 return;
@@ -129,12 +128,10 @@ public class Tutorial : MonoBehaviour
                 if (Input.GetKeyDown(KeyCode.Escape))
                 {
                     Unload("Escape");
-                    Load("Tutorial Save Point", 8);
                     GameObject pause = GameObject.FindGameObjectWithTag("Inventory Screen");
-                    instantiatedObjs.Add("Tutorial Inventory", Instantiate(fabs[9], pause.transform));
-                    instantiatedObjs.Add("Tutorial Inventory On Ram", Instantiate(fabs[10], pause.transform));
+                    instantiatedObjs.Add("Tutorial Inventory", Instantiate(fabs[8], pause.transform));
+                    instantiatedObjs.Add("Tutorial Inventory On Ram", Instantiate(fabs[9], pause.transform));
 
-                    tutorialChip = instantiatedObjs["Tutorial Save Point"].GetComponentInChildren<SpinEffect>().transform.gameObject;
                     flag++;
                 }
                 return;
@@ -144,14 +141,6 @@ public class Tutorial : MonoBehaviour
                 {
                     Unload("Tutorial Inventory");
                     Unload("Tutorial Inventory On Ram");
-                    flag++;
-                }
-                return;
-
-            case 12:
-                if (tutorialChip == null)
-                {
-                    Unload("Tutorial Save Point");
                     flag++;
                 }
                 return;

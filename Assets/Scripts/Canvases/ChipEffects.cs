@@ -15,7 +15,10 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = true;
-                break;
+                return;
+            case "Higher Jump":
+                feetHitbox.jumpStr += 5;
+                return;
         }
     }
 
@@ -28,7 +31,10 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = false;
-                break;
+                return;
+            case "Higher Jump":
+                feetHitbox.jumpStr -= 5;
+                return;
         }
     }
 }
