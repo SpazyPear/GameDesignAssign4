@@ -61,7 +61,7 @@ public class FeetHitbox : MonoBehaviour
     {
         switch (collision.transform.tag)
         {
-            case "FakeGround":
+            case "Fake Ground":
             case "Boulder":
             case "Ground":
                 groundContacts.Add(collision);
@@ -85,6 +85,7 @@ public class FeetHitbox : MonoBehaviour
             case "Ground":
                 ResetJump();
                 return;
+
         }
     }
 
@@ -143,8 +144,7 @@ public class FeetHitbox : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            rb.AddForce(input*70, ForceMode2D.Impulse);
-            jumps = maxJumps - 1;
+            rb.AddForce(input*120, ForceMode2D.Impulse);
         }
         rb.gravityScale = oldG;
         canJump = true;

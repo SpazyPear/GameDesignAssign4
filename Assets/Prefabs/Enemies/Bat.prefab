@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 7762322399920857862}
   - component: {fileID: 7762322399920857866}
   - component: {fileID: 7762322399920857867}
+  - component: {fileID: 1188039413}
+  - component: {fileID: 2187164544603959299}
   m_Layer: 0
   m_Name: Bat
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,8 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1316d034cf589b45b5835a0a248c220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHP: 0
-  Spd: 0
+  MHP: 3
+  damageStrength: 3
 --- !u!61 &7762322399920857867
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -131,7 +133,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0009300858, y: 0.036979586}
+  m_Offset: {x: 0.0009300709, y: 0.07201542}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -142,5 +144,35 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.76885676, y: 0.2850601}
+  m_Size: {x: 0.76885676, y: 0.21498844}
   m_EdgeRadius: 0
+--- !u!114 &1188039413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158993569839386553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4add347f11315d4992a9c845eacf467, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 8
+  playerInRange: 0
+--- !u!58 &2187164544603959299
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5158993569839386553}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 5

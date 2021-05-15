@@ -8,6 +8,9 @@ public class EnvironmentTrigger : MonoBehaviour
     public GameObject statManager;
     public bool canTrigger;
 
+    //public FlyingEnemy flyingEnemy;
+    
+
     public void trigger()
     {
         if (!canTrigger)
@@ -17,6 +20,7 @@ public class EnvironmentTrigger : MonoBehaviour
         switch (SceneManager.GetActiveScene().buildIndex) //every case number is a different scene. Insert whatever you want that scenes trigger to do correlating the scene number to the level number.
         {
             case 2:
+                sceneTwo();
                 break;
             case 3:
                 break;
@@ -28,12 +32,25 @@ public class EnvironmentTrigger : MonoBehaviour
         }
     }
 
+    void sceneTwo()
+    {
+        if (FlyingEnemy.musicCue == false)
+        { FlyingEnemy.musicCue = true; }
+
+        if (FlyingEnemy.musicCue == true)
+        { FlyingEnemy.musicCue = false; }    
+
+    }
+
     void sceneFour()
     {
         GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
         foreach (GameObject turret in turrets) {
-            GameObject proj = Instantiate(projectile, new Vector3(turret.transform.position.x - 1, turret.transform.position.y, turret.transform.position.z), Quaternion.identity);
+            Debug.Log(turret.transform.position);
+            GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x - 1, turret.GetComponent<Transform>().position.y, turret.GetComponent<Transform>().position.z), Quaternion.identity);
+            proj.transform.parent = GameObject.Find("Level 4").transform;
             proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+            Destroy(proj, 5.0f);
         }
     }
 

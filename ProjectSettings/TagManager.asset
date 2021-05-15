@@ -24,11 +24,12 @@ TagManager:
   - Projectile
   - Turret
   - LevelChanger
+  - Hazard
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 
