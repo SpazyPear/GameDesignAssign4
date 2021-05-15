@@ -50,7 +50,7 @@ public class PatrollingWallToWall : MonoBehaviour
 
         if (hit.collider != null)
         {
-            if (hit.transform.tag == "Ground"  || hit.transform.tag == "Enemy" )
+            if (hit.transform.tag == "Ground"  || hit.transform.tag == "Enemy" || hit.transform.tag == "Hazard" )
             {
                 enemyIsGoingRight = !enemyIsGoingRight;
                 _mSpriteRenderer.flipX = enemyIsGoingRight;
