@@ -22,7 +22,7 @@ public class Tutorial : MonoBehaviour
         controls = player.GetComponent<PlayerControls>();
 
         instantiatedObjs = new Dictionary<string, GameObject>();
-        controls.SetPosition(0, 0, 0);
+        controls.transform.position = new Vector3(0, 0, 0);
         controls.allowBtnPress = true;
         controls.allowClick = false;
         Load("D", 0);
@@ -41,7 +41,7 @@ public class Tutorial : MonoBehaviour
         switch (flag) {
             case 0:
                 controls.canJump(false);
-                if (player.transform.position.x > 19)
+                if (player.transform.position.x > 17)
                 {
                     flag++;
                     controls.AllowInput(false);
@@ -125,7 +125,7 @@ public class Tutorial : MonoBehaviour
                 return;
 
             case 10:
-                if (Input.GetKeyDown(KeyCode.Escape))
+                if (Input.GetKeyDown(KeyCode.Escape) && controls.allowPause)
                 {
                     Unload("Escape");
                     GameObject pause = GameObject.FindGameObjectWithTag("Inventory Screen");
