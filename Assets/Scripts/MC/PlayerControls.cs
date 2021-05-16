@@ -12,11 +12,9 @@ public class PlayerControls : MonoBehaviour
     public StatManager statManager;
 
     public float speed;
-    public float climbSpeed;
-    public bool allowBtnPress = true;
-    public bool allowClick = true;
-    public bool allowPause = true;
-    public bool canClimb;
+    public bool allowBtnPress;
+    public bool allowClick;
+    public bool allowPause;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
 
@@ -50,10 +48,8 @@ public class PlayerControls : MonoBehaviour
         {
             DoMouseClick();
         }
-        anim.SetBool("isClimbing", canClimb);
-        rb.velocity = new Vector2(rb.velocity.x, (canClimb) ? climbSpeed * Input.GetAxisRaw("Vertical") : rb.velocity.y);
     }
-
+    
     private void DoMouseClick()
     {
         GameObject atk = Instantiate(attack);
@@ -62,7 +58,6 @@ public class PlayerControls : MonoBehaviour
         angle = Input.GetKey(KeyCode.W) ? 90 : angle;
         angle = Input.GetKey(KeyCode.S) && !legs.onGround ? 270 : angle;
         atk.transform.eulerAngles = new Vector3(0, 0, angle);
-        anim.SetTrigger("isAttacking");
     }
 
     public void DoPause()
