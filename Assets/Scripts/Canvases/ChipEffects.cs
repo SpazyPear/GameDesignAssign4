@@ -23,7 +23,7 @@ public class ChipEffects : MonoBehaviour
                 resetJump();
                 return;
             case "WallJump":
-                wallJump.canWallJump = true;
+                wallJump.wallJumpChip = true;
                 return;
             case "Higher Jump":
                 jump.jumpStr += 5;
@@ -43,7 +43,7 @@ public class ChipEffects : MonoBehaviour
                 resetJump();
                 return;
             case "WallJump":
-                wallJump.canWallJump = false;
+                wallJump.wallJumpChip = false;
                 return;
             case "Higher Jump":
                 jump.jumpStr -= 5;

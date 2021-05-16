@@ -3,7 +3,7 @@ using UnityEngine;
 public class WallJump : MonoBehaviour
 {
     public bool wallJumpChip;
-    public FeetHitbox feetHitbox;
+    public Jump feetHitbox;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

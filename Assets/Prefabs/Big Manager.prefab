@@ -339,7 +339,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canWallJump: 0
+  wallJumpChip: 0
+  feetHitbox: {fileID: 1657438612707992897}
 --- !u!114 &1657438612707992897
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -366,7 +367,8 @@ MonoBehaviour:
   canJump: 1
   strongGravity: 23
   weakGravity: 20
-  wallJumpState: 0
+  canWallJump: 0
+  wallJumps: 0
 --- !u!95 &4745657
 Animator:
   serializedVersion: 3
@@ -991,7 +993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1367ffa1775803140878e86c58d4592a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canvasManager: {fileID: 67316676998218666}
   inventoryScreen: {fileID: 8977110109958619108}
 --- !u!1 &5274935000195954981
 GameObject:

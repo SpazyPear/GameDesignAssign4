@@ -27,7 +27,8 @@ public class Jump : MonoBehaviour
     public float strongGravity;
     public float weakGravity;
 
-    public int wallJumpState = 0;
+    public bool canWallJump = false;
+    public int wallJumps = 0;
 
     void Start()
     {
@@ -59,22 +60,31 @@ public class Jump : MonoBehaviour
             ResetJump();
         }
 
+        if (canWallJump)
+        {
+            wallJump();
+        }
+
         anim.SetBool("onGround", onGround);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Turret")
+        {
+            wallJumps = 0;
+        }
+
     }
 
     private void spaceInput()
     {
         if (Input.GetKeyDown(KeyCode.Space) && (jumps > 0))
         {
-            jumps--;
-            if (wallJumpState == 1)
-            {
-                wallJumpState++;
-                jumps = maxJumps - 1;
-            }
+            rb.velocity = Vector2.up * jumpStr;
+            jumps -= 1;
             jumpcounter = jumptimer;
             hasJumped = true;
-            onGround = false;
         }
 
         if (Input.GetKey(KeyCode.Space))
@@ -98,6 +108,22 @@ public class Jump : MonoBehaviour
         jumpcounter = jumptimer;
         hasJumped = false;
         isFalling = false;
-        wallJumpState = 0;
+        wallJumps = 0;
+    }
+
+    private void wallJump()
+    {
+        Debug.Log(wallJumps);
+        canJump = false;
+        float oldG = rb.gravityScale;
+        rb.gravityScale = 2;
+        if (Input.GetKeyDown(KeyCode.Space) && wallJumps < 2)
+        {
+            Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            rb.AddForce(input * 120, ForceMode2D.Impulse);
+            wallJumps++;
+        }
+        rb.gravityScale = oldG;
+        canJump = true;
     }
 }
