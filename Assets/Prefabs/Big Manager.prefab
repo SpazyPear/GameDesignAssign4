@@ -994,6 +994,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryScreen: {fileID: 8977110109958619108}
+  trigger: {fileID: 492701279007868955}
 --- !u!1 &5274935000195954981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1465,7 +1466,7 @@ GameObject:
   - component: {fileID: 6518010838374748554}
   m_Layer: 0
   m_Name: SpectrualAnalyser
-  m_TagString: Untagged
+  m_TagString: SpectrualAnalyser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,7 +1607,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397a27e75fe1c9645b002d1ae7e3eb2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 267045899621898801, guid: 5a292cafdfa3e0846a17a431df80cffd, type: 3}
+  levelFourProjectile: {fileID: 267045899621898801, guid: 5a292cafdfa3e0846a17a431df80cffd, type: 3}
   player: {fileID: 1307450229734811620}
   statManager: {fileID: 8197494884115484868}
   canTrigger: 1

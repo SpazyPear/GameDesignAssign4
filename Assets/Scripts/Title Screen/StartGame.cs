@@ -29,7 +29,7 @@ public class StartGame : MonoBehaviour
     private void OnMouseDown()
     {
         SFX.Play(0);
-        levelManager.LoadSceneByIndex(levels[index]);
+        levelManager.LoadSceneByIndex(levels[index % levels.Length]);
         canvasManager.MouseVisibility(false);
         Destroy(this);
     }
@@ -41,12 +41,13 @@ public class StartGame : MonoBehaviour
 
     public void changeIndex(int amount)
     {
-        index = (index + amount) % levels.Length;
+        index += amount;
+        index = (index < 0) ? 4 : index;
         UpdateText();
     }
 
     private void UpdateText()
     {
-        text.text = "Start Level " + (index + 1);
+        text.text = "Start Level " + ((index % levels.Length) + 1);
     }
 }
