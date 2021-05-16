@@ -49,7 +49,7 @@ public class SongController : MonoBehaviour {
 					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 14f;
 					break;
 				case 4:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 14f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 15f;
 					break;
 				case 5:
 					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 22f;
