@@ -43,15 +43,18 @@ public class EnvironmentTrigger : MonoBehaviour
             GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
             foreach (GameObject turret in turrets)
             {
-                GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x - 1, turret.GetComponent<Transform>().position.y, turret.GetComponent<Transform>().position.z), Quaternion.identity);
-                proj.transform.parent = GameObject.Find("Level 4 Stuff").transform;
+                
                 if (turret.transform.parent.gameObject.name == "Down")
                 {
+                    GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x, turret.GetComponent<Transform>().position.y -4, turret.GetComponent<Transform>().position.z), Quaternion.identity);
+                    proj.transform.parent = GameObject.Find("Level 4 Stuff").transform;
                     proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -10), ForceMode2D.Impulse);
                     Destroy(proj, 2.0f);
                 }
                 else if (turret.transform.parent.gameObject.name == "Left")
                 {
+                    GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x - 4, turret.GetComponent<Transform>().position.y, turret.GetComponent<Transform>().position.z), Quaternion.identity);
+                    proj.transform.parent = GameObject.Find("Level 4 Stuff").transform;
                     proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
                     Destroy(proj, 5.0f);
                 }

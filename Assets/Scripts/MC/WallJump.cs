@@ -10,6 +10,7 @@ public class WallJump : MonoBehaviour
         if (collision.gameObject.tag == "Wall")
         {
             feetHitbox.canWallJump = wallJumpChip;
+            feetHitbox.wallJumps = 0;
         }
     }
 

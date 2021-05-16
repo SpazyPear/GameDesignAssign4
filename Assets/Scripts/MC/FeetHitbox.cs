@@ -5,6 +5,7 @@ public class FeetHitbox : MonoBehaviour
 {
     private Animator anim;
     private Rigidbody2D rb;
+
     private ArrayList groundContacts = new ArrayList();
     private float delta;
 
@@ -21,7 +22,7 @@ public class FeetHitbox : MonoBehaviour
     private bool hasJumped = true;
     private bool onGround = false;
     public bool canWallJump = false;
-    private int wallJumps = 0;
+    public int wallJumps = 0;
 
     public bool canJump;
     void Start()
@@ -35,7 +36,7 @@ public class FeetHitbox : MonoBehaviour
     void Update()
 
     {
-       
+        Debug.Log(wallJumps);
         delta = Time.deltaTime;
         coyoteTime = (onGround) ? coyoteTimer : coyoteTime - delta;
         if (coyoteTime < 0 && !isFalling && !hasJumped)
@@ -64,6 +65,7 @@ public class FeetHitbox : MonoBehaviour
         {
             wallJumps = 0;
         }
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

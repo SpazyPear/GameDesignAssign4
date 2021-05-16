@@ -37,22 +37,22 @@ public class SongController : MonoBehaviour {
 			switch (SceneManager.GetActiveScene().buildIndex)
             {
 				case 0:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 12f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 10f;
 					break;
 				case 1:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 12f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 10f;
 					break;
 				case 2:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 22f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 18f;
 					break;
 				case 3:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 17f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 14f;
 					break;
 				case 4:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 17f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 14f;
 					break;
 				case 5:
-					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 25f;
+					realTimeSpectralFluxAnalyzer.thresholdMultiplier = 22f;
 					break;
 
 				
