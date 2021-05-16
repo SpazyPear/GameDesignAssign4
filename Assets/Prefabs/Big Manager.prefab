@@ -240,7 +240,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307450229734811620}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -334,7 +334,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307450229734811620}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 492f69da3d99c3b44a0845f04e7ebbe0, type: 3}
   m_Name: 
@@ -366,6 +366,7 @@ MonoBehaviour:
   canJump: 1
   strongGravity: 23
   weakGravity: 20
+  wallJumpState: 0
 --- !u!95 &4745657
 Animator:
   serializedVersion: 3
@@ -807,7 +808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccf8f669342ed6446bf08a092c1cfc2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inventoryScreen: {fileID: 8977110109958619108}
 --- !u!114 &5302323182025403942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -991,6 +991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1367ffa1775803140878e86c58d4592a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasManager: {fileID: 67316676998218666}
   inventoryScreen: {fileID: 8977110109958619108}
 --- !u!1 &5274935000195954981
 GameObject:
@@ -1033,7 +1034,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.3647059, g: 0.3647059, b: 0.3647059, a: 0}
+  m_BackGroundColor: {r: 0.41960785, g: 0.41960785, b: 0.41960785, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1959,7 +1960,6 @@ MonoBehaviour:
   pauseManager: {fileID: 6709429287491593936}
   HPArea: {fileID: 5424157973627232812}
   ghostTrackManager: {fileID: 6518010838374748554}
-  isLoading: 0
 --- !u!1 &8024070365901433431
 GameObject:
   m_ObjectHideFlags: 0

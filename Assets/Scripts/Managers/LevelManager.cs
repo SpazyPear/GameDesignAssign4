@@ -12,7 +12,6 @@ public class LevelManager : MonoBehaviour
     public GhostTrackManager ghostTrackManager;
     private Vector3 spawnPoint;
 
-    public bool isLoading;
     private void Start()
     {
         ghostTrackManager = GameObject.Find("SpectrualAnalyser").GetComponent<GhostTrackManager>();
@@ -56,7 +55,6 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LoadingScene(string sceneName, int index)
     {
-        isLoading = true;
         playerControls.AllowInput(false);
 
         transition.Play();
@@ -86,12 +84,6 @@ public class LevelManager : MonoBehaviour
         playerControls.allowBtnPress = true;
         playerControls.canJump(SceneManager.GetActiveScene().buildIndex != 1);
         playerControls.allowClick = SceneManager.GetActiveScene().buildIndex != 1;
-        isLoading = true;
-    }
-
-    public bool LoadingStatus()
-    {
-        return isLoading;
     }
 
     /// <summary>
