@@ -1,15 +1,15 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class EnvironmentTrigger : MonoBehaviour
 {
-    public GameObject projectile;
+    public GameObject levelFourProjectile;
     public GameObject player;
     public GameObject statManager;
     public bool canTrigger;
 
-    //public FlyingEnemy flyingEnemy;
-    
+    private List<GameObject> turrets = new List<GameObject>(); //For level 4
 
     public void trigger()
     {
@@ -19,44 +19,37 @@ public class EnvironmentTrigger : MonoBehaviour
         }
         switch (SceneManager.GetActiveScene().buildIndex) //every case number is a different scene. Insert whatever you want that scenes trigger to do correlating the scene number to the level number.
         {
-            case 2:
-                sceneTwo();
-                break;
-            case 3:
-                break;
             case 4:
                 sceneFour();
                 break;
-            case 5:
-                break;
         }
-    }
-
-    void sceneTwo()
-    {
-        if (FlyingEnemy.musicCue == false)
-        { FlyingEnemy.musicCue = true; }
-
-        if (FlyingEnemy.musicCue == true)
-        { FlyingEnemy.musicCue = false; }    
-
     }
 
     void sceneFour()
     {
-        GameObject[] turrets = GameObject.FindGameObjectsWithTag("Turret");
-        foreach (GameObject turret in turrets) {
-            Debug.Log(turret.transform.position);
-            GameObject proj = Instantiate(projectile, new Vector3(turret.GetComponent<Transform>().position.x - 1, turret.GetComponent<Transform>().position.y, turret.GetComponent<Transform>().position.z), Quaternion.identity);
-            proj.transform.parent = GameObject.Find("Level 4").transform;
-            proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
-            Destroy(proj, 5.0f);
+        GameObject proj;
+        foreach (GameObject turret in turrets)
+        {
+            Vector3 pos = turret.transform.position;
+            switch(turret.transform.parent.name)
+            {
+                case "Down":
+                    proj = Instantiate(levelFourProjectile, new Vector3(pos.x, pos.y - 4, pos.z), Quaternion.identity, turret.transform);
+                    proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -10), ForceMode2D.Impulse);
+                    Destroy(proj, 2.0f);
+                    break;
+
+                case "Left":
+                    proj = Instantiate(levelFourProjectile, new Vector3(pos.x - 4, pos.y, pos.z), Quaternion.identity, turret.transform);
+                    proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+                    Destroy(proj, 5.0f);
+                    break;
+            }
         }
     }
 
-    void sceneOne()
+    public void addTurret(GameObject turret)
     {
-        GameObject cube = Instantiate(projectile, new Vector3(player.transform.position.x, player.transform.position.y + 5, 0), Quaternion.identity); //Instantiate the cube above the players head
-        Destroy(cube, 2.0f); //Destroy in 2 seconds so it doesn't just stay there forever
+        turrets.Add(turret);
     }
 }

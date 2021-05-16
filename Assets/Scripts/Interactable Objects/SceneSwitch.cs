@@ -10,7 +10,10 @@ public class SceneSwitch : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        levelManager.LoadNextScene();
-        Destroy(gameObject);
+        if (collision.CompareTag("Player"))
+        {
+            levelManager.LoadNextScene();
+            Destroy(gameObject);
+        }
     }
 }

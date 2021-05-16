@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CanvasManager : MonoBehaviour
 {
-    public GameObject inventoryScreen;
+    //public GameObject inventoryScreen;
 
-    void Update()
+    public void MouseVisibility(bool boolean)
     {
-        Cursor.visible = inventoryScreen.activeSelf;
+        Cursor.visible = boolean;
     }
 }

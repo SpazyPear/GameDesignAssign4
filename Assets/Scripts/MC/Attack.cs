@@ -20,6 +20,7 @@ public class Attack : MonoBehaviour
         switch (collision.tag)
         {
             case "Enemy":
+                
                 collision.GetComponent<EnemyStats>().changeHP(-str);
                 return;
 
@@ -29,5 +30,6 @@ public class Attack : MonoBehaviour
                 rb.AddForce(new Vector2(1000, 50), ForceMode2D.Impulse);
                 return;
         }
+        lifeSpan = 0;
     }
 }
