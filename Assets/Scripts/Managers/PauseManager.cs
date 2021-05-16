@@ -4,6 +4,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     public GameObject inventoryScreen;
+    public EnvironmentTrigger trigger;
     private Screens screens;
     private List<GameObject> objs = new List<GameObject>();
 
@@ -20,6 +21,7 @@ public class PauseManager : MonoBehaviour
 
     public void SetPauseState(bool boolean)
     {
+        trigger.canTrigger = !boolean;
         foreach (GameObject obj in objs)
         {
             obj.SetActive(!boolean);

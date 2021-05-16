@@ -24,6 +24,7 @@ TagManager:
   - Projectile
   - Turret
   - LevelChanger
+  - SpectrualAnalyser
   layers:
   - Default
   - TransparentFX
