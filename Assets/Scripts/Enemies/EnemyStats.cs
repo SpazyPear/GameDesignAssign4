@@ -3,8 +3,9 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public int MHP;
-    private int HP;
+    public int HP;
     public int damageStrength;
+    public GameObject parentobj;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class EnemyStats : MonoBehaviour
     {
         if (HP <= 0)
         {
-            Destroy(gameObject);
+            Destroy(parentobj == null ? gameObject : parentobj);
         }
     }
 }

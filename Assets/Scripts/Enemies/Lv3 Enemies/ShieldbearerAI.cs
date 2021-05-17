@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShieldbearerAI : MonoBehaviour
@@ -12,7 +10,6 @@ public class ShieldbearerAI : MonoBehaviour
 
     private State currentState;
     private Animator anim;
-    private EnemyStats stats;
 
     public GameObject player;
     public LayerMask targetMask;
@@ -28,12 +25,16 @@ public class ShieldbearerAI : MonoBehaviour
     [SerializeField]
     private float meleeRange;
 
+    private EnemyStats stats;
+    private InTerritory inTerritory;
+
     void Start()
     {
         currentState = State.Idle;
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
-        stats = GetComponent<EnemyStats>();        
+        stats = GetComponent<EnemyStats>();
+        inTerritory = GetComponent<InTerritory>();
     }
     
     void Update()
@@ -108,10 +109,13 @@ public class ShieldbearerAI : MonoBehaviour
         meleePos.gameObject.GetComponent<CircleCollider2D>().enabled = false;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if(other.transform.CompareTag("Attack")){
-            stats.changeHP(-other.GetComponent<Attack>().str);
-            Destroy(other);
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Attack"))
+        {
+            stats.changeHP(-collision.transform.GetComponent<Attack>().str);
+            Debug.Log(stats.HP);
+            Destroy(collision.gameObject);
         }
     }
 }
