@@ -5,9 +5,7 @@ public class EnemyStats : MonoBehaviour
     public int MHP;
     private int HP;
     public int damageStrength;
-    public bool invincible;
 
-    private StatManager statManager;
     void Start()
     {
         HP = MHP;
@@ -18,19 +16,6 @@ public class EnemyStats : MonoBehaviour
         HP += amount;
         HP = (HP > MHP) ? MHP : HP;
         DoesEnemyDie();
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.transform.tag.Contains("Player") && !invincible)
-        {
-            if (statManager == null)
-            {
-                statManager = collision.transform.GetComponent<PlayerControls>().statManager;
-            }
-            statManager.changeHP(-damageStrength);
-            DoesEnemyDie();
-        }
     }
 
     private void DoesEnemyDie()
