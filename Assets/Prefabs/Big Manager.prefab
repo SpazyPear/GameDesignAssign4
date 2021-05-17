@@ -2488,6 +2488,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1307450229734811620}
+  wallJumpPlayerMat: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
 --- !u!1 &9105037917004778087
 GameObject:
   m_ObjectHideFlags: 0
