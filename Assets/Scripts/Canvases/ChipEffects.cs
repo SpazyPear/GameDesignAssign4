@@ -1,5 +1,5 @@
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class ChipEffects : MonoBehaviour
 {
@@ -7,20 +7,20 @@ public class ChipEffects : MonoBehaviour
     private PlayerControls playerControls;
     private Jump jump;
     private WallJump wallJump;
-    private Rigidbody2D rb;
     public PhysicsMaterial2D wallJumpPlayerMat;
+
+    private List<GameObject> atkTypes = new List<GameObject>();
+    public GameObject[] attacks;
 
     private void Start()
     {
         playerControls = player.GetComponent<PlayerControls>();
         jump = player.GetComponent<Jump>();
         wallJump = player.GetComponent<WallJump>();
-        rb = player.GetComponent<Rigidbody2D>();
-       /* if (SceneManager.GetActiveScene().buildIndex == 4)
-            if (GameObject.Find("Upgrade Chip") != null)
-                Debug.Log("test");
-                 wallJumpPlayerMat.friction = (GameObject.Find("Upgrade Chip") != null)  ? 0f : 0.035f; */
-
+        foreach (GameObject atk in attacks)
+        {
+            atkTypes.Add(atk);
+        }
     }
 
     public void ApplyEffect(string effect)
@@ -40,6 +40,9 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "Increase Speed":
                 playerControls.speed += 10;
+                return;
+            case "Shoot":
+                playerControls.attack = atkTypes[1];
                 return;
         }
     }
@@ -61,6 +64,9 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "Increase Speed":
                 playerControls.speed -= 10;
+                return;
+            case "Shoot":
+                playerControls.attack = atkTypes[0];
                 return;
         }
     }

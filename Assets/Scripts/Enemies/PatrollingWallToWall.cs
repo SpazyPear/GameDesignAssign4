@@ -1,60 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrollingWallToWall : MonoBehaviour
 {
     public float enemyMovementSpeed = 3.0f;
-    public bool enemyIsGoingRight = true;
-    public float raycastingDistance = 2f;
+    public bool goingRight;
 
-    public int mAttackDamage = 2;
-    public float timer = 5;
-
-    private SpriteRenderer _mSpriteRenderer;
-
-    [SerializeField] Animator enemyAnim;
+    private Rigidbody2D rb;
+    private SpriteRenderer sprite;
+    private EnemyStats enemyStats;
 
     void Start()
     {
-        _mSpriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-        _mSpriteRenderer.flipX = enemyIsGoingRight;
-
-        enemyAnim = gameObject.GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
+        enemyStats = GetComponent<EnemyStats>();
+        sprite = GetComponent<SpriteRenderer>();
+        flip();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        //if enemy goes right get vector pointing right
-        Vector3 directionTranslation = (enemyIsGoingRight) ? transform.right : -transform.right;
-        directionTranslation *= Time.deltaTime * enemyMovementSpeed;
-
-        transform.Translate(directionTranslation);
-
-        CheckForWalls();
-
-        if (timer == 0)
+        rb.velocity = new Vector2((goingRight ? 1 : -1) * enemyMovementSpeed, 0);
+        if (rb.velocity.x == 0)
         {
-            //attack
+            flip();
         }
     }
 
-    private void CheckForWalls()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Vector3 raycastDirection = (enemyIsGoingRight) ? Vector3.right : Vector3.left;
-
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + raycastDirection * raycastingDistance - new Vector3(0f, 0.25f, 0f), raycastDirection, 0.075f);
-
-        if (hit.collider != null)
+        switch(collision.transform.tag)
         {
-            if (hit.transform.tag == "Ground"  || hit.transform.tag == "Enemy" || hit.transform.tag == "Hazard" )
-            {
-                enemyIsGoingRight = !enemyIsGoingRight;
-                _mSpriteRenderer.flipX = enemyIsGoingRight;
-            }
-        }     
+            case "Enemy":
+            case "Hazard":
+            case "Wall":
+                flip();
+                return;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Attack"))
+        {
+            enemyStats.changeHP(-collision.GetComponent<Attack>().str);
+        }
+    }
+
+    void flip()
+    {
+        goingRight = !goingRight;
+        sprite.flipX = goingRight;
     }
 }
