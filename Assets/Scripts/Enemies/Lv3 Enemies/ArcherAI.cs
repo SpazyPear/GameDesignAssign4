@@ -6,6 +6,7 @@ public class ArcherAI : MonoBehaviour
 {
     
     private Animator anim;
+    private EnemyStats stats;
 
     public GameObject player;
     private Vector3 playerPos;
@@ -23,6 +24,7 @@ public class ArcherAI : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         player = GameObject.FindWithTag("Player");
+        stats = GetComponent<EnemyStats>();
     }
 
     // Update is called once per frame
@@ -54,5 +56,12 @@ public class ArcherAI : MonoBehaviour
 
     void shoot(){
         Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.transform.CompareTag("Attack")){
+            stats.changeHP(-other.GetComponent<Attack>().str);
+            Destroy(other);
+        }
     }
 }

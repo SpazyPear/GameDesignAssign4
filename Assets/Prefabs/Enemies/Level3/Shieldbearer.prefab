@@ -174,9 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1316d034cf589b45b5835a0a248c220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHP: 3
+  MHP: 7
   damageStrength: 1
-  invincible: 0
 --- !u!1 &3201063667119631202
 GameObject:
   m_ObjectHideFlags: 0

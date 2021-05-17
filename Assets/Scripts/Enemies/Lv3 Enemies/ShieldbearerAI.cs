@@ -12,6 +12,7 @@ public class ShieldbearerAI : MonoBehaviour
 
     private State currentState;
     private Animator anim;
+    private EnemyStats stats;
 
     public GameObject player;
     public LayerMask targetMask;
@@ -31,7 +32,8 @@ public class ShieldbearerAI : MonoBehaviour
     {
         currentState = State.Idle;
         anim = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");        
+        player = GameObject.FindWithTag("Player");
+        stats = GetComponent<EnemyStats>();        
     }
     
     void Update()
@@ -79,10 +81,10 @@ public class ShieldbearerAI : MonoBehaviour
     void defend(){
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 10f, targetMask);
         if(hit){
-            gameObject.GetComponent<EnemyStats>().invincible = true; // Nullify damage
+            //gameObject.GetComponent<EnemyStats>().invincible = true; // Nullify damage
             //Debug.Log("Blocking!");
         } else {
-            gameObject.GetComponent<EnemyStats>().invincible = false;
+            //gameObject.GetComponent<EnemyStats>().invincible = false;
         }
     }
 
@@ -104,5 +106,12 @@ public class ShieldbearerAI : MonoBehaviour
 
     void attackHitboxOff(){ // Procs at the end of the Attack animation
         meleePos.gameObject.GetComponent<CircleCollider2D>().enabled = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.transform.CompareTag("Attack")){
+            stats.changeHP(-other.GetComponent<Attack>().str);
+            Destroy(other);
+        }
     }
 }
