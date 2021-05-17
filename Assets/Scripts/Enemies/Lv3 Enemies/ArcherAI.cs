@@ -14,7 +14,7 @@ public class ArcherAI : MonoBehaviour
     public Transform firePoint; // Point of source for arrow projectile
     public GameObject arrowPrefab;
 
-    private float range = 20.0f; // Detection range = attack range
+    private float range = 30.0f; // Detection range = attack range
     private float attackSpeed = 3.0f; // Affects how often the Archer shoots
     private float nextShot;
 
