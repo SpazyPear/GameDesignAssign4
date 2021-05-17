@@ -1,0 +1,7 @@
+0 - Ceiling
+1 - Ceiling corner
+2 - Ground inside corner
+3 - Ground
+4 - Ground corner connector
+5 - Wall
+6 - Ground outside corner

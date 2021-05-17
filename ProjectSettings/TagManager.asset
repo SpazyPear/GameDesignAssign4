@@ -25,7 +25,6 @@ TagManager:
   - Turret
   - LevelChanger
   - SpectrualAnalyser
-  - Attack
   layers:
   - Default
   - TransparentFX

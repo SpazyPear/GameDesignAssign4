@@ -3,14 +3,13 @@ using UnityEngine.UI;
 
 public class ArrowButton : MonoBehaviour
 {
-    private Image state;
+    public Image state;
     public Sprite[] hoverStates;
     public StartGame startGame;
     public int amount;
 
     private void Start()
     {
-        state = GetComponent<Image>();
         state.sprite = hoverStates[0];
     }
     private void OnMouseEnter()

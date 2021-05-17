@@ -84,7 +84,6 @@ public class LevelManager : MonoBehaviour
         playerControls.allowBtnPress = true;
         playerControls.canJump(SceneManager.GetActiveScene().buildIndex != 1);
         playerControls.allowClick = SceneManager.GetActiveScene().buildIndex != 1;
-        Cursor.visible = SceneManager.GetActiveScene().buildIndex == 0;
     }
 
     /// <summary>

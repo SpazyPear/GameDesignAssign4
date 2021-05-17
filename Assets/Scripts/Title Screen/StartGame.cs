@@ -4,17 +4,18 @@ using UnityEngine.UI;
 public class StartGame : MonoBehaviour
 {
     private LevelManager levelManager;
+    private CanvasManager canvasManager;
     private SFXManager SFX;
     public Text text;
-    private Image state;
+    public Image state;
     public Sprite[] hoverStates;
     private int[] levels = { 1, 2, 3, 4, 5 };
     private int index = 0;
 
     private void Start()
     {
-        state = GetComponent<Image>();
         levelManager = GameObject.FindGameObjectWithTag("Level Manager").GetComponent<LevelManager>();
+        canvasManager = GameObject.FindGameObjectWithTag("Canvas Manager").GetComponent<CanvasManager>();
         SFX = GameObject.FindGameObjectWithTag("SFX Manager").GetComponent<SFXManager>();
         state.sprite = hoverStates[0];
         UpdateText();
@@ -29,7 +30,7 @@ public class StartGame : MonoBehaviour
     {
         SFX.Play(0);
         levelManager.LoadSceneByIndex(levels[index % levels.Length]);
-        Cursor.visible = false;
+        canvasManager.MouseVisibility(false);
         Destroy(this);
     }
 
