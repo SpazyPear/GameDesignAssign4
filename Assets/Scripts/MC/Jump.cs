@@ -54,7 +54,7 @@ public class Jump : MonoBehaviour
             spaceInput();
         }
 
-        onGround = Physics2D.OverlapBox(feet.position, new Vector2(1f, 0.1f), 0, groundDetection);
+        onGround = Physics2D.OverlapBox(feet.position, new Vector2(0.9f, 0.1f), 0, groundDetection);
         if (onGround && rb.velocity.y == 0)
         {
             ResetJump();
@@ -81,7 +81,6 @@ public class Jump : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && (jumps > 0))
         {
-            rb.velocity = Vector2.up * jumpStr;
             jumps -= 1;
             jumpcounter = jumptimer;
             hasJumped = true;
@@ -91,7 +90,7 @@ public class Jump : MonoBehaviour
         {
             if (jumpcounter > 0 && hasJumped)
             {
-                rb.velocity = Vector2.up * jumpStr;
+                rb.velocity = new Vector2(rb.velocity.x, jumpStr);
                 jumpcounter -= delta;
             }
         }
