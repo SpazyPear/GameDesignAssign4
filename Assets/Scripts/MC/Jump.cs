@@ -54,7 +54,7 @@ public class Jump : MonoBehaviour
             spaceInput();
         }
 
-        onGround = Physics2D.OverlapBox(feet.position, new Vector2(1f, 0.1f), 0, groundDetection);
+        onGround = Physics2D.OverlapBox(feet.position, new Vector2(0.9f, 0.1f), 0, groundDetection);
         if (onGround && rb.velocity.y == 0)
         {
             ResetJump();
