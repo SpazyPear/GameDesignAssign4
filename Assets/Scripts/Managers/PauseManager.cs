@@ -21,6 +21,7 @@ public class PauseManager : MonoBehaviour
 
     public void SetPauseState(bool boolean)
     {
+        Cursor.visible = boolean;
         trigger.canTrigger = !boolean;
         foreach (GameObject obj in objs)
         {

@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArrowButton : MonoBehaviour
+public class ReturnToTitle : MonoBehaviour
 {
+    public PlayerControls playerControls;
+    public LevelManager levelManager;
     private Image state;
     public Sprite[] hoverStates;
-    public StartGame startGame;
-    public int amount;
 
     private void Start()
     {
@@ -20,7 +20,8 @@ public class ArrowButton : MonoBehaviour
 
     private void OnMouseDown()
     {
-        startGame.changeIndex(amount);
+        levelManager.LoadSceneByIndex(0);
+        playerControls.DoPause();
     }
 
     private void OnMouseExit()
