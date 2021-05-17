@@ -366,6 +366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MHP: 3
   damageStrength: 1
+  invincible: 0
 --- !u!50 &780287379
 Rigidbody2D:
   serializedVersion: 4
@@ -432,7 +433,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1307450229734811620, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3259225122909177690, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3873224678658043227, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -444,7 +449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5274935000195954981, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
@@ -45786,6 +45791,10 @@ PrefabInstance:
     - target: {fileID: 481102535920853823, guid: dbde4b6da20d56f49b37fdf146bfa3a3, type: 3}
       propertyPath: m_Tiles.Array.data[2455].second.m_TileObjectToInstantiateIndex
       value: 65535
+      objectReference: {fileID: 0}
+    - target: {fileID: 2039836812391981556, guid: dbde4b6da20d56f49b37fdf146bfa3a3, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3530400900904220984, guid: dbde4b6da20d56f49b37fdf146bfa3a3, type: 3}
       propertyPath: m_Size.x
