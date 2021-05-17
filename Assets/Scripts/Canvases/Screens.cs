@@ -39,10 +39,10 @@ public class Screens : MonoBehaviour
                 maxMem = 70;
                 break;
             case 4:
-                maxMem = 60;
+                maxMem = 50;
                 break;
             case 5:
-                maxMem = 40;
+                maxMem = 0;
                 break;
 
 
