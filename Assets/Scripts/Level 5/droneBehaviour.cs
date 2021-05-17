@@ -47,7 +47,7 @@ public class droneBehaviour : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation, transform);
+            Instantiate(bullet, firePoint.position, firePoint.rotation,transform);
             nextFire = Time.time + fireRate;
         }
     }

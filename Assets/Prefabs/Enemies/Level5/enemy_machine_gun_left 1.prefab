@@ -156,7 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MHP: 1
   damageStrength: 1
-  invincible: 0
 --- !u!114 &3688383714276709157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,5 +169,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 2375827118416592616, guid: 7aa270e76fe048d45a33345140d068b1, type: 3}
-  fireRate: 1
+  fireRate: 2
   firePoint: {fileID: 3688383713672630421}

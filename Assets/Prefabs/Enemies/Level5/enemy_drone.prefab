@@ -156,7 +156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MHP: 1
   damageStrength: 1
-  invincible: 0
 --- !u!114 &2859093144084488267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,10 +168,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45a10259ffb2d8b42920d01ab6b6b147, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movingSpeed: 10
+  movingSpeed: 5
   positions:
   - {x: 9.96, y: 4.2, z: 0}
   - {x: 9.96, y: 4.2, z: 0}
   bullet: {fileID: 3997801875268991929, guid: bd70475cb2731bd458639c4677b42037, type: 3}
-  fireRate: 1
+  fireRate: 2
   firePoint: {fileID: 7609347997834474208}
