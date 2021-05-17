@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class LookAt
 {
-    public Quaternion GetRotation(Vector2 pos1, Vector2 pos2)
+    public static Quaternion GetRotation(Vector2 pos1, Vector2 pos2)
     {
         float opposite = pos2.y - pos1.y;
         float adjacent = pos2.x - pos1.x;
