@@ -14174,6 +14174,10 @@ PrefabInstance:
       propertyPath: allowBtnPress
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 783479328959034643, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_Volume
+      value: 0.366
+      objectReference: {fileID: 0}
     - target: {fileID: 1307450229734811620, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_Layer
       value: 3
@@ -14193,6 +14197,10 @@ PrefabInstance:
     - target: {fileID: 5274935000195954981, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5326413862346023787, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_Volume
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
