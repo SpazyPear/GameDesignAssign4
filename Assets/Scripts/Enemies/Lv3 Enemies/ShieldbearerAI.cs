@@ -20,7 +20,7 @@ public class ShieldbearerAI : MonoBehaviour
     private float detectionRange  = 15.0f;
     private float attackRange = 2.0f;
     private float timeBtwAttack;
-    private float startTimeBtwAttack = 2.0f;
+    private float startTimeBtwAttack = 1.5f;
 
     [SerializeField]
     private Transform meleePos;

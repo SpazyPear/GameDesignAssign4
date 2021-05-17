@@ -15,7 +15,7 @@ public class ArcherAI : MonoBehaviour
     public GameObject arrowPrefab;
 
     private float range = 20.0f; // Detection range = attack range
-    private float attackSpeed = 4.0f; // How often the Archer shoots
+    private float attackSpeed = 3.0f; // Affects how often the Archer shoots
     private float nextShot;
 
     // Start is called before the first frame update
