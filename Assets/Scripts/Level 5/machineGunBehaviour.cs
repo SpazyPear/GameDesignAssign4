@@ -25,7 +25,7 @@ public class machineGunBehaviour : MonoBehaviour
     {
         if (Time.time > nextFire)
         {
-            Instantiate(bullet, firePoint.position, firePoint.rotation, transform);
+            Instantiate(bullet, firePoint.position, firePoint.rotation);
             nextFire = Time.time + fireRate;
         }
     }

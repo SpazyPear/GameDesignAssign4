@@ -24,7 +24,7 @@ public class PathWay : MonoBehaviour
     {
         if (button.pressed)
         {
-                GetComponent<TilemapCollider2D>().enabled = !isCollider;
+                GetComponent<Collider2D>().enabled = !isCollider;
                 GetComponent<TilemapRenderer>().enabled = !isVisable;
         }
     }
