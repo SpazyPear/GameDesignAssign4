@@ -21,7 +21,6 @@ public class ShieldbearerAI : MonoBehaviour
     private float attackRange = 2.0f;
     private float timeBtwAttack;
     private float startTimeBtwAttack = 2.0f;
-    private int damage = 1;
 
     [SerializeField]
     private Transform meleePos;
@@ -31,7 +30,8 @@ public class ShieldbearerAI : MonoBehaviour
     void Start()
     {
         currentState = State.Idle;
-        anim = GetComponent<Animator>();        
+        anim = GetComponent<Animator>();
+        player = GameObject.FindWithTag("Player");        
     }
     
     void Update()
@@ -79,10 +79,10 @@ public class ShieldbearerAI : MonoBehaviour
     void defend(){
         RaycastHit2D hit = Physics2D.Raycast(transform.position, transform.TransformDirection(Vector2.left), 10f, targetMask);
         if(hit){
-            gameObject.GetComponent<EnemyStats>().damageStrength = 0; // Nullify damage
+            gameObject.GetComponent<EnemyStats>().invincible = true; // Nullify damage
             //Debug.Log("Blocking!");
         } else {
-            gameObject.GetComponent<EnemyStats>().damageStrength = 1;
+            gameObject.GetComponent<EnemyStats>().invincible = false;
         }
     }
 
