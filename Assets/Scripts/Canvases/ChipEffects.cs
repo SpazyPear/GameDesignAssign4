@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChipEffects : MonoBehaviour
 {
@@ -6,12 +7,20 @@ public class ChipEffects : MonoBehaviour
     private PlayerControls playerControls;
     private Jump jump;
     private WallJump wallJump;
+    private Rigidbody2D rb;
+    public PhysicsMaterial2D wallJumpPlayerMat;
 
     private void Start()
     {
         playerControls = player.GetComponent<PlayerControls>();
         jump = player.GetComponent<Jump>();
         wallJump = player.GetComponent<WallJump>();
+        rb = player.GetComponent<Rigidbody2D>();
+       /* if (SceneManager.GetActiveScene().buildIndex == 4)
+            if (GameObject.Find("Upgrade Chip") != null)
+                Debug.Log("test");
+                 wallJumpPlayerMat.friction = (GameObject.Find("Upgrade Chip") != null)  ? 0f : 0.035f; */
+
     }
 
     public void ApplyEffect(string effect)
@@ -24,6 +33,7 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = true;
+                wallJumpPlayerMat.friction = 0.035f;
                 return;
             case "Higher Jump":
                 jump.jumpStr += 5;
@@ -44,6 +54,7 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = false;
+                wallJumpPlayerMat.friction = 0f;
                 return;
             case "Higher Jump":
                 jump.jumpStr -= 5;

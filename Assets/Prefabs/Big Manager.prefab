@@ -270,10 +270,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1771719829
-  m_SortingLayer: 2
+  m_SortingLayerID: -934419067
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7298184073100380841, guid: 4a65f99d87e9d564c95708d4ecd27b0d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 39179f685264f824381d01e71dcfafdd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -320,9 +320,11 @@ MonoBehaviour:
   pauseManager: {fileID: 6709429287491593936}
   statManager: {fileID: 8197494884115484874}
   speed: 30
+  climbSpeed: 0
   allowBtnPress: 0
   allowClick: 0
   allowPause: 0
+  canClimb: 0
   attack: {fileID: 1139879800402288997, guid: 4979dfa08a63b744d9a40778edca33b0, type: 3}
   friction:
   - {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
@@ -401,8 +403,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000011920929, y: 0}
-  m_Size: {x: 1.191057, y: 4.8}
+  m_Offset: {x: -0.000000059604645, y: 0.24554801}
+  m_Size: {x: 1.0068759, y: 3.7256637}
   m_Direction: 0
 --- !u!1 &2054315759730869769
 GameObject:
@@ -681,7 +683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3259225122909177690}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.4, z: 0}
+  m_LocalPosition: {x: 0, y: -1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3873224678658043227}
@@ -772,7 +774,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3732615906479754301}
-  - component: {fileID: 67316676998218666}
   - component: {fileID: 5302323182025403942}
   m_Layer: 5
   m_Name: Canvas Manager
@@ -798,18 +799,6 @@ Transform:
   m_Father: {fileID: 8197494885284226692}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &67316676998218666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4672529050204056996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ccf8f669342ed6446bf08a092c1cfc2c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5302323182025403942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1124,7 +1113,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 552501099
+  m_SortingLayerID: 2114528523
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &8714122571940219381
@@ -1873,7 +1862,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 552501099
+  m_SortingLayerID: 2114528523
   m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &8557254579908523632
@@ -2392,7 +2381,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 552501099
+  m_SortingLayerID: 2114528523
   m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &7867393182402205594
@@ -2431,7 +2420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 5302323182025403942}
-  maxMem: 100
+  maxMem: 0
   textboxes:
   - {fileID: 3922352448757054034}
   - {fileID: 8870256621153776639}
@@ -2486,6 +2475,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1307450229734811620}
+  wallJumpPlayerMat: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
 --- !u!1 &9105037917004778087
 GameObject:
   m_ObjectHideFlags: 0

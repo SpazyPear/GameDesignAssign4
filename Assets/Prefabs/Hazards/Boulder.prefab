@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4040496376142905839}
   - component: {fileID: 197645340626550425}
   - component: {fileID: 8277974012590308619}
+  - component: {fileID: -5821747645954806517}
   m_Layer: 0
   m_Name: Boulder
   m_TagString: Boulder
@@ -121,3 +122,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-5821747645954806517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6957368571901929088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f59e8123be7931f49bff6b53964a3734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

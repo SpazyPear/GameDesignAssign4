@@ -32,42 +32,39 @@ TagManager:
   - Ground
   - Water
   - UI
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Instructions
-    uniqueID: 1115930799
-    locked: 0
   - name: Player
-    uniqueID: 1771719829
+    uniqueID: 3360548229
     locked: 0
   - name: UI
-    uniqueID: 552501099
+    uniqueID: 2114528523
     locked: 0
