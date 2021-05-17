@@ -6,7 +6,6 @@ public class PlayerControls : MonoBehaviour
     private Animator anim;
     private Rigidbody2D rb;
     private Jump legs;
-    private WallJump wallJump;
 
     public PauseManager pauseManager;
     public StatManager statManager;
@@ -26,7 +25,6 @@ public class PlayerControls : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         legs = gameObject.GetComponent<Jump>();
-        wallJump = gameObject.GetComponent<WallJump>();
     }
 
     private void Update()
@@ -56,7 +54,7 @@ public class PlayerControls : MonoBehaviour
 
     private void DoMouseClick()
     {
-        GameObject atk = Instantiate(attack);
+        GameObject atk = Instantiate(attack, transform);
         atk.transform.position = transform.position;
         float angle = (sprite.flipX) ? 180 : 0;
         angle = Input.GetKey(KeyCode.W) ? 90 : angle;

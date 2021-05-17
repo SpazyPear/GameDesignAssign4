@@ -3,36 +3,44 @@ using UnityEngine;
 public class FlyingEnemy : MonoBehaviour
 {
     public float movementSpeed;
-    public bool playerInRange;
-    public static bool musicCue; //Not sure what the point of this is
-
+    private InTerritory inTerritory;
     private Transform playerPos;
+    private EnemyStats enemyStats;
+    private StatManager statManager;
+
+    private void Start()
+    {
+        enemyStats = GetComponent<EnemyStats>();
+        inTerritory = GetComponentInChildren<InTerritory>();
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+    }
 
     void Update()
     {
-        if (playerInRange)
+        if (inTerritory.playerInRange)
         {
             transform.position = Vector3.MoveTowards(transform.position, playerPos.position, movementSpeed * Time.deltaTime);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
-            if (playerPos == null)
+            if (statManager == null)
             {
-                playerPos = collision.transform;
+                statManager = collision.transform.GetComponent<PlayerControls>().statManager;
             }
-            playerInRange = true;
+            statManager.changeHP(-enemyStats.damageStrength);
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Attack"))
         {
-            playerInRange = false;
+            enemyStats.changeHP(-collision.transform.GetComponent<Attack>().str);
+            Destroy(collision.gameObject);
         }
     }
 }

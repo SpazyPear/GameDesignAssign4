@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: -2816151636446497103}
   - component: {fileID: 2311651629355113050}
   - component: {fileID: 4891134842366125487}
+  - component: {fileID: 6569281881249733000}
+  - component: {fileID: 1207155517283555202}
   m_Layer: 0
   m_Name: Slime
   m_TagString: Enemy
@@ -97,11 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyMovementSpeed: 3
-  enemyIsGoingRight: 1
-  raycastingDistance: 3
-  mAttackDamage: 2
-  timer: 5
-  enemyAnim: {fileID: 0}
+  goingRight: 1
 --- !u!61 &4891134842366125487
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -128,3 +126,38 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7469604, y: 0.53610486}
   m_EdgeRadius: 0
+--- !u!114 &6569281881249733000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851864111327620739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1316d034cf589b45b5835a0a248c220, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MHP: 1
+  damageStrength: 2
+--- !u!50 &1207155517283555202
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851864111327620739}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 20
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

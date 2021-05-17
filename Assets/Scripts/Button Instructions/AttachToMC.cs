@@ -6,7 +6,7 @@ public class AttachToMC : MonoBehaviour
     public float[] offset = new float[2];
     void Start()
     {
-        playerPos = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     void Update()
