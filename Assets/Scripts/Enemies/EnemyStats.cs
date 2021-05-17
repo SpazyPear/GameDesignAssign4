@@ -5,6 +5,7 @@ public class EnemyStats : MonoBehaviour
     public int MHP;
     private int HP;
     public int damageStrength;
+    public bool invincible;
 
     private StatManager statManager;
     void Start()
@@ -21,7 +22,7 @@ public class EnemyStats : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.tag.Contains("Player"))
+        if (collision.transform.tag.Contains("Player") && !invincible)
         {
             if (statManager == null)
             {
