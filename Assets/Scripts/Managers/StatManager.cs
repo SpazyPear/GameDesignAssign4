@@ -34,7 +34,7 @@ public class StatManager : MonoBehaviour
         {
             hearts.updateHearts(amount);
         }
-        if (HP == 0)
+        if (HP < 1)
         {
             HP = MaxHP;
             hearts.updateHearts(MaxHP);
