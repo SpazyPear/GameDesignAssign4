@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour
 {
     public int MHP;
-    public int HP;
+    private int HP;
     public int damageStrength;
     public GameObject parentobj;
 

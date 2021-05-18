@@ -114,7 +114,6 @@ public class ShieldbearerAI : MonoBehaviour
         if (collision.CompareTag("Attack"))
         {
             stats.changeHP(-collision.transform.GetComponent<Attack>().str);
-            Debug.Log(stats.HP);
             Destroy(collision.gameObject);
         }
     }
