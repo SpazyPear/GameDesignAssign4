@@ -31,7 +31,7 @@ public class LevelEvent : MonoBehaviour
         switch(flag)
         {
             case 0:
-                if (player.position.x >= 220 && player.position.y >= -1)
+                if (player.position.x >= 220 && player.position.y >= -2)
                 {
                     GameObject level2 = Instantiate(prefab);
                     explosion.Play();

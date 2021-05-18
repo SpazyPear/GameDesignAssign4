@@ -3,6 +3,8 @@ using UnityEngine;
 public class StatManager : MonoBehaviour
 {
     public HeartSprite hearts;
+    public LevelManager levelManager;
+    public GameObject MC;
     public int MaxHP = 5;
     private int HP;
 
@@ -31,6 +33,12 @@ public class StatManager : MonoBehaviour
         } else
         {
             hearts.updateHearts(amount);
+        }
+        if (HP < 1)
+        {
+            HP = MaxHP;
+            hearts.updateHearts(MaxHP);
+            MC.transform.position = levelManager.spawnPoint;
         }
         return HP; //Returns HP in case it is needed
     }
