@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -10,10 +11,14 @@ public class LevelManager : MonoBehaviour
     public PauseManager pauseManager;
     public GameObject HPArea;
     public GhostTrackManager ghostTrackManager;
-    private Vector3 spawnPoint;
+    public Vector3 spawnPoint;
+    public Screens screens;
+    
 
     private void Start()
     {
+        Transform screensTransform = GameObject.Find("Canvas Manager").transform.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "Inventory Screen");
+        screens = screensTransform.gameObject.GetComponent<Screens>();
         ghostTrackManager = GameObject.Find("SpectrualAnalyser").GetComponent<GhostTrackManager>();
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
     }
@@ -97,6 +102,30 @@ public class LevelManager : MonoBehaviour
         playerControls.SetActive(ID != 0);
         HPArea.SetActive(ID != 0);
         SetSpawnPoint(new Vector3(0, 0, 0));
+        switch (ID)
+        {
+            case 0:
+               // screens.maxMem = 100;
+                break;
+            case 1:
+               // screens.maxMem = 100;
+                break;
+            case 2:
+                screens.maxMem = 80;
+                break;
+            case 3:
+                screens.maxMem = 70;
+                break;
+            case 4:
+                screens.maxMem = 50;
+                break;
+            case 5:
+                screens.maxMem = 0;
+                break;
+
+
+
+        }
     }
 
     /// <summary>

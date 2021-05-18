@@ -14,7 +14,6 @@ public class PathWay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        button = FindObjectOfType<doorButton>();
         GetComponent<Collider2D>().enabled = isCollider;
         GetComponent<TilemapRenderer>().enabled = isVisable;
     }
@@ -24,7 +23,7 @@ public class PathWay : MonoBehaviour
     {
         if (button.pressed)
         {
-                GetComponent<Collider2D>().enabled = !isCollider;
+                GetComponent<TilemapCollider2D>().enabled = !isCollider;
                 GetComponent<TilemapRenderer>().enabled = !isVisable;
         }
     }
