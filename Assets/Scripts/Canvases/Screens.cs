@@ -24,30 +24,7 @@ public class Screens : MonoBehaviour
 
     private void Start()
     {
-        switch (SceneManager.GetActiveScene().buildIndex)
-        {
-            case 0:
-                maxMem = 100;
-                break;
-            case 1:
-                maxMem = 100; 
-                break;
-            case 2:
-                maxMem = 80;
-                break;
-            case 3:
-                maxMem = 70;
-                break;
-            case 4:
-                maxMem = 50;
-                break;
-            case 5:
-                maxMem = 0;
-                break;
-
-
-
-        }
+        
      
     }
 

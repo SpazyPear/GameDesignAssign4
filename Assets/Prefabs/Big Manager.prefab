@@ -1951,6 +1951,8 @@ MonoBehaviour:
   pauseManager: {fileID: 6709429287491593936}
   HPArea: {fileID: 5424157973627232812}
   ghostTrackManager: {fileID: 6518010838374748554}
+  spawnPoint: {x: 0, y: 0, z: 0}
+  screens: {fileID: 0}
 --- !u!1 &8024070365901433431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,6 +2073,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hearts: {fileID: 1981742367178217684}
+  levelManager: {fileID: 3367478897252830784}
+  MC: {fileID: 1307450229734811620}
   MaxHP: 5
 --- !u!114 &1981742367178217684
 MonoBehaviour:
