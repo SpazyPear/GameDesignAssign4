@@ -48,8 +48,16 @@ public class PlayerControls : MonoBehaviour
         {
             DoMouseClick();
         }
-        anim.SetBool("isClimbing", canClimb);
-        rb.velocity = new Vector2(rb.velocity.x, (canClimb) ? climbSpeed * Input.GetAxisRaw("Vertical") : rb.velocity.y);
+        if (Input.GetKey(KeyCode.W))
+        {
+            anim.SetBool("isClimbing", canClimb);
+            rb.velocity = new Vector2(rb.velocity.x, (canClimb) ? climbSpeed * Input.GetAxisRaw("Vertical") : rb.velocity.y);
+        }
+        else
+        {
+            anim.SetBool("isClimbing", false);
+        }
+        
     }
 
     private void DoMouseClick()
