@@ -88,9 +88,9 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.5
-    functionName: shoot
+    functionName: ShootArrow
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11500000, guid: e87a0e7309e1fa74b8838bc2c47c79d1, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

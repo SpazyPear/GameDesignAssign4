@@ -1,61 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ArcherAI : MonoBehaviour
 {
-    
     private Animator anim;
     private EnemyStats stats;
+    private SpriteRenderer sprite;
+    private InTerritory combatRange;
+    private Transform player;
 
-    public GameObject player;
-    private Vector3 playerPos;
-    private Vector3 targetPos; // Where the shot will move towards
-
-    public Transform firePoint; // Point of source for arrow projectile
-    public GameObject arrowPrefab;
-
-    private float range = 30.0f; // Detection range = attack range
-    private float attackSpeed = 3.0f; // Affects how often the Archer shoots
-    private float nextShot;
+    public float shootingInterval = 3;
+    private float shootingTimer;
 
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        player = GameObject.FindWithTag("Player");
+        anim = GetComponentInParent<Animator>();
         stats = GetComponent<EnemyStats>();
+        sprite = GetComponentInParent<SpriteRenderer>();
+        combatRange = GetComponentInChildren<InTerritory>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        shootingTimer = shootingInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
-        updatePlayerPos();
-        detectPlayer();
-    }
-
-    void updatePlayerPos(){
-        playerPos = player.transform.position;
-    }
-
-    void facePlayer(){
-        if(transform.position.x >= playerPos.x){
-            // Player is at left of enemy
-            transform.rotation = Quaternion.Euler(0, 180, 0);
-        } else {
-            transform.rotation = Quaternion.identity; // Player is at right
+        shootingTimer -= Time.deltaTime;
+        if (combatRange.playerInRange)
+        {
+            sprite.flipX = transform.position.x > player.position.x;
+            if (shootingTimer <= 0)
+            {
+                anim.SetTrigger("shoot");
+                shootingTimer = shootingInterval;
+            }
         }
-    }
-
-    void detectPlayer(){
-        if(Vector3.Distance(transform.position, playerPos) < range){
-            facePlayer();
-            anim.SetTrigger("shoot"); // shoot function is called as an animation event
-        }
-    }
-
-    void shoot(){
-        Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
