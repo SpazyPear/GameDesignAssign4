@@ -20,21 +20,14 @@ public class PatrollingWallToWall : MonoBehaviour
     void Update()
     {
         rb.velocity = new Vector2((goingRight ? 1 : -1) * enemyMovementSpeed, 0);
-        if (rb.velocity.x == 0)
-        {
-            flip();
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        switch(collision.transform.tag)
+        flip();
+        if (collision.transform.CompareTag("Player"))
         {
-            case "Enemy":
-            case "Hazard":
-            case "Wall":
-                flip();
-                return;
+            collision.transform.GetComponent<PlayerControls>().statManager.changeHP(-enemyStats.damageStrength);
         }
     }
 
