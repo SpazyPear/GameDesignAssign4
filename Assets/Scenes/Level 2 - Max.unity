@@ -540,6 +540,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bat
       objectReference: {fileID: 0}
+    - target: {fileID: 7762322399920857866, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160046949746477645, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Radius
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
 --- !u!4 &66163384 stripped
@@ -921,7 +929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1316d034cf589b45b5835a0a248c220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHP: 0
+  MHP: 2
   damageStrength: 1
 --- !u!4 &151033559 stripped
 Transform:
@@ -3099,6 +3107,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1007785196}
     m_Modifications:
+    - target: {fileID: 1430258851042385395, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2187164544603959299, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Radius
       value: 8
@@ -3150,6 +3162,14 @@ PrefabInstance:
     - target: {fileID: 5158993569839386553, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Name
       value: Bat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762322399920857866, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160046949746477645, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
@@ -3314,6 +3334,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1207155517283555202, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207155517283555202, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2311651629355113050, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
       propertyPath: raycastingDistance
       value: 3
@@ -3370,7 +3398,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.00006146729
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6569281881249733000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6569281881249733000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
 --- !u!1 &464344996
 GameObject:
@@ -4083,6 +4116,14 @@ PrefabInstance:
     - target: {fileID: 5158993569839386553, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Name
       value: Bat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762322399920857866, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160046949746477645, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
@@ -4801,6 +4842,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1007785196}
     m_Modifications:
+    - target: {fileID: 1430258851042385395, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2187164544603959299, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Radius
       value: 8
@@ -4852,6 +4897,14 @@ PrefabInstance:
     - target: {fileID: 5158993569839386553, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Name
       value: Bat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762322399920857866, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160046949746477645, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
@@ -6264,6 +6317,14 @@ PrefabInstance:
     - target: {fileID: 5158993569839386553, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Name
       value: Bat
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762322399920857866, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160046949746477645, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
@@ -9422,6 +9483,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1007785196}
     m_Modifications:
+    - target: {fileID: 1430258851042385395, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Direction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2187164544603959299, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Radius
       value: 8
@@ -9473,6 +9538,14 @@ PrefabInstance:
     - target: {fileID: 5158993569839386553, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
       propertyPath: m_Name
       value: Bat (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762322399920857866, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160046949746477645, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
+      propertyPath: m_Radius
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85092a2099ea94c2dbff0249cfb03525, type: 3}
@@ -9672,7 +9745,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1316d034cf589b45b5835a0a248c220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHP: 0
+  MHP: 2
   damageStrength: 1
 --- !u!1001 &1418275072
 PrefabInstance:
@@ -11031,6 +11104,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime
       objectReference: {fileID: 0}
+    - target: {fileID: 1207155517283555202, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207155517283555202, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3628322847965977747, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -11075,7 +11156,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6569281881249733000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6569281881249733000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
 --- !u!4 &1620309428 stripped
 Transform:
@@ -11232,6 +11318,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Slime (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1207155517283555202, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1207155517283555202, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2311651629355113050, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
       propertyPath: raycastingDistance
       value: 3
@@ -11304,7 +11398,12 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: -0.000065892935
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 6569281881249733000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
+      propertyPath: MHP
+      value: 2
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 6569281881249733000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05e4f061be9a568429938ebf38531daf, type: 3}
 --- !u!1001 &1667893137
 PrefabInstance:
@@ -11506,7 +11605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1316d034cf589b45b5835a0a248c220, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MHP: 0
+  MHP: 2
   damageStrength: 1
 --- !u!4 &1692151163 stripped
 Transform:
