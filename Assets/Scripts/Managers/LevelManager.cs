@@ -125,17 +125,17 @@ public class LevelManager : MonoBehaviour
                 screens.maxMem = 100;
                 break;
             case 2:
-                screens.inventory.Obtain(createChip(0));
+                screens.inventory.Obtain(uChips[0].getChip());
                 screens.maxMem = 80;
                 break;
             case 3:
-                screens.inventory.Obtain(createChip(0));
-                screens.inventory.Obtain(createChip(1));
+                screens.inventory.Obtain(uChips[0].getChip());
+                screens.inventory.Obtain(uChips[1].getChip());
                 screens.maxMem = 70;
                 break;
             case 4:
-                screens.inventory.Obtain(createChip(0));
-                screens.inventory.Obtain(createChip(1));
+                screens.inventory.Obtain(uChips[0].getChip());
+                screens.inventory.Obtain(uChips[1].getChip());
                 screens.maxMem = 50;
                 break;
             case 5:
@@ -143,11 +143,6 @@ public class LevelManager : MonoBehaviour
                 screens.maxMem = 0;
                 break;
         }
-    }
-
-    private UpgradeChip createChip(int index)
-    {
-        return new UpgradeChip(uChips[index].chipName, uChips[index].description, uChips[index].weight, uChips[index].effects);
     }
 
     /// <summary>
