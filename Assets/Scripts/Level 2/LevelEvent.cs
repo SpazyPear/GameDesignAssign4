@@ -14,7 +14,6 @@ public class LevelEvent : MonoBehaviour
     
     void Start()
     {
-       
         player = GameObject.FindGameObjectWithTag("Player").transform;
         controls = player.GetComponent<PlayerControls>();
         flag = 0;
@@ -23,11 +22,6 @@ public class LevelEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Debug.Log(player.position);
-        }
         switch(flag)
         {
             case 0:

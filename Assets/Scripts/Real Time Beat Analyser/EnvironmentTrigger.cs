@@ -35,13 +35,13 @@ public class EnvironmentTrigger : MonoBehaviour
             {
                 case "Down":
                     proj = Instantiate(levelFourProjectile, new Vector3(pos.x, pos.y - 4, pos.z), Quaternion.identity, turret.transform);
-                    proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, -10), ForceMode2D.Impulse);
+                    proj.GetComponent<ProjectileCollision>().SetMult(0, -1);
                     Destroy(proj, 2.0f);
                     break;
 
                 case "Left":
                     proj = Instantiate(levelFourProjectile, new Vector3(pos.x - 4, pos.y, pos.z), Quaternion.identity, turret.transform);
-                    proj.GetComponent<Rigidbody2D>().AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
+                    proj.GetComponent<ProjectileCollision>().SetMult(-1, 0);
                     Destroy(proj, 5.0f);
                     break;
             }

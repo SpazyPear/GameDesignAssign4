@@ -329,6 +329,7 @@ MonoBehaviour:
   friction:
   - {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   - {fileID: 6200000, guid: 0748a470db316824f8510352b42bb304, type: 2}
+  wallJumpPlayerMat: {fileID: 0}
 --- !u!114 &6558096267071145689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,7 +1953,11 @@ MonoBehaviour:
   HPArea: {fileID: 5424157973627232812}
   ghostTrackManager: {fileID: 6518010838374748554}
   spawnPoint: {x: 0, y: 0, z: 0}
-  screens: {fileID: 0}
+  screens: {fileID: 9049187869838091503}
+  clean: 0
+  uChips:
+  - {fileID: 2131751110891097952, guid: 98ae3fd967e0cd94399b40b2bbe1f681, type: 3}
+  - {fileID: 831159517007290338, guid: f8c5bf005c397964e842e872bd6188ca, type: 3}
 --- !u!1 &8024070365901433431
 GameObject:
   m_ObjectHideFlags: 0
@@ -2424,7 +2429,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventory: {fileID: 5302323182025403942}
-  maxMem: 0
+  maxMem: 100
   textboxes:
   - {fileID: 3922352448757054034}
   - {fileID: 8870256621153776639}
@@ -2479,7 +2484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1307450229734811620}
-  wallJumpPlayerMat: {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   attacks:
   - {fileID: 1139879800402288997, guid: 4979dfa08a63b744d9a40778edca33b0, type: 3}
   - {fileID: 343372242645437540, guid: 636b60e207ea56a4c8937dd67a182c21, type: 3}

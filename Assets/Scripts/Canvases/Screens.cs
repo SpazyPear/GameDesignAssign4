@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Screens : MonoBehaviour
 {
@@ -22,22 +21,11 @@ public class Screens : MonoBehaviour
 
     public ChipEffects chipEffects;
 
-    private void Start()
-    {
-        
-     
-    }
-
     public void Reset(bool doClean)
     {
         if (doClean)
         {
             ClearScreen();
-            GameObject[] projs = GameObject.FindGameObjectsWithTag("Projectile"); ;
-            foreach (GameObject proj in projs)
-            {
-                Destroy(proj, 0f);
-            } //destroys projectiles, keeps them from freezing and lingering on pause
             return;
         }
         capacity.maxValue = maxMem;
@@ -53,8 +41,6 @@ public class Screens : MonoBehaviour
             Destroy(obj);
         }
         instantiated.Clear();
-        
-
     }
 
     public void ChangeMemory(int amount, string[] effects)
@@ -74,6 +60,23 @@ public class Screens : MonoBehaviour
         {
             chipEffects.UnapplyEffect(effect);
         }
+    }
+
+    public void UnequipAllChips()
+    {
+        foreach (UpgradeChip chip in inventory.GetChips())
+        {
+            if (chip.equipped)
+            {
+                ChangeMemory(-chip.weight, chip.effects);
+            }
+        }
+    }
+
+    public void CleanInventory()
+    {
+        UnequipAllChips();
+        inventory.Clear();
     }
 
     /// <summary>

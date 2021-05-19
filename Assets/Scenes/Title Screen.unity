@@ -212,7 +212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &360919527
 RectTransform:
   m_ObjectHideFlags: 0
@@ -282,7 +282,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae016cde9f76753488606f73407af145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 360919528}
   hoverStates:
   - {fileID: -8012582386294512180, guid: d3bd6869c1b8fea45ac84118c3151183, type: 3}
   - {fileID: -7298925959657786789, guid: d3bd6869c1b8fea45ac84118c3151183, type: 3}
@@ -616,7 +615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1105725993
 RectTransform:
   m_ObjectHideFlags: 0
@@ -686,7 +685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae016cde9f76753488606f73407af145, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: {fileID: 1105725994}
   hoverStates:
   - {fileID: -8012582386294512180, guid: d3bd6869c1b8fea45ac84118c3151183, type: 3}
   - {fileID: -7298925959657786789, guid: d3bd6869c1b8fea45ac84118c3151183, type: 3}

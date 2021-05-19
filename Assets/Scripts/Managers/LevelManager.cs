@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,13 +12,12 @@ public class LevelManager : MonoBehaviour
     public GhostTrackManager ghostTrackManager;
     public Vector3 spawnPoint;
     public Screens screens;
-    
+    public bool clean;
+
+    public Collectable[] uChips;
 
     private void Start()
     {
-        Transform screensTransform = GameObject.Find("Canvas Manager").transform.GetComponentsInChildren<Transform>(true).FirstOrDefault(t => t.name == "Inventory Screen");
-        screens = screensTransform.gameObject.GetComponent<Screens>();
-        ghostTrackManager = GameObject.Find("SpectrualAnalyser").GetComponent<GhostTrackManager>();
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -28,8 +26,14 @@ public class LevelManager : MonoBehaviour
         if (playerControls.transform.position.y < -200)
         {
             playerControls.StopVerticalMovement();
-            playerControls.transform.position = spawnPoint;
+            Restart();
         }
+    }
+
+    public void Restart()
+    {
+        playerControls.statManager.ResetHP();
+        playerControls.transform.position = spawnPoint;
     }
 
     /// <summary>
@@ -102,24 +106,42 @@ public class LevelManager : MonoBehaviour
         playerControls.SetActive(ID != 0);
         HPArea.SetActive(ID != 0);
         SetSpawnPoint(new Vector3(0, 0, 0));
+
+        if (clean)
+        {
+            screens.CleanInventory();
+            clean = false;
+        }
+
         switch (ID)
         {
             case 1:
                 screens.maxMem = 100;
                 break;
             case 2:
+                screens.inventory.Obtain(createChip(0));
                 screens.maxMem = 80;
                 break;
             case 3:
+                screens.inventory.Obtain(createChip(0));
+                screens.inventory.Obtain(createChip(1));
                 screens.maxMem = 70;
                 break;
             case 4:
+                screens.inventory.Obtain(createChip(0));
+                screens.inventory.Obtain(createChip(1));
                 screens.maxMem = 50;
                 break;
             case 5:
+                screens.UnequipAllChips();
                 screens.maxMem = 0;
                 break;
         }
+    }
+
+    private UpgradeChip createChip(int index)
+    {
+        return new UpgradeChip(uChips[index].chipName, uChips[index].description, uChips[index].weight, uChips[index].effects);
     }
 
     /// <summary>

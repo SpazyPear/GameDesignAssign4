@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class droneBullet : MonoBehaviour
@@ -8,18 +6,22 @@ public class droneBullet : MonoBehaviour
     public Rigidbody2D rb;
 
     public int damageStrength;
+    public float lifespan = 5;
+    private float delta;
     private StatManager statManager;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb.velocity = transform.up * -1.0f * bulletSpeed;
+        rb.velocity = -transform.up * bulletSpeed;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if ((lifespan -= Time.deltaTime) < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D hitObject)
@@ -28,17 +30,10 @@ public class droneBullet : MonoBehaviour
         {
             if (hitObject.transform.tag == "Player")
             {
-                if (statManager == null)
-                {
-                    statManager = hitObject.transform.GetComponent<PlayerControls>().statManager;
-                }
+                statManager = (statManager == null) ? hitObject.transform.GetComponent<PlayerControls>().statManager : statManager;
                 statManager.changeHP(-damageStrength);
-                Destroy(gameObject);
             }
-            else
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }

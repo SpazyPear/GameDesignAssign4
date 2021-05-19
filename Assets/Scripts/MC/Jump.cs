@@ -112,7 +112,6 @@ public class Jump : MonoBehaviour
 
     private void wallJump()
     {
-        Debug.Log(wallJumps);
         canJump = false;
         float oldG = rb.gravityScale;
         rb.gravityScale = 2;
