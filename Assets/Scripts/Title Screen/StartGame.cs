@@ -27,6 +27,7 @@ public class StartGame : MonoBehaviour
     private void OnMouseDown()
     {
         SFX.Play(0);
+        levelManager.clean = true;
         levelManager.LoadSceneByIndex(levels[index % levels.Length]);
         Destroy(this);
     }

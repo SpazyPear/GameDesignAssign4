@@ -90,9 +90,15 @@ public class LevelManager : MonoBehaviour
         }
 
         playerControls.allowBtnPress = true;
-        playerControls.allowPause = SceneManager.GetActiveScene().buildIndex != 1;
-        playerControls.canJump(SceneManager.GetActiveScene().buildIndex != 1);
-        playerControls.allowClick = SceneManager.GetActiveScene().buildIndex != 1;
+        playerControls.allowPause = allowControls();
+        playerControls.canJump(allowControls());
+        playerControls.allowClick = allowControls();
+    }
+
+    private bool allowControls()
+    {
+        int index = SceneManager.GetActiveScene().buildIndex;
+        return 1 < index && index < 6;
     }
 
     /// <summary>
