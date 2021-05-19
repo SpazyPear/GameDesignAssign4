@@ -320,7 +320,7 @@ MonoBehaviour:
   pauseManager: {fileID: 6709429287491593936}
   statManager: {fileID: 8197494884115484874}
   speed: 30
-  climbSpeed: 0
+  climbSpeed: 20
   allowBtnPress: 0
   allowClick: 0
   allowPause: 0

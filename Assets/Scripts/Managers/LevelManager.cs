@@ -69,8 +69,8 @@ public class LevelManager : MonoBehaviour
         }
 
         pauseManager.Clean();
-        AsyncOperation loadingOperation;
-        loadingOperation = (index == -1) ? SceneManager.LoadSceneAsync(sceneName) : SceneManager.LoadSceneAsync(index);
+        playerControls.transform.position = new Vector3(0, 0, 0);
+        AsyncOperation loadingOperation = (index == -1) ? SceneManager.LoadSceneAsync(sceneName) : SceneManager.LoadSceneAsync(index);
 
         while (!loadingOperation.isDone)
         {
@@ -78,7 +78,6 @@ public class LevelManager : MonoBehaviour
         }
 
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
-        playerControls.transform.position = this.spawnPoint;
 
         transition.Play();
         while (transition.isOn)
@@ -104,11 +103,8 @@ public class LevelManager : MonoBehaviour
         SetSpawnPoint(new Vector3(0, 0, 0));
         switch (ID)
         {
-            case 0:
-               // screens.maxMem = 100;
-                break;
             case 1:
-               // screens.maxMem = 100;
+                screens.maxMem = 100;
                 break;
             case 2:
                 screens.maxMem = 80;
@@ -122,9 +118,6 @@ public class LevelManager : MonoBehaviour
             case 5:
                 screens.maxMem = 0;
                 break;
-
-
-
         }
     }
 

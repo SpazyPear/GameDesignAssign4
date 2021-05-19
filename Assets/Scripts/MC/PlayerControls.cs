@@ -32,11 +32,11 @@ public class PlayerControls : MonoBehaviour
         rb.velocity = new Vector2(allowBtnPress ? Input.GetAxisRaw("Horizontal") * speed : 0, rb.velocity.y);
         anim.SetBool("isWalking", false);
         rb.sharedMaterial = friction[1];
-        if (Input.GetKey(KeyCode.A) != Input.GetKey(KeyCode.D) && allowBtnPress)
+        if (Input.GetAxisRaw("Horizontal") != 0 && allowBtnPress)
         {
             anim.SetBool("isWalking", true);
             rb.sharedMaterial = friction[0];
-            sprite.flipX = Input.GetKey(KeyCode.A);
+            sprite.flipX = Input.GetAxisRaw("Horizontal") == -1;
         }
 
         if (allowPause && Input.GetKeyDown(KeyCode.Escape))
@@ -50,7 +50,7 @@ public class PlayerControls : MonoBehaviour
         }
 
         anim.SetBool("isClimbing", false);
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetAxisRaw("Vertical") != 0)
         {
             anim.SetBool("isClimbing", canClimb);
             rb.velocity = new Vector2(rb.velocity.x, (canClimb) ? climbSpeed * Input.GetAxisRaw("Vertical") : rb.velocity.y);
