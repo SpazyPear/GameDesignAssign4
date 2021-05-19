@@ -7,7 +7,8 @@ public class ChipEffects : MonoBehaviour
     private PlayerControls playerControls;
     private Jump jump;
     private WallJump wallJump;
-    public PhysicsMaterial2D wallJumpPlayerMat;
+    
+    
 
     private List<GameObject> atkTypes = new List<GameObject>();
     public GameObject[] attacks;
@@ -17,6 +18,7 @@ public class ChipEffects : MonoBehaviour
         playerControls = player.GetComponent<PlayerControls>();
         jump = player.GetComponent<Jump>();
         wallJump = player.GetComponent<WallJump>();
+
         foreach (GameObject atk in attacks)
         {
             atkTypes.Add(atk);
@@ -33,7 +35,7 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = true;
-                wallJumpPlayerMat.friction = 0.035f;
+              //  player.GetComponent<Rigidbody2D>().sharedMaterial = wallJumpPlayerMat;
                 return;
             case "Higher Jump":
                 jump.jumpStr += 5;
@@ -57,7 +59,6 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = false;
-                wallJumpPlayerMat.friction = 0f;
                 return;
             case "Higher Jump":
                 jump.jumpStr -= 5;

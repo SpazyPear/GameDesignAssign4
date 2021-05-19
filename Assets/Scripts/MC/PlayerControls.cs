@@ -18,6 +18,8 @@ public class PlayerControls : MonoBehaviour
     public bool canClimb;
     public GameObject attack;
     public PhysicsMaterial2D[] friction;
+    private WallJump wallJump;
+    public PhysicsMaterial2D wallJumpPlayerMat;
 
     void Start()
     {
@@ -25,6 +27,7 @@ public class PlayerControls : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
         legs = gameObject.GetComponent<Jump>();
+        wallJump = gameObject.GetComponent<WallJump>();
     }
 
     private void Update()
@@ -37,6 +40,12 @@ public class PlayerControls : MonoBehaviour
             anim.SetBool("isWalking", true);
             rb.sharedMaterial = friction[0];
             sprite.flipX = Input.GetAxisRaw("Horizontal") == -1;
+            
+        }
+
+        if (wallJump.wallJumpChip == true)
+        {
+            rb.sharedMaterial = wallJumpPlayerMat;
         }
 
         if (allowPause && Input.GetKeyDown(KeyCode.Escape))
