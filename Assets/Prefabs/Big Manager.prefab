@@ -329,7 +329,7 @@ MonoBehaviour:
   friction:
   - {fileID: 6200000, guid: b35b52cbcd5dd9e4495c2f0b762ce009, type: 2}
   - {fileID: 6200000, guid: 0748a470db316824f8510352b42bb304, type: 2}
-  wallJumpPlayerMat: {fileID: 0}
+  wallJumpPlayerMat: {fileID: 6200000, guid: d0dfb57822c92e744ba0f56042afc5fc, type: 2}
 --- !u!114 &6558096267071145689
 MonoBehaviour:
   m_ObjectHideFlags: 0
