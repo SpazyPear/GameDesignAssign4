@@ -23,6 +23,9 @@ public class GhostTrackManager : MonoBehaviour
             audioSource = GameObject.Find("SpectrualAnalyser").GetComponent<AudioSource>();
             audioSource.clip = musicTracks[ID]; //Play music according to scene ID
             audioSource.Play(); //Play music
+        } else
+        {
+            audioSource.Stop();
         }
     }
 }
