@@ -137,7 +137,7 @@ public class LevelManager : MonoBehaviour
             case 4:
                 screens.inventory.Obtain(uChips[0].getChip());
                 screens.inventory.Obtain(uChips[1].getChip());
-                screens.maxMem = 50;
+                screens.maxMem = 60;
                 break;
             case 5:
                 screens.UnequipAllChips();
