@@ -359,7 +359,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 2114528523
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1433358236
 RectTransform:
@@ -404,7 +404,7 @@ GameObject:
   - component: {fileID: 1817071961}
   - component: {fileID: 1817071960}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Return
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

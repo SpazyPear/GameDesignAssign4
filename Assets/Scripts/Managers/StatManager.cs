@@ -4,7 +4,6 @@ public class StatManager : MonoBehaviour
 {
     public HeartSprite hearts;
     public LevelManager levelManager;
-    public GameObject MC;
     public int MaxHP = 5;
     private int HP;
 
@@ -15,7 +14,7 @@ public class StatManager : MonoBehaviour
 
     private void Start()
     {
-        hearts.updateHearts(HP);
+        hearts.ChangeHeartCount(HP);
     }
 
     /// <summary>
@@ -26,20 +25,20 @@ public class StatManager : MonoBehaviour
     public int changeHP(int amount)
     {
         HP += amount;
-        HP = (HP < 0) ? 0 : HP; //Set lower boundary
-        if (HP > MaxHP) //Set upper boundary
+        if (HP < 1) //Set lower boundary
         {
-            HP = MaxHP;
+            levelManager.Restart();
         } else
         {
-            hearts.updateHearts(amount);
-        }
-        if (HP < 1)
-        {
-            HP = MaxHP;
-            hearts.updateHearts(MaxHP);
-            MC.transform.position = levelManager.spawnPoint;
+            HP = (HP > MaxHP) ? MaxHP : HP; //Set upper boundary
+            hearts.ChangeHeartCount(amount);
         }
         return HP; //Returns HP in case it is needed
+    }
+
+    public void ResetHP()
+    {
+        HP = MaxHP;
+        hearts.SetHeartCount(MaxHP);
     }
 }

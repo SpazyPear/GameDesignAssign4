@@ -35,7 +35,6 @@ public class ChipEffects : MonoBehaviour
                 return;
             case "WallJump":
                 wallJump.wallJumpChip = true;
-              //  player.GetComponent<Rigidbody2D>().sharedMaterial = wallJumpPlayerMat;
                 return;
             case "Higher Jump":
                 jump.jumpStr += 5;

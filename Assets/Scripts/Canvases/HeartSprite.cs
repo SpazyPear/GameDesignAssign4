@@ -8,11 +8,12 @@ public class HeartSprite : MonoBehaviour
     private List<GameObject> hearts = new List<GameObject>();
 
     public GameObject HPArea;
-    public void updateHearts(int amount)
+    public void ChangeHeartCount(int amount)
     {
         if (amount > 0)
         {
-            for (int i = 1; i < amount + 1; i++)
+            int size = hearts.Count;
+            for (int i = size + 1; i < amount + size + 1; i++)
             {
                 float x = HPDistance * i;
                 GameObject heart = Instantiate(HPSprite, HPArea.transform);
@@ -32,5 +33,11 @@ public class HeartSprite : MonoBehaviour
             Destroy(hearts[hearts.Count - 1]);
             hearts.RemoveAt(hearts.Count - 1);
         }
+    }
+
+    public void SetHeartCount(int amount)
+    {
+        ChangeHeartCount(-hearts.Count);
+        ChangeHeartCount(amount);
     }
 }

@@ -10,12 +10,16 @@ public class Collectable : MonoBehaviour
     public int weight;
     public string[] effects;
 
+    public UpgradeChip getChip()
+    {
+        return new UpgradeChip(chipName, description, weight, effects);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            UpgradeChip chip = new UpgradeChip(chipName, description, weight, effects);
-            GameObject.FindGameObjectWithTag("Canvas Manager").GetComponent<Inventory>().Obtain(chip);
+            GameObject.FindGameObjectWithTag("Canvas Manager").GetComponent<Inventory>().Obtain(getChip());
             Destroy(gameObject);
         }
     }

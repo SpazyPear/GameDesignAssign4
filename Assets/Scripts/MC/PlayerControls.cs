@@ -40,7 +40,6 @@ public class PlayerControls : MonoBehaviour
             anim.SetBool("isWalking", true);
             rb.sharedMaterial = friction[0];
             sprite.flipX = Input.GetAxisRaw("Horizontal") == -1;
-            
         }
 
         if (wallJump.wallJumpChip == true)
