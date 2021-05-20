@@ -60,7 +60,7 @@ public class Jump : MonoBehaviour
             ResetJump();
         }
 
-        if (canWallJump)
+        if (canWallJump && onGround == false)
         {
             wallJump();
         }
@@ -115,9 +115,9 @@ public class Jump : MonoBehaviour
         canJump = false;
         float oldG = rb.gravityScale;
         rb.gravityScale = 2;
-        if (Input.GetKeyDown(KeyCode.Space) && wallJumps < 2)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+            Vector2 input = new Vector3(Input.GetAxisRaw("Horizontal"), 1);
             rb.AddForce(input * 120, ForceMode2D.Impulse);
             wallJumps++;
         }
