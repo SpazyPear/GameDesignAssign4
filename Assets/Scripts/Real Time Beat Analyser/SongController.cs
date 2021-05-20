@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class SongController : MonoBehaviour {
 
 	float[] realTimeSpectrum;
-	SpectralFluxAnalyzer realTimeSpectralFluxAnalyzer;
+	public SpectralFluxAnalyzer realTimeSpectralFluxAnalyzer;
 	//PlotController realTimePlotController;
 	int numChannels;
 	int numTotalSamples;
