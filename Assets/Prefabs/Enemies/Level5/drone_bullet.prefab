@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -7500004729637960877}
   m_Layer: 0
   m_Name: drone_bullet
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -137,3 +137,4 @@ MonoBehaviour:
   bulletSpeed: 20
   rb: {fileID: 7668026438811931628}
   damageStrength: 1
+  lifespan: 5

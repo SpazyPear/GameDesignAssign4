@@ -24,7 +24,7 @@ public class leftBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D hitObject)
     {
-        if (hitObject.transform.tag != "Enemy")
+        if (hitObject.transform.tag != "Enemy" && hitObject.transform.tag != "climbable")
         {
             if (hitObject.transform.tag == "Player")
             {
