@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
+       
         UpdateStuff(SceneManager.GetActiveScene().buildIndex);
     }
 

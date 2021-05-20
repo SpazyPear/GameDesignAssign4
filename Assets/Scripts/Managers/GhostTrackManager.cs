@@ -25,7 +25,7 @@ public class GhostTrackManager : MonoBehaviour
             audioSource.Play(); //Play music
         } else
         {
-            audioSource.Stop();
+            //audioSource.Stop();
         }
     }
 }
