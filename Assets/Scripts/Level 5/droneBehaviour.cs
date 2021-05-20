@@ -5,7 +5,6 @@ public class droneBehaviour : MonoBehaviour
     public float movingSpeed;
     public Vector3[] positions;
     private int index;
-    private EnemyStats stats;
 
     public GameObject bullet;
     public float fireRate;
@@ -16,7 +15,6 @@ public class droneBehaviour : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stats = GetComponent<EnemyStats>();
         nextFire = Time.time;
     }
 
@@ -49,15 +47,6 @@ public class droneBehaviour : MonoBehaviour
         {
             Instantiate(bullet, firePoint.position, firePoint.rotation,transform);
             nextFire = Time.time + fireRate;
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Attack"))
-        {
-            stats.changeHP(-collision.GetComponent<Attack>().str);
-            Destroy(collision);
         }
     }
 }
