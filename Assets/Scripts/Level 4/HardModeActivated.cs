@@ -24,7 +24,7 @@ public class HardModeActivated : MonoBehaviour
     {
         if (collision.gameObject.name == player.name)
         {
-            songController.realTimeSpectralFluxAnalyzer.thresholdMultiplier = 7f;
+            songController.realTimeSpectralFluxAnalyzer.thresholdMultiplier = 3f;
             Destroy(this.gameObject, 0f);
             Destroy(GameObject.Find("Hard Mode Canvas"));
             Debug.Log(songController.realTimeSpectralFluxAnalyzer.thresholdMultiplier);
