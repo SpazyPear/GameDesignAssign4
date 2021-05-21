@@ -357,7 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6c391d14ec02e49abf157d958c56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxManager: {fileID: 0}
+  sfxManager: {fileID: 8197494884264947325}
   feet: {fileID: 1235809638389810975}
   groundDetection:
     serializedVersion: 2
@@ -2259,9 +2259,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: d4058128c8c7da04089531ddb46c6f37, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.468
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2359,8 +2359,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   SFX:
   - {fileID: 8300000, guid: 560695c381967ab4c8e21a9a5c05dd59, type: 3}
-  - {fileID: 8300000, guid: d8c78b9231e469b4cbdd61c1e8af4efd, type: 3}
   - {fileID: 8300000, guid: 87c1e492b9bba8e4db9fc8a94c06e500, type: 3}
+  - {fileID: 8300000, guid: d8c78b9231e469b4cbdd61c1e8af4efd, type: 3}
   - {fileID: 8300000, guid: 04fea57808f334f47941b91fd64f21bd, type: 3}
 --- !u!1 &8197494885284226694
 GameObject:
