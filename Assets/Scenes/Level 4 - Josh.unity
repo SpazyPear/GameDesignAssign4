@@ -953,6 +953,10 @@ PrefabInstance:
       propertyPath: wallJumpPlayerMat
       value: 
       objectReference: {fileID: 6200000, guid: d0dfb57822c92e744ba0f56042afc5fc, type: 2}
+    - target: {fileID: 1657438612707992897, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: sfxManager
+      value: 
+      objectReference: {fileID: 1092803826}
     - target: {fileID: 3019245185326115383, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_ClearFlags
       value: 1
@@ -993,6 +997,34 @@ PrefabInstance:
       propertyPath: levelManager
       value: 
       objectReference: {fileID: 1916017704}
+    - target: {fileID: 8197494884264947325, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: SFX.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197494884264947325, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: SFX.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 560695c381967ab4c8e21a9a5c05dd59, type: 3}
+    - target: {fileID: 8197494884264947325, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: SFX.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 87c1e492b9bba8e4db9fc8a94c06e500, type: 3}
+    - target: {fileID: 8197494884264947325, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: SFX.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: d8c78b9231e469b4cbdd61c1e8af4efd, type: 3}
+    - target: {fileID: 8197494884264947325, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: SFX.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 04fea57808f334f47941b91fd64f21bd, type: 3}
+    - target: {fileID: 8197494884264947326, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_Volume
+      value: 0.217
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197494884264947326, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8197494885284226692, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1647,6 +1679,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2763481344774592463, guid: cd24cb0ed60d0f1469410e5a0be44dee, type: 3}
   m_PrefabInstance: {fileID: 1067578634}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1092803826 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8197494884264947325, guid: 59a70ecf9a6574a41aeb300fb04853cf, type: 3}
+  m_PrefabInstance: {fileID: 728716242}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df863ec44441c664dbd6030095c40193, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1113265298
 PrefabInstance:
   m_ObjectHideFlags: 0
