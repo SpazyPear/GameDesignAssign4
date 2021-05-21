@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class StatManager : MonoBehaviour
 {
+    public SFXManager sfxManager;
     public HeartSprite hearts;
     public LevelManager levelManager;
     public int MaxHP = 5;
@@ -30,6 +31,7 @@ public class StatManager : MonoBehaviour
             levelManager.Restart();
         } else
         {
+            sfxManager.Play(3);
             HP = (HP > MaxHP) ? MaxHP : HP; //Set upper boundary
             hearts.ChangeHeartCount(amount);
         }

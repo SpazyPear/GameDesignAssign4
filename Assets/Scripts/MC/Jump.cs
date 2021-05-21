@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Jump : MonoBehaviour
 {
+    public SFXManager sfxManager;
     private Animator anim;
     private Rigidbody2D rb;
     private float delta;
@@ -57,6 +58,7 @@ public class Jump : MonoBehaviour
         onGround = Physics2D.OverlapBox(feet.position, new Vector2(0.9f, 0.1f), 0, groundDetection);
         if (onGround && rb.velocity.y == 0)
         {
+            
             ResetJump();
         }
 
@@ -79,17 +81,20 @@ public class Jump : MonoBehaviour
 
     private void spaceInput()
     {
+        
         if (Input.GetKeyDown(KeyCode.Space) && (jumps > 0))
         {
             jumps -= 1;
             jumpcounter = jumptimer;
             hasJumped = true;
+            sfxManager.Play(0);
         }
 
         if (Input.GetKey(KeyCode.Space))
         {
             if (jumpcounter > 0 && hasJumped)
             {
+                
                 rb.velocity = new Vector2(rb.velocity.x, jumpStr);
                 jumpcounter -= delta;
             }

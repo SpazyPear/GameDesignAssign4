@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class PlayerControls : MonoBehaviour
 {
+    public SFXManager sfxManager;
     private SpriteRenderer sprite;
     private Animator anim;
     private Rigidbody2D rb;
@@ -67,6 +68,14 @@ public class PlayerControls : MonoBehaviour
 
     private void DoMouseClick()
     {
+        if (attack.name == "Slash")
+        {
+            sfxManager.Play(2);
+        }
+        else if (attack.name == "Projectile")
+        {
+            sfxManager.Play(1);
+        }
         GameObject atk = Instantiate(attack, transform);
         atk.transform.position = transform.position;
         float angle = (sprite.flipX) ? 180 : 0;

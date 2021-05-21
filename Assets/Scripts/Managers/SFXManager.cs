@@ -17,6 +17,7 @@ public class SFXManager : MonoBehaviour
     /// <param name="ID">Index of the array</param>
     public void Play(int ID)
     {
+        audioSource.time = 0.04f;
         audioSource.clip = SFX[ID];
         audioSource.Play();
     }

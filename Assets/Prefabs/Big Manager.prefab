@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d9fe4f926ff2504eb1acad3704d2520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxManager: {fileID: 8197494884264947325}
   pauseManager: {fileID: 6709429287491593936}
   statManager: {fileID: 8197494884115484874}
   speed: 30
@@ -356,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a6c391d14ec02e49abf157d958c56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxManager: {fileID: 0}
   feet: {fileID: 1235809638389810975}
   groundDetection:
     serializedVersion: 2
@@ -2196,6 +2198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04bb7ed6ae1e2c042954e4884bb1f4fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sfxManager: {fileID: 8197494884264947325}
   hearts: {fileID: 1981742367178217684}
   levelManager: {fileID: 3367478897252830784}
   MaxHP: 5
@@ -2355,7 +2358,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SFX:
-  - {fileID: 8300000, guid: d4058128c8c7da04089531ddb46c6f37, type: 3}
+  - {fileID: 8300000, guid: 560695c381967ab4c8e21a9a5c05dd59, type: 3}
+  - {fileID: 8300000, guid: d8c78b9231e469b4cbdd61c1e8af4efd, type: 3}
+  - {fileID: 8300000, guid: 87c1e492b9bba8e4db9fc8a94c06e500, type: 3}
+  - {fileID: 8300000, guid: 04fea57808f334f47941b91fd64f21bd, type: 3}
 --- !u!1 &8197494885284226694
 GameObject:
   m_ObjectHideFlags: 0
