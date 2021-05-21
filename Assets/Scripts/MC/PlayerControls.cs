@@ -68,14 +68,7 @@ public class PlayerControls : MonoBehaviour
 
     private void DoMouseClick()
     {
-        if (attack.name == "Slash")
-        {
-            sfxManager.Play(2);
-        }
-        else if (attack.name == "Projectile")
-        {
-            sfxManager.Play(1);
-        }
+        sfxManager.Play(attack.name == "Slash" ? 2 : 1);
         GameObject atk = Instantiate(attack, transform);
         atk.transform.position = transform.position;
         float angle = (sprite.flipX) ? 180 : 0;
